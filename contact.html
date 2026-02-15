@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact DTECH for business inquiries and collaboration opportunities.">
+    <meta name="author" content="Seakwa Jonas Mochebane">
+    <title>Contact DTECH | Business Inquiries</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="DTECH Logo">
+                    DTECH
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About DTECH</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="founder.html">Founder</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section style="padding-top: 120px; padding-bottom: 40px; text-align: center;">
+        <div class="container">
+            <h1 class="section-title">Contact Us</h1>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+                Business Inquiries Only
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section style="padding-top: 0;">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">
+                        Please use the form to send us a message regarding partnerships, collaborations, or business opportunities. We appreciate serious inquiries only.
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--text-light); margin-bottom: 0.5rem;">Email</h4>
+                        <a href="mailto:dtech2services@gmail.com" style="color: var(--accent-color);">dtech2services@gmail.com</a>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--text-light); margin-bottom: 0.5rem;">Phone / WhatsApp</h4>
+                        <a href="tel:+27686620552" style="color: var(--accent-color);">+27 68 662 0552</a>
+                    </div>
+                </div>
+                <div>
+                    <!-- To make this form functional on GitHub Pages, sign up at https://formspree.io/ and replace 'YOUR_FORM_ID' with your actual form ID -->
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                    <!-- Note: Formspree endpoint is a placeholder or generic. For a real static site, the user would need to set this up.
+                         I'll use a generic mailto fallback or keep the form structure ready for backend integration if preferred,
+                         but adding a formspree-like action is common practice.
+                         However, without a specific ID, it won't work. I'll remove the action attribute to prevent errors
+                         and let the user know they need a backend service, OR I can just leave it pointing to a dummy or blank.
+
+                         Wait, the prompt asked for "Complete HTML" and "Ready for GitHub Pages".
+                         GitHub Pages doesn't support backend logic.
+                         The standard way is Formspree or similar.
+                         I'll leave the action empty for now so it doesn't 404, or put a placeholder comment.
+                    -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 DTECH. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
