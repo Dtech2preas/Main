@@ -207,6 +207,31 @@
         /* Footer */
         footer { background: var(--dark-bg); color: #94A3B8; padding: 3rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
         footer p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+        /* Core Features List */
+        .core-features-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .core-features-list li {
+            font-size: 1.25rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .core-features-list li::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -251,30 +276,15 @@
         </div>
     </section>
 
-    <section id="focus">
+    <section id="focus" style="padding: 4rem 0;">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Core Focus</h2>
-                <p class="text-muted">We don't just build apps; we architect practical solutions for real-world student challenges.</p>
-            </div>
-
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">01</div>
-                    <h3>Digital Tools</h3>
-                    <p class="text-muted">Creating practical, intuitive digital utilities that seamlessly assist students in their academic and daily lives.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">02</div>
-                    <h3>Structured Systems</h3>
-                    <p class="text-muted">Building organized, highly reliable platforms that prioritize data integrity, security, and exceptional usability.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">03</div>
-                    <h3>Scalable Infrastructure</h3>
-                    <p class="text-muted">Designing robust technological solutions that grow alongside the community, ensuring long-term sustainability.</p>
-                </div>
-            </div>
+            <ul class="core-features-list">
+                <li>Practical Tools</li>
+                <li>Community-Oriented</li>
+                <li>Accessible Tech</li>
+                <li>Digital Support</li>
+                <li>User-Friendly Platforms</li>
+            </ul>
         </div>
     </section>
 
@@ -289,7 +299,7 @@
                     <h2>Seakwa Jonas Mochebane</h2>
                     <h4>PREASX24</h4>
                     <p class="text-muted" style="margin-bottom: 2rem;">
-                        Transitioning from a technical operator to a structured public founder, Seakwa is dedicated to architecting the digital future for students. DTECH isn't just a platform—it represents a new generation of student-driven digital innovation in South Africa.
+                        Seakwa Jonas Mochebane, the visionary founder and driving force behind DTECH, leads an ecosystem of technology-driven solutions based in South Africa. He established DTECH to build tools, platforms, and experiences that genuinely help students and communities navigate the digital world. Every solution is practical, approachable, and meaningful, reflecting his belief that technology should serve people
                     </p>
                     <a href="founder.html" class="btn btn-primary" style="background-color: var(--text-main); box-shadow: none;">Meet the Founder</a>
                 </div>
