@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTECH Ecosystem | Digital Innovation</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DTECH Ecosystem | The Connected Digital World</title>
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Using a CDN for icons (e.g., RemixIcon or FontAwesome) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- Header -->
-    <header>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ecosystem-style.css">
+</head>
+<body class="ecosystem-page">
+
+    <!-- Header (Consistent with other pages) -->
+    <header id="mainHeader">
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="DTECH Logo">
-                    <span>DTECH</span>
+                    DTECH.
                 </a>
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
@@ -30,7 +36,7 @@
 
     <!-- Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay">
-        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
+        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:white; font-size: 2.5rem; cursor: pointer;">&times;</button>
         <div class="nav-links">
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
@@ -40,37 +46,140 @@
         </div>
     </div>
 
-    <!-- Page Content -->
-    <section class="container" style="padding-top: 4rem; min-height: 60vh;">
-        <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-            <h1 class="section-title">Our Ecosystem</h1>
-            <p class="text-muted" style="font-size: 1.25rem; margin-bottom: 3rem;">
-                Building a connected digital world for students.
-            </p>
+    <!-- The Path Background -->
+    <div class="ecosystem-path-container">
+        <svg width="100%" height="100%" style="overflow: visible;">
+            <!-- This path will be animated via JS/CSS -->
+            <path id="connectionPath" class="ecosystem-path" d="" />
+        </svg>
+    </div>
 
-            <div class="card" style="padding: 3rem;">
-                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Coming Soon</h3>
-                <p>
-                    We are currently developing a comprehensive suite of tools and platforms designed to integrate seamlessly into student life.
-                    Stay tuned for updates on our latest projects and initiatives.
-                </p>
-                <div style="margin-top: 2rem;">
-                    <a href="contact.html" class="btn">Get Notified</a>
+    <!-- MAIN CONTENT WRAPPER -->
+    <main style="position: relative; z-index: 1;">
+
+        <!-- 1. CENTRAL HUB (Hero) -->
+        <section class="node-wrapper" id="hub-section">
+            <div class="central-hub" onclick="openModal('missionModal')">
+                <div class="orbit-ring orbit-1"><div class="orbit-dot"></div></div>
+                <div class="orbit-ring orbit-2"><div class="orbit-dot"></div></div>
+                <span class="hub-label">DTECH</span>
+                <span style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Services</span>
+            </div>
+
+            <!-- Modal for Hub -->
+            <div id="missionModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; justify-content:center; align-items:center;">
+                <div class="modal-content" style="background:#1e293b; padding:2rem; border-radius:16px; max-width:500px; text-align:center; position:relative;">
+                    <button onclick="closeModal('missionModal')" style="position:absolute; top:10px; right:15px; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+                    <h2 style="color:var(--eco-primary); margin-bottom:1rem;">Our Mission</h2>
+                    <p>To build a connected digital world for students, empowering them with accessible tools, community platforms, and innovative opportunities.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- 2. PRIMARY BRANCHES -->
+
+        <!-- Branch A: Apps (Grid) -->
+        <section class="node-wrapper layout-left" id="branch-apps">
+            <div class="container grid-2" style="align-items: center;">
+                <!-- Node Visual -->
+                <div style="text-align: center;">
+                    <div class="node-icon-large" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
+                        <i class="ri-grid-fill"></i>
+                    </div>
+                    <!-- Live Badge -->
+                    <span class="badge badge-practical">Practical Tools</span>
+                </div>
+
+                <!-- Content Panel -->
+                <div class="branch-content">
+                    <div class="branch-icon"><i class="ri-smartphone-line"></i></div>
+                    <h3 class="branch-title">DTECH Apps</h3>
+                    <p class="branch-desc">A suite of mini-apps designed to simplify student life. From calculators to schedule managers.</p>
+                    <ul style="list-style: none; margin-bottom: 1.5rem; padding: 0;">
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;"><i class="ri-checkbox-circle-line" style="color: var(--eco-primary);"></i> GPA Calculator</li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;"><i class="ri-checkbox-circle-line" style="color: var(--eco-primary);"></i> Campus Nav</li>
+                        <li style="display: flex; align-items: center; gap: 0.5rem;"><i class="ri-checkbox-circle-line" style="color: var(--eco-primary);"></i> Event Tracker</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="font-size: 0.9rem;">Launch Apps</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branch B: Books (Library) -->
+        <section class="node-wrapper layout-right" id="branch-books">
+            <div class="container grid-2" style="align-items: center;">
+                <!-- Content Panel (Right for desktop, but ordered first in HTML for mobile stack? No, CSS order handles visual) -->
+                <div class="branch-content">
+                    <div class="branch-icon"><i class="ri-book-open-line"></i></div>
+                    <h3 class="branch-title">DTECH Books</h3>
+                    <p class="branch-desc">The ultimate student marketplace and resource library. Access thousands of academic resources.</p>
+
+                    <!-- Stats Counter -->
+                    <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <span class="counter" data-target="1200" style="font-size: 2rem; font-weight: 800; color: white;">0</span>
+                            <div style="font-size: 0.8rem; color: var(--eco-text-muted);">Books Available</div>
+                        </div>
+                        <div>
+                            <span class="counter" data-target="5000" style="font-size: 2rem; font-weight: 800; color: white;">0</span>
+                            <div style="font-size: 0.8rem; color: var(--eco-text-muted);">Active Students</div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-primary" style="font-size: 0.9rem;">Browse Library</a>
+                </div>
+
+                <!-- Node Visual -->
+                <div style="text-align: center;">
+                    <div class="node-icon-large" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
+                        <i class="ri-stack-line"></i>
+                    </div>
+                    <span class="badge badge-community">Community Hub</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branch C: Student (Opportunity) -->
+        <section class="node-wrapper layout-left" id="branch-student">
+            <div class="container grid-2" style="align-items: center;">
+                <!-- Node Visual -->
+                <div style="text-align: center;">
+                    <div class="node-icon-large" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
+                        <i class="ri-lightbulb-flash-line"></i> <!-- Innovation Symbol -->
+                    </div>
+                    <span class="badge badge-innovation">Innovation</span>
+                </div>
+
+                <!-- Content Panel -->
+                <div class="branch-content">
+                    <div class="branch-icon"><i class="ri-coins-line"></i></div> <!-- Coin/Opportunity -->
+                    <h3 class="branch-title">Student Opportunities</h3>
+                    <p class="branch-desc">Learn, Earn, and Grow. Discover micro-internships, freelance gigs, and skill-building workshops.</p>
+
+                    <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                        <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem;">Latest Opportunity</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Frontend Dev Intern - <span style="color: #34d399;">Active</span></p>
+                    </div>
+
+                    <a href="#" class="btn btn-primary" style="font-size: 0.9rem;">Find Opportunities</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 DTECH. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
+            <h2 style="color: white; margin-bottom: 1rem; font-weight: 800; font-size: 1.5rem;">DTECH.</h2>
+            <p>&copy; 2024 Digital Technology Services. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Scripts -->
+    <script src="js/ecosystem.js"></script>
     <script>
+        // Re-using the mobile menu toggle logic from index.html (or moving to a shared JS file in future)
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
         const navOverlay = document.getElementById('navOverlay');
@@ -80,8 +189,20 @@
             document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
+        if(menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if(closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+        // Header Scroll Effect
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(5, 10, 20, 0.95)';
+                header.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+            } else {
+                header.style.background = 'transparent';
+                header.style.borderBottom = 'none';
+            }
+        });
     </script>
 </body>
 </html>

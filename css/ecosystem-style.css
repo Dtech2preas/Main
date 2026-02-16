@@ -1,0 +1,278 @@
+/* Ecosystem Specific Styles */
+:root {
+    --eco-bg: #050a14;
+    --eco-primary: #2563eb;
+    --eco-accent: #60a5fa;
+    --eco-text: #f1f5f9;
+    --eco-text-muted: #94a3b8;
+    --eco-glow: rgba(37, 99, 235, 0.5);
+    --eco-transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.ecosystem-page {
+    background-color: var(--eco-bg);
+    color: var(--eco-text);
+    overflow-x: hidden;
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--eco-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--eco-primary);
+}
+
+/* --- The Path (SVG Background) --- */
+.ecosystem-path-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.ecosystem-path {
+    stroke: var(--eco-primary);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 8px var(--eco-glow));
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+/* Ensure Main Content is above the path */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Nodes & Hubs --- */
+.node-wrapper {
+    position: relative;
+    padding: 6rem 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.central-hub-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100%;
+}
+
+.central-hub {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8);
+    box-shadow: 0 0 60px var(--eco-glow), inset 0 0 20px rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: pulse 4s infinite ease-in-out;
+    z-index: 2;
+}
+
+.central-hub:hover {
+    transform: scale(1.05);
+}
+
+.hub-label {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+/* Orbit Animation */
+.orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.orbit-1 { width: 300px; height: 300px; animation: spin 20s linear infinite; }
+.orbit-2 { width: 450px; height: 450px; animation: spin-reverse 25s linear infinite; }
+
+.orbit-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--eco-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--eco-accent);
+}
+
+/* --- Content Branches --- */
+.branch-content {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: var(--eco-transition);
+    position: relative;
+    z-index: 2;
+}
+
+.branch-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.branch-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--eco-accent);
+    background: rgba(37, 99, 235, 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.branch-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+.branch-desc {
+    color: var(--eco-text-muted);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Node Icons (The anchors for the path) */
+.node-icon-large {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.node-icon-large:hover {
+    transform: scale(1.1);
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.badge-practical {
+    background: rgba(37, 99, 235, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.badge-community {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-innovation {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Layout Variations using Grid Order */
+@media (min-width: 900px) {
+    /* For alternating layout, we can use CSS Grid ordering or simply trust the HTML structure */
+    /* If we want to force specific sides: */
+
+    /* Right Layout: Image/Icon on Right, Text on Left */
+    /* Current HTML has [Icon] [Content]. So that's Left Layout. */
+
+    /* To flip it for Right Layout: */
+    .layout-right .grid-2 .branch-content {
+        order: 1; /* First */
+    }
+    .layout-right .grid-2 div:not(.branch-content) {
+        order: 2; /* Second */
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .central-hub {
+        width: 150px;
+        height: 150px;
+    }
+
+    .orbit-1 { width: 220px; height: 220px; }
+    .orbit-2 { display: none; }
+
+    .node-wrapper {
+        padding: 4rem 0;
+        min-height: auto;
+    }
+
+    .branch-content {
+        width: 100%;
+    }
+}
+
+/* Keyframes */
+@keyframes pulse {
+    0% { box-shadow: 0 0 40px var(--eco-glow); }
+    50% { box-shadow: 0 0 80px var(--eco-glow), 0 0 20px var(--eco-primary); }
+    100% { box-shadow: 0 0 40px var(--eco-glow); }
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    from { transform: translate(-50%, -50%) rotate(360deg); }
+    to { transform: translate(-50%, -50%) rotate(0deg); }
+}
