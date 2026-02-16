@@ -3,106 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DTECH is a South African student-focused digital innovation platform founded by Seakwa Jonas Mochebane (PREASX24), building scalable systems and digital infrastructure for students.">
+    <meta name="description" content="DTECH is a South African student-focused digital innovation platform founded by Seakwa Jonas Mochebane (PREASX24).">
     <meta name="author" content="Seakwa Jonas Mochebane">
-    <title>DTECH | Student-Focused Digital Innovation Platform</title>
+    <title>DTECH | Student-Focused Digital Innovation</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="DTECH Logo">
-                    DTECH
+                    <span>DTECH</span>
                 </a>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About DTECH</a></li>
-                    <li><a href="vision.html">Vision</a></li>
-                    <li><a href="founder.html">Founder</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </nav>
         </div>
     </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
+        <div class="nav-links">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="about.html" onclick="toggleMenu()">About Us</a>
+            <a href="founder.html" onclick="toggleMenu()">Founder</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Ecosystem</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
             <h4>Hi, welcome to</h4>
             <h1>DTECH</h1>
-            <h2>Student-Focused Digital Innovation</h2>
-            <p>Building structured, scalable digital infrastructure and innovative systems designed to empower student communities across South Africa.</p>
-            <a href="about.html" class="btn">Learn More</a>
-        </div>
-    </section>
-
-    <!-- About Snippet -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About DTECH</h2>
-            <div class="grid-2">
-                <div>
-                    <p style="margin-bottom: 1rem; color: var(--text-muted);">
-                        DTECH is a South African student-focused technology platform that builds innovative digital systems and tools designed to support students and academic communities.
-                    </p>
-                    <p style="color: var(--text-muted);">
-                        Founded by Seakwa Jonas Mochebane (PREASX24), we focus on building structured, scalable digital infrastructure rather than just simple websites. We aim to solve real problems through technology.
-                    </p>
-                </div>
-                <div>
-                    <!-- Abstract representation or logo usage if available, for now text or icon -->
-                    <div style="background: rgba(0, 102, 255, 0.1); border: 1px solid var(--secondary-color); padding: 2rem; text-align: center; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary-color);"></div>
-                        <h3 style="color: var(--primary-color); font-size: 4rem; margin-bottom: 0; font-family: var(--font-display); text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);">DTECH</h3>
-                        <p style="font-family: var(--font-main); letter-spacing: 2px;">Digital Technology Services</p>
-                    </div>
-                </div>
+            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem;">
+                Student-Focused Digital Innovation
+            </p>
+            <p style="max-width: 600px; margin: 0 auto 3rem auto;">
+                Building structured, scalable digital infrastructure and innovative systems designed to empower student communities across South Africa.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="about.html" class="btn">About Us</a>
+                <a href="contact.html" class="btn" style="background-color: var(--surface-color); border: 1px solid var(--border-color);">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <!-- Innovation Section -->
-    <section id="innovation">
+    <!-- Features / Ecosystem Preview -->
+    <section id="focus" style="background-color: var(--surface-color); padding: 4rem 0;">
         <div class="container">
-            <h2 class="section-title">Our Focus</h2>
+            <div class="section-title">
+                <h2>Our Focus</h2>
+                <p class="text-muted">We build practical solutions for real-world problems.</p>
+            </div>
+
             <div class="grid-3">
                 <div class="card">
-                    <h3>Digital Tools</h3>
+                    <h3 style="color: var(--primary-color);">Digital Tools</h3>
                     <p>Creating practical digital utilities that assist students in their academic and daily lives.</p>
                 </div>
                 <div class="card">
-                    <h3>Structured Systems</h3>
+                    <h3 style="color: var(--primary-color);">Structured Systems</h3>
                     <p>Building organized, reliable, and efficient platforms that ensure data integrity and usability.</p>
                 </div>
                 <div class="card">
-                    <h3>Scalable Infrastructure</h3>
+                    <h3 style="color: var(--primary-color);">Scalable Infrastructure</h3>
                     <p>Designing solutions that grow with the community, ensuring long-term sustainability.</p>
                 </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="ecosystem.html" class="btn">Explore Our Ecosystem</a>
             </div>
         </div>
     </section>
 
-    <!-- Founder Preview -->
-    <section class="founder-preview">
+    <!-- Founder Teaser -->
+    <section style="padding: 4rem 0;">
         <div class="container">
-            <div class="grid-2">
-                <div class="founder-img-container">
-                    <img src="images/founder.jpg" alt="Seakwa Jonas Mochebane - Founder">
+            <div class="grid-2" style="align-items: center;">
+                <div>
+                    <img src="images/founder.jpg" alt="Seakwa Jonas Mochebane" style="width: 100%; max-width: 400px; box-shadow: var(--shadow-lg);">
                 </div>
                 <div>
-                    <h2 class="section-title">The Founder</h2>
-                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
-                        Founded by Seakwa Jonas Mochebane (PREASX24), DTECH represents a new generation of student-driven digital innovation in South Africa.
-                    </p>
-                    <p style="margin-bottom: 2rem; color: var(--text-muted);">
-                        Transitioning from a tech operator to a structured public founder, Seakwa is dedicated to building the digital future for students.
+                    <h2>The Founder</h2>
+                    <h4 style="color: var(--primary-color);">Seakwa Jonas Mochebane (PREASX24)</h4>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">
+                        Transitioning from a tech operator to a structured public founder, Seakwa is dedicated to building the digital future for students. DTECH represents a new generation of student-driven digital innovation.
                     </p>
                     <a href="founder.html" class="btn">Meet the Founder</a>
                 </div>
@@ -110,12 +108,27 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Simple Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 DTECH. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
         </div>
     </footer>
 
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+    </script>
 </body>
 </html>
