@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. Dynamic Path Drawing ---
     // We need to connect the .central-hub to each node in sequence
 
-    const pathSvg = document.querySelector('.ecosystem-path-container svg');
-    const pathElement = document.getElementById('connectionPath');
+    const pathBase = document.getElementById('connectionPathBase');
+    const pathActive = document.getElementById('connectionPathActive');
 
     function updatePath() {
         const hub = document.querySelector('.central-hub');
@@ -85,59 +85,65 @@ document.addEventListener('DOMContentLoaded', () => {
             const nodeCenter = getCenter(node);
 
             // Draw a curve to the next node
-            // Bezier curve: C controlPoint1, controlPoint2, endPoint
-            // We want a smooth S-curve down
-
+            // S-Curve logic handles wide horizontal gaps gracefully
             const midY = (previousPoint.y + nodeCenter.y) / 2;
+
+            // Adjust control points based on horizontal distance to smoothen wide turns
+            const dist = Math.abs(nodeCenter.x - previousPoint.x);
+            // If distance is large, we might want a slightly different curve, but standard cubic works well.
 
             d += ` C ${previousPoint.x} ${midY}, ${nodeCenter.x} ${midY}, ${nodeCenter.x} ${nodeCenter.y}`;
 
             previousPoint = nodeCenter;
         });
 
-        // Extend line a bit further down from the last node
+        // Extend line a bit further down from the last node (Roadmap will be last)
         d += ` L ${previousPoint.x} ${previousPoint.y + 100}`;
 
-        pathElement.setAttribute('d', d);
+        // Set path data for both
+        if (pathBase) pathBase.setAttribute('d', d);
+        if (pathActive) {
+            pathActive.setAttribute('d', d);
 
-        // Animate stroke based on scroll
-        const pathLength = pathElement.getTotalLength();
-        pathElement.style.strokeDasharray = pathLength;
+            // Set dasharray for animation
+            const pathLength = pathActive.getTotalLength();
+            pathActive.style.strokeDasharray = pathLength;
 
-        // Calculate how much of the path to show
-        // We want the path to "grow" as we scroll down
-        const scrollPercent = (window.scrollY + window.innerHeight / 2) / document.body.scrollHeight;
-        const drawLength = pathLength * Math.min(scrollPercent * 1.5, 1); // Speed up drawing a bit
+            // Initial draw state
+            updateScrollDraw();
+        }
+    }
 
-        // We can just set it fully visible for now or animate it.
-        // Let's make it fully visible but "dim" and then "light up" the active parts?
-        // Actually, the "Scrollytelling" usually means the line draws itself.
+    function updateScrollDraw() {
+        if (!pathActive) return;
 
-        pathElement.style.strokeDashoffset = pathLength - drawLength;
+        const pathLength = pathActive.getTotalLength();
+
+        // Calculate scroll progress relative to the document height
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        const scrollY = window.scrollY;
+
+        // Strategy: Draw line up to the center of viewport + offset
+        // Find the relative position on the page
+        const triggerPoint = scrollY + (window.innerHeight * 0.75);
+
+        // Map this trigger point to path length?
+        // A simple linear mapping isn't perfect because nodes vary in distance.
+        // Ideally, we find the point on path closest to scrollY.
+        // But for simplicity, we use a percentage of total height mapped to total length.
+
+        const docHeight = document.body.scrollHeight;
+        const drawPercent = Math.min((triggerPoint / docHeight) * 1.2, 1); // 1.2 multiplier to stay ahead
+
+        const drawOffset = pathLength * (1 - drawPercent);
+
+        pathActive.style.strokeDashoffset = Math.max(0, drawOffset);
     }
 
     // Update path on resize and scroll
     window.addEventListener('resize', updatePath);
     window.addEventListener('scroll', () => {
-        // We only strictly need to re-calculate geometry on resize,
-        // but stroke-dashoffset needs scroll update.
-        // For performance, let's just do the drawing logic in requestAnimationFrame
-        requestAnimationFrame(() => {
-            const pathElement = document.getElementById('connectionPath');
-            const pathLength = pathElement.getTotalLength();
-
-            // Calculate scroll progress relative to the document height
-            // But we want the line to follow the user's viewport center roughly
-
-            const maxScroll = document.body.scrollHeight - window.innerHeight;
-            const scrollFraction = window.scrollY / maxScroll;
-
-            // Simple mapping for now:
-            // We want the line to be drawn slightly ahead of the scroll
-            const drawOffset = pathLength * (1 - (scrollFraction * 1.2));
-
-            pathElement.style.strokeDashoffset = Math.max(0, drawOffset);
-        });
+        requestAnimationFrame(updateScrollDraw);
     });
 
     // Initial draw
