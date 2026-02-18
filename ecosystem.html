@@ -49,8 +49,16 @@
     <!-- The Path Background -->
     <div class="ecosystem-path-container">
         <svg width="100%" height="100%" style="overflow: visible;">
-            <!-- This path will be animated via JS/CSS -->
-            <path id="connectionPath" class="ecosystem-path" d="" />
+            <defs>
+                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--eco-primary);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:var(--eco-accent);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <!-- Base Path (Dimmed Structure) -->
+            <path id="connectionPathBase" class="ecosystem-path-base" d="" />
+            <!-- Active Path (Bright Animation) -->
+            <path id="connectionPathActive" class="ecosystem-path-active" d="" />
         </svg>
     </div>
 
@@ -58,8 +66,9 @@
     <main style="position: relative; z-index: 1;">
 
         <!-- 1. CENTRAL HUB (Hero) -->
-        <section class="node-wrapper" id="hub-section">
-            <div class="central-hub path-node" onclick="openModal('missionModal')">
+        <section class="node-wrapper" id="hub-section" style="position: relative; overflow: hidden; justify-content: center;">
+            <canvas id="hero-particles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
+            <div class="central-hub path-node" onclick="openModal('missionModal')" style="z-index: 1;">
                 <div class="orbit-ring orbit-1"><div class="orbit-dot"></div></div>
                 <div class="orbit-ring orbit-2"><div class="orbit-dot"></div></div>
                 <span class="hub-label">DTECH</span>
@@ -159,7 +168,7 @@
         <section id="history-milestones">
 
             <!-- 2020: Facebook Initiative -->
-            <div class="milestone-wrapper layout-center">
+            <div class="milestone-wrapper layout-left">
                 <div class="milestone-card path-node" style="border-color: #1877F2;">
                     <div class="milestone-icon"><i class="ri-facebook-circle-fill" style="color: #1877F2;"></i></div>
                     <div class="milestone-content">
@@ -172,7 +181,7 @@
             </div>
 
             <!-- 1st Website: dtech24 -->
-            <div class="milestone-wrapper layout-center">
+            <div class="milestone-wrapper layout-right">
                 <div class="milestone-card path-node" style="border-color: #ef4444;"> <!-- Red for legacy/offline -->
                     <div class="milestone-icon"><i class="ri-globe-line" style="color: #ef4444;"></i></div>
                     <div class="milestone-content">
@@ -185,7 +194,7 @@
             </div>
 
             <!-- 2nd Website: preasx24 -->
-            <div class="milestone-wrapper layout-center">
+            <div class="milestone-wrapper layout-left">
                 <div class="milestone-card path-node" style="border-color: #fbbf24;"> <!-- Gold for academic -->
                     <div class="milestone-icon"><i class="ri-school-line" style="color: #fbbf24;"></i></div>
                     <div class="milestone-content">
@@ -289,6 +298,57 @@
             </div>
         </section>
 
+        <!-- 5. ROADMAP (Future) -->
+        <section id="roadmap" class="node-wrapper" style="flex-direction: column; padding-top: 2rem;">
+            <div class="container text-center" style="margin-bottom: 4rem; position: relative; z-index: 2;">
+                <div class="node-icon-large path-node" style="font-size: 3rem; color: #a855f7; margin-bottom: 1rem;">
+                    <i class="ri-rocket-line"></i>
+                </div>
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: white;">The Future</h2>
+                <p style="color: var(--eco-text-muted);">Where DTECH is heading next.</p>
+            </div>
+
+            <!-- Roadmap Item 1 -->
+            <div class="milestone-wrapper layout-left">
+                <div class="milestone-card path-node" style="border-color: #a855f7;">
+                    <div class="milestone-icon"><i class="ri-smartphone-line" style="color: #a855f7;"></i></div>
+                    <div class="milestone-content">
+                        <span class="milestone-year" style="color: #d8b4fe;">Q4 2024</span>
+                        <h3>Mobile App Beta</h3>
+                        <p>Native iOS and Android apps for seamless offline access to DTECH tools.</p>
+                        <span class="badge" style="background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid #a855f7;">In Development</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roadmap Item 2 -->
+            <div class="milestone-wrapper layout-right">
+                <div class="milestone-card path-node" style="border-color: #ec4899;">
+                    <div class="milestone-icon"><i class="ri-earth-line" style="color: #ec4899;"></i></div>
+                    <div class="milestone-content">
+                        <span class="milestone-year" style="color: #f9a8d4;">Q1 2025</span>
+                        <h3>Global Expansion</h3>
+                        <p>Extending our server nodes to 3 new continents to support international students.</p>
+                        <span class="badge" style="background: rgba(236, 72, 153, 0.1); color: #ec4899; border: 1px solid #ec4899;">Planned</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roadmap Item 3 -->
+            <div class="milestone-wrapper layout-left">
+                <div class="milestone-card path-node" style="border-color: #06b6d4;">
+                    <div class="milestone-icon"><i class="ri-robot-line" style="color: #06b6d4;"></i></div>
+                    <div class="milestone-content">
+                        <span class="milestone-year" style="color: #67e8f9;">Q3 2025</span>
+                        <h3>AI Tutor Integration</h3>
+                        <p>Personalized learning assistance powered by custom AI models trained on DTECH library.</p>
+                        <span class="badge" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4; border: 1px solid #06b6d4;">Concept</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -301,6 +361,7 @@
 
     <!-- Scripts -->
     <script src="js/ecosystem.js"></script>
+    <script src="js/particles.js"></script>
     <script>
         // Re-using the mobile menu toggle logic from index.html (or moving to a shared JS file in future)
         const menuToggle = document.getElementById('menuToggle');

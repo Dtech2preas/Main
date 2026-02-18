@@ -46,12 +46,20 @@ body.ecosystem-page {
     overflow: visible;
 }
 
-.ecosystem-path {
+.ecosystem-path-base {
     stroke: var(--eco-primary);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    opacity: 0.15;
+}
+
+.ecosystem-path-active {
+    stroke: url(#pathGradient);
     stroke-width: 3;
     fill: none;
     stroke-linecap: round;
-    filter: drop-shadow(0 0 8px var(--eco-glow));
+    filter: drop-shadow(0 0 10px var(--eco-accent));
     transition: stroke-dashoffset 0.1s linear;
 }
 
@@ -145,15 +153,17 @@ main {
     z-index: 2;
 }
 
-/* Positioning for desktop zig-zag */
+/* Positioning for desktop wide branching */
 .compact-node-row.layout-left {
-    justify-content: flex-end;
-    padding-right: 55%; /* Push to left of center */
+    justify-content: flex-start;
+    padding-left: 10%; /* Push to edge */
+    padding-right: 0;
 }
 
 .compact-node-row.layout-right {
-    justify-content: flex-start;
-    padding-left: 55%; /* Push to right of center */
+    justify-content: flex-end;
+    padding-right: 10%; /* Push to edge */
+    padding-left: 0;
 }
 
 .node-compact {
@@ -191,10 +201,20 @@ main {
 
 .milestone-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Default center, overridden below */
     margin-bottom: 5rem;
     position: relative;
     z-index: 2;
+}
+
+.milestone-wrapper.layout-left {
+    justify-content: flex-start;
+    padding-left: 10%;
+}
+
+.milestone-wrapper.layout-right {
+    justify-content: flex-end;
+    padding-right: 10%;
 }
 
 .milestone-card {
@@ -389,6 +409,13 @@ main {
     /* Compact Nodes Mobile */
     .compact-node-row.layout-left,
     .compact-node-row.layout-right {
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .milestone-wrapper.layout-left,
+    .milestone-wrapper.layout-right {
         justify-content: center;
         padding-right: 0;
         padding-left: 0;
