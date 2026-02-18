@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial styles for animation via JS to avoid FOUC if JS fails/CSS mismatch
     animatableElements.forEach(el => {
-        // Only if not already styled for animation (branch-content handles it in CSS)
-        if (!el.classList.contains('branch-content')) {
+        // Only if not already styled for animation (branch-content & milestone-card handle it in CSS now)
+        if (!el.classList.contains('branch-content') && !el.classList.contains('milestone-card')) {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
@@ -41,15 +41,32 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Add 'visible' class style handling for new elements
+    // Add 'visible' class style handling for compact nodes (others handled in CSS)
     const styleSheet = document.createElement("style");
     styleSheet.innerText = `
-        .milestone-card.visible, .node-compact.visible {
+        .node-compact.visible {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
     `;
     document.head.appendChild(styleSheet);
+
+    // --- 1.5 Constrained Physics (Parallax) ---
+    const physicsNodes = document.querySelectorAll('.milestone-card, .branch-content');
+
+    document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.clientX) / 20; // Divide by 20 for subtle effect
+        const y = (window.innerHeight / 2 - e.clientY) / 20;
+
+        physicsNodes.forEach(node => {
+            // Constrain movement to max 15px to preserve layout order
+            const constrainedX = Math.max(-15, Math.min(15, x));
+            const constrainedY = Math.max(-15, Math.min(15, y));
+
+            node.style.setProperty('--px', `${constrainedX}px`);
+            node.style.setProperty('--py', `${constrainedY}px`);
+        });
+    });
 
 
     // --- 2. Dynamic Path Drawing ---
@@ -146,9 +163,17 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(updateScrollDraw);
     });
 
-    // Initial draw
-    // Wait for layout to settle
-    setTimeout(updatePath, 100);
+    // Continuous Path Update for Floating Nodes
+    function animatePath() {
+        updatePath();
+        requestAnimationFrame(animatePath);
+    }
+
+    // Initial draw & Start Loop
+    setTimeout(() => {
+        updatePath();
+        animatePath();
+    }, 100);
 });
 
 // Utility: Counter Animation
