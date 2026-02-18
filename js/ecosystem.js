@@ -23,19 +23,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.branch-content').forEach(el => {
+    // Select elements to animate
+    const animatableElements = document.querySelectorAll('.branch-content, .milestone-card, .node-compact');
+
+    // Set initial styles for animation via JS to avoid FOUC if JS fails/CSS mismatch
+    animatableElements.forEach(el => {
+        // Only if not already styled for animation (branch-content handles it in CSS)
+        if (!el.classList.contains('branch-content')) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+        }
+    });
+
+    // Observe
+    animatableElements.forEach(el => {
         observer.observe(el);
     });
 
+    // Add 'visible' class style handling for new elements
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `
+        .milestone-card.visible, .node-compact.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(styleSheet);
+
+
     // --- 2. Dynamic Path Drawing ---
-    // We need to connect the .central-hub to each .node-icon-large in sequence
+    // We need to connect the .central-hub to each node in sequence
 
     const pathSvg = document.querySelector('.ecosystem-path-container svg');
     const pathElement = document.getElementById('connectionPath');
 
     function updatePath() {
         const hub = document.querySelector('.central-hub');
-        const nodes = document.querySelectorAll('.node-icon-large');
+        // Select all nodes that are part of the path, excluding the hub itself if it has the class
+        const nodes = document.querySelectorAll('.path-node:not(.central-hub)');
 
         if (!hub || nodes.length === 0) return;
 

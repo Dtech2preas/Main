@@ -59,7 +59,7 @@
 
         <!-- 1. CENTRAL HUB (Hero) -->
         <section class="node-wrapper" id="hub-section">
-            <div class="central-hub" onclick="openModal('missionModal')">
+            <div class="central-hub path-node" onclick="openModal('missionModal')">
                 <div class="orbit-ring orbit-1"><div class="orbit-dot"></div></div>
                 <div class="orbit-ring orbit-2"><div class="orbit-dot"></div></div>
                 <span class="hub-label">DTECH</span>
@@ -76,14 +76,137 @@
             </div>
         </section>
 
-        <!-- 2. PRIMARY BRANCHES -->
+        <!-- 2. TECH EVOLUTION (Tiny Sections) -->
+        <section id="tech-evolution">
+            <div class="container" style="position: relative; padding: 2rem 0;">
+
+                <!-- Web Tools -->
+                <div class="compact-node-row layout-left">
+                    <div class="node-compact path-node">
+                        <i class="ri-tools-line"></i>
+                        <span class="node-label">Web Tools</span>
+                    </div>
+                </div>
+
+                <!-- VPNs -->
+                <div class="compact-node-row layout-right">
+                    <div class="node-compact path-node">
+                        <i class="ri-shield-keyhole-line"></i>
+                        <span class="node-label">VPNs</span>
+                    </div>
+                </div>
+
+                <!-- Files -->
+                <div class="compact-node-row layout-left">
+                    <div class="node-compact path-node">
+                        <i class="ri-file-code-line"></i>
+                        <span class="node-label">Files</span>
+                    </div>
+                </div>
+
+                <!-- Experiments -->
+                <div class="compact-node-row layout-right">
+                    <div class="node-compact path-node">
+                        <i class="ri-flask-line"></i>
+                        <span class="node-label">Experiments</span>
+                    </div>
+                </div>
+
+                <!-- Test -->
+                <div class="compact-node-row layout-left">
+                    <div class="node-compact path-node">
+                        <i class="ri-test-tube-line"></i>
+                        <span class="node-label">Test</span>
+                    </div>
+                </div>
+
+                <!-- HTMLs -->
+                <div class="compact-node-row layout-right">
+                    <div class="node-compact path-node">
+                        <i class="ri-html5-line"></i>
+                        <span class="node-label">HTMLs</span>
+                    </div>
+                </div>
+
+                <!-- Sites -->
+                <div class="compact-node-row layout-left">
+                    <div class="node-compact path-node">
+                        <i class="ri-layout-web-line"></i>
+                        <span class="node-label">Sites</span>
+                    </div>
+                </div>
+
+                <!-- Github -->
+                <div class="compact-node-row layout-right">
+                    <div class="node-compact path-node">
+                        <i class="ri-github-line"></i>
+                        <span class="node-label">Github</span>
+                    </div>
+                </div>
+
+                <!-- Cloudflare Domains -->
+                <div class="compact-node-row layout-left">
+                    <div class="node-compact path-node">
+                        <i class="ri-cloud-line"></i>
+                        <span class="node-label">Cloudflare Domains</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. HISTORY MILESTONES -->
+        <section id="history-milestones">
+
+            <!-- 2020: Facebook Initiative -->
+            <div class="milestone-wrapper layout-center">
+                <div class="milestone-card path-node" style="border-color: #1877F2;">
+                    <div class="milestone-icon"><i class="ri-facebook-circle-fill" style="color: #1877F2;"></i></div>
+                    <div class="milestone-content">
+                        <span class="milestone-year">2020 Initiative</span>
+                        <h3>Facebook Community</h3>
+                        <p>The first step: building a community on social media.</p>
+                        <a href="https://www.facebook.com/profile.php?id=100054886954297" target="_blank" class="btn-link">Visit Page <i class="ri-external-link-line"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1st Website: dtech24 -->
+            <div class="milestone-wrapper layout-center">
+                <div class="milestone-card path-node" style="border-color: #ef4444;"> <!-- Red for legacy/offline -->
+                    <div class="milestone-icon"><i class="ri-globe-line" style="color: #ef4444;"></i></div>
+                    <div class="milestone-content">
+                        <span class="milestone-year">First Era</span>
+                        <h3>dtech24.co.za</h3>
+                        <p>The original main website. A pioneering platform.</p>
+                        <span class="badge badge-legacy" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;">Legacy / Archived</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2nd Website: preasx24 -->
+            <div class="milestone-wrapper layout-center">
+                <div class="milestone-card path-node" style="border-color: #fbbf24;"> <!-- Gold for academic -->
+                    <div class="milestone-icon"><i class="ri-school-line" style="color: #fbbf24;"></i></div>
+                    <div class="milestone-content">
+                        <span class="milestone-year">Second Era</span>
+                        <h3>preasx24.co.za</h3>
+                        <p>General assistance for high school students transitioning to university.</p>
+                        <a href="http://www.preasx24.co.za" target="_blank" class="btn-link" style="color: #fbbf24;">Visit Archive <i class="ri-history-line"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 4. CURRENT ECOSYSTEM (Existing) -->
 
         <!-- Branch A: Apps (Grid) -->
         <section class="node-wrapper layout-left" id="branch-apps">
             <div class="container grid-2" style="align-items: center;">
                 <!-- Node Visual -->
                 <div style="text-align: center;">
-                    <div class="node-icon-large" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
+                    <div class="node-icon-large path-node" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
                         <i class="ri-grid-fill"></i>
                     </div>
                     <!-- Live Badge -->
@@ -131,7 +254,7 @@
 
                 <!-- Node Visual -->
                 <div style="text-align: center;">
-                    <div class="node-icon-large" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
+                    <div class="node-icon-large path-node" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
                         <i class="ri-stack-line"></i>
                     </div>
                     <span class="badge badge-community">Community Hub</span>
@@ -144,7 +267,7 @@
             <div class="container grid-2" style="align-items: center;">
                 <!-- Node Visual -->
                 <div style="text-align: center;">
-                    <div class="node-icon-large" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
+                    <div class="node-icon-large path-node" style="font-size: 4rem; color: var(--eco-accent); margin-bottom: 1rem;">
                         <i class="ri-lightbulb-flash-line"></i> <!-- Innovation Symbol -->
                     </div>
                     <span class="badge badge-innovation">Innovation</span>
