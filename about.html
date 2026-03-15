@@ -1,201 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about DTECH, a South African student-focused technology platform building structured, scalable digital infrastructure.">
-    <meta name="author" content="Seakwa Jonas Mochebane">
-    <title>About DTECH | Student-Focused Digital Innovation</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About DTECH | Technology With Purpose</title>
+
+<meta name="description" content="Learn about DTECH — a South African technology ecosystem building practical, freely accessible digital tools and platforms.">
+<meta name="author" content="Seakwa Jonas Mochebane">
+
+<link rel="canonical" href="https://dtech-services.co.za/about.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About DTECH | Technology With Purpose">
+<meta property="og:description" content="DTECH builds practical, freely accessible digital platforms for students, communities, and innovators.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dtech-services.co.za/about.html">
+<meta property="og:image" content="https://dtech-services.co.za/images/logo.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="DTECH Logo">
-                    <span>DTECH</span>
-                </a>
-                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </nav>
-        </div>
-    </header>
+<header>
+<div class="container">
+<nav>
 
-    <!-- Navigation Overlay -->
-    <div class="nav-overlay" id="navOverlay">
-        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
-        <div class="nav-links">
-            <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="about.html" onclick="toggleMenu()" class="active">About Us</a>
-            <a href="founder.html" onclick="toggleMenu()">Founder</a>
-            <a href="ecosystem.html" onclick="toggleMenu()">Ecosystem</a>
-            <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
-        </div>
-    </div>
+<a href="index.html" class="logo">
+<img src="images/logo.png" alt="DTECH Logo">
+<span>DTECH</span>
+</a>
 
-    <!-- Page Header -->
-    <section style="padding: 6rem 0 3rem 0; text-align: center;">
-        <div class="container">
-            <h1 class="section-title" style="margin-bottom: 1rem;">About DTECH</h1>
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.2rem;">
-                Building the digital backbone for innovation.
-            </p>
-        </div>
-    </section>
+<button class="hamburger-btn" id="menuToggle" aria-label="Open Navigation Menu">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
 
-    <!-- Content -->
-    <section class="container" style="padding-bottom: 6rem;">
+</nav>
+</div>
+</header>
 
-        <!-- Introduction -->
-        <div style="max-width: 800px; margin: 0 auto 4rem auto;">
-            <p class="text-muted" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                DTECH is a South Africa–based ecosystem of technology-driven solutions built to create practical, accessible, and meaningful digital systems. It exists to solve problems — not to chase attention. The work is deliberate: build tools people can use, platforms people can trust, and systems that grow useful over time.
-            </p>
-        </div>
 
-        <!-- Ecosystem -->
-        <h2 style="margin-bottom: 1.5rem;">A Network of Connected Platforms</h2>
-        <p class="text-muted" style="max-width: 800px; margin-bottom: 2rem;">
-            At its heart, DTECH is a network of connected platforms and services. The main hub, <a href="https://dtech-services.co.za" style="color: var(--primary-color);">dtech-services.co.za</a>, is the brand’s foundation — the place that explains the vision, links the projects, and holds the ecosystem together. From there, the work spreads to focused environments:
-        </p>
+<!-- Navigation -->
+<div class="nav-overlay" id="navOverlay">
 
-        <div class="grid-2" style="margin-bottom: 2rem;">
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Web Apps & Utilities</h3>
-                <p class="text-muted">
-                    <a href="https://app.dtech-services.co.za" target="_blank" style="color: var(--text-main); font-weight: 600;">app.dtech-services.co.za</a> hosts the suite of web applications and utilities that people use every day.
-                </p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Textbook Marketplace</h3>
-                <p class="text-muted">
-                    <a href="https://books.dtech-services.co.za" target="_blank" style="color: var(--text-main); font-weight: 600;">books.dtech-services.co.za</a> is a peer-to-peer textbook marketplace helping learners find and exchange study materials affordably.
-                </p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Student Support (In-Dev)</h3>
-                <p class="text-muted">
-                    <a href="https://student.dtech-services.co.za" target="_blank" style="color: var(--text-main); font-weight: 600;">student.dtech-services.co.za</a> is an in-development platform intended to provide structured income opportunities and practical support for students facing financial challenges.
-                </p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Portfolio & Resources</h3>
-                <p class="text-muted">
-                    <a href="https://preasx24.co.za" target="_blank" style="color: var(--text-main); font-weight: 600;">preasx24.co.za</a> remains a personal portfolio and resource space that catalogs tools, guides, and projects connected to the broader effort.
-                </p>
-            </div>
-        </div>
+<button id="closeMenu"
+aria-label="Close Navigation"
+style="position:absolute;top:30px;right:30px;background:none;border:none;color:var(--text-main);font-size:3rem;cursor:pointer;">
+&times;
+</button>
 
-        <p class="text-muted" style="max-width: 800px; margin-bottom: 4rem;">
-            These are not prestige partnerships but pragmatic relationships to pilot useful features, test models for student income support, and connect supply with demand in the local context.
-        </p>
+<div class="nav-links">
+<a href="index.html" onclick="toggleMenu()">Home</a>
+<a href="about.html" onclick="toggleMenu()" class="active">About Us</a>
+<a href="founder.html" onclick="toggleMenu()">Founder</a>
+<a href="ecosystem.html" onclick="toggleMenu()">Ecosystem</a>
+<a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
 
-        <!-- Roadmap -->
-        <div style="margin-bottom: 4rem;">
-            <h2 style="margin-bottom: 1.5rem;">A Realistic Roadmap</h2>
-            <p class="text-muted" style="max-width: 800px; margin-bottom: 1rem;">
-                The roadmap is realistic and steady. Near-term priorities include stabilizing core apps on <a href="https://app.dtech-services.co.za" style="color: var(--primary-color);">app.dtech-services.co.za</a>, expanding the books marketplace to improve discoverability and trust between buyers and sellers, and piloting the student income system with a small cohort to learn what works.
-            </p>
-            <p class="text-muted" style="max-width: 800px;">
-                Longer-term work will look at smarter ways to connect platforms — making it easier for someone who uses the marketplace to discover helpful apps, and for those apps to surface resources from the core site — without forcing unnecessary complexity on users.
-            </p>
-        </div>
+</div>
 
-        <!-- Design Philosophy -->
-        <div class="card" style="margin-bottom: 4rem; border-left: 4px solid var(--primary-color);">
-            <h2 style="margin-bottom: 1rem;">Design Philosophy</h2>
-            <p class="text-muted">
-                DTECH’s design philosophy is plain: make technology that serves people. That means clear writing, deliberate interfaces, predictable performance, and features that reflect real use. It means avoiding hype and focusing on utility. It means building for longevity, not for flash.
-            </p>
-        </div>
 
-        <!-- Origins -->
-        <div style="margin-bottom: 4rem;">
-            <h2 style="margin-bottom: 1.5rem;">Our Origins</h2>
-            <p class="text-muted" style="max-width: 800px;">
-                DTECH started with the simple observation that many digital tools aimed at learners and communities are fragmented, temporary, or built without real follow-through. The response was not to build more temporary fixes, but to create platforms designed around usefulness: clear interfaces, dependable behaviour, and features that solve concrete problems. Design choices favor clarity over complexity; workflows prioritize the tasks people actually need to complete. That practical focus shapes everything from navigation and copy to backend choices and update cycles.
-            </p>
-        </div>
+<!-- Page Header -->
+<section style="padding:6rem 0 3rem 0;text-align:center;">
+<div class="container">
 
-        <!-- Principles -->
-        <div style="margin-bottom: 4rem;">
-            <h2 style="margin-bottom: 1.5rem;">Common Principles</h2>
-            <p class="text-muted" style="max-width: 800px;">
-                The projects under DTECH vary in purpose but share common principles. Tools are meant to be practical — not shiny demos. Marketplaces are built to enable fair, local exchange rather than extractive commerce. Utility apps are designed to reduce friction and help users complete real tasks. The student income system under development is built around providing reliable, lawful ways for learners to earn small, steady amounts toward basic needs — it focuses on tasks, micro-services, and opportunities compatible with academic life, not risky schemes or unstable work.
-            </p>
-        </div>
+<h1 class="section-title" style="margin-bottom:1rem;">About DTECH</h1>
 
-        <!-- Audience & Build -->
-        <div class="grid-2" style="margin-bottom: 4rem;">
-            <div>
-                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Our Audience</h3>
-                <p class="text-muted">
-                    DTECH’s audience is broad by design. Many initiatives naturally serve students and young people navigating education and early careers, but the platforms are intentionally useful beyond any single group. Community organisations, small teams, local educators, and individuals seeking straightforward digital help can and should find value in the ecosystem. The goal is not to narrow impact but to make tools that are relevant to multiple needs without diluting their usefulness.
-                </p>
-            </div>
-            <div>
-                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">How We Build</h3>
-                <p class="text-muted">
-                    How DTECH builds matters as much as what it builds. Development follows an iterative, responsibility-first approach: ship a simple, reliable feature; observe how people use it; improve with small, frequent updates. Security, data privacy, and sensible defaults are core requirements, not afterthoughts. Where user data is collected, it’s minimized and used only to deliver clear value. Public-facing systems favour transparent behaviour and clear privacy notices so people understand what they’re using and why.
-                </p>
-            </div>
-        </div>
+<p style="max-width:600px;margin:0 auto;color:var(--text-muted);font-size:1.2rem;">
+<strong>Technology With Purpose</strong><br>
+Building practical digital systems that serve real needs.
+</p>
 
-        <!-- Community -->
-        <div style="margin-bottom: 4rem;">
-            <h2 style="margin-bottom: 1.5rem;">Community & Collaboration</h2>
-            <p class="text-muted" style="max-width: 800px; margin-bottom: 1rem;">
-                Community is part of the design. DTECH encourages local, peer-to-peer interactions — the books marketplace is a simple example — and seeks to keep communication channels open: user feedback loops, community support channels, and lightweight documentation exist so people can learn, contribute, and report issues. The platforms are intentionally approachable: help resources are written plainly, onboarding is short, and features aim to reduce cognitive load rather than increase it.
-            </p>
-            <p class="text-muted" style="max-width: 800px;">
-                Partnership and collaboration are practical levers for growing impact. DTECH aims to work with on-campus groups, student organisations, small NGOs, and local initiatives that already know the communities they serve.
-            </p>
-        </div>
+</div>
+</section>
 
-        <!-- Call to Action -->
-        <div class="card text-center" style="padding: 3rem;">
-            <h2 style="margin-bottom: 1.5rem;">Get Involved</h2>
-            <p class="text-muted" style="max-width: 600px; margin: 0 auto 1.5rem auto;">
-                If you’re curious to learn more or get involved, explore the platforms at <a href="https://dtech-services.co.za" style="color: var(--primary-color);">dtech-services.co.za</a>, <a href="https://app.dtech-services.co.za" style="color: var(--primary-color);">app.dtech-services.co.za</a>, <a href="https://books.dtech-services.co.za" style="color: var(--primary-color);">books.dtech-services.co.za</a>, and <a href="https://student.dtech-services.co.za" style="color: var(--primary-color);">student.dtech-services.co.za</a> (development in progress).
-            </p>
-            <p class="text-muted" style="max-width: 600px; margin: 0 auto 2rem auto;">
-                If you have feedback, want to pilot a project, or suggest a partnership, reach out through the contact channels listed on the main site. The work here is ongoing, practical, and open to sensible collaboration — the aim is simple: useful technology, used by real people, for real needs.
-            </p>
-            <a href="contact.html" class="btn">Contact Us</a>
-        </div>
 
-    </section>
+<section class="container" style="padding-bottom:6rem;">
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 DTECH. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
-        </div>
-    </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const closeMenu = document.getElementById('closeMenu');
-        const navOverlay = document.getElementById('navOverlay');
+<!-- Introduction -->
 
-        function toggleMenu() {
-            navOverlay.classList.toggle('active');
-            document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
-        }
+<div style="max-width:800px;margin:0 auto 4rem auto;">
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
-    </script>
+<p class="text-muted" style="font-size:1.1rem;margin-bottom:1.5rem;">
+
+DTECH is a South Africa–based ecosystem of technology-driven solutions focused on building practical, accessible, and meaningful digital systems. The goal is simple: create technology that solves real problems and remains useful over time.
+
+All DTECH tools and platforms are freely accessible, reflecting a commitment to making useful technology available to students, communities, and anyone who needs it.
+
+Every project is developed deliberately — creating tools people can use, platforms people can trust, and systems designed to grow in value through continuous improvement.
+
+</p>
+
+</div>
+
+
+<!-- Ecosystem -->
+
+<h2 style="margin-bottom:1.5rem;">A Connected Ecosystem</h2>
+
+<p class="text-muted" style="max-width:800px;margin-bottom:2rem;">
+
+At its core, DTECH is a network of connected platforms. The main hub,
+<a href="https://dtech-services.co.za" style="color:var(--primary-color);" target="_blank" rel="noopener noreferrer">
+dtech-services.co.za
+</a>
+serves as the central gateway — explaining the vision, connecting projects, and bringing the ecosystem together.
+
+From there, services expand into specialized platforms:
+
+</p>
+
+
+<div class="grid-2" style="margin-bottom:2rem;">
+
+
+<div class="card">
+
+<h3 style="color:var(--primary-color);">Web Apps & Utilities</h3>
+
+<p class="text-muted">
+
+<a href="https://app.dtech-services.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:600;">
+app.dtech-services.co.za
+</a>
+
+hosts a growing collection of web applications and digital utilities designed to help people work, study, and solve everyday tasks.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 style="color:var(--primary-color);">Textbook Marketplace</h3>
+
+<p class="text-muted">
+
+<a href="https://books.dtech-services.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:600;">
+books.dtech-services.co.za
+</a>
+
+is a peer-to-peer marketplace that helps learners buy, sell, and exchange textbooks more affordably.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 style="color:var(--primary-color);">Student Support (In Development)</h3>
+
+<p class="text-muted">
+
+<a href="https://student.dtech-services.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:600;">
+student.dtech-services.co.za
+</a>
+
+is an upcoming platform focused on helping students access practical opportunities and structured support.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 style="color:var(--primary-color);">Portfolio & Resources</h3>
+
+<p class="text-muted">
+
+<a href="https://preasx24.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:600;">
+preasx24.co.za
+</a>
+
+serves as a portfolio and knowledge space cataloging tools, guides, and projects connected to the broader ecosystem.
+
+</p>
+
+</div>
+
+</div>
+
+
+<p class="text-muted" style="max-width:800px;margin-bottom:4rem;">
+
+These connections are practical rather than symbolic — they allow DTECH to test useful ideas, pilot student-focused initiatives, and connect people with tools that help them move forward.
+
+</p>
+
+
+<!-- Philosophy -->
+
+<div class="card" style="margin-bottom:4rem;border-left:4px solid var(--primary-color);">
+
+<h2 style="margin-bottom:1rem;">Design Philosophy</h2>
+
+<p class="text-muted">
+
+DTECH follows a simple philosophy: technology should serve people.
+
+That means clear interfaces, thoughtful design, reliable performance, and features that reflect real use cases. Instead of building for hype or temporary trends, DTECH focuses on building systems that remain useful, dependable, and easy to understand.
+
+</p>
+
+</div>
+
+
+<!-- Origins -->
+
+<div style="margin-bottom:4rem;">
+
+<h2 style="margin-bottom:1.5rem;">Origins</h2>
+
+<p class="text-muted" style="max-width:800px;">
+
+DTECH began with a simple observation: many digital tools aimed at learners and communities are fragmented, short-lived, or built without long-term follow-through.
+
+The response was not to create more temporary solutions, but to build systems designed around usefulness, clarity, and reliability. Every platform is shaped by the same principle — reduce friction and help people accomplish real tasks.
+
+</p>
+
+</div>
+
+
+<!-- CTA -->
+
+<div class="card text-center" style="padding:3rem;">
+
+<h2 style="margin-bottom:1.5rem;">Explore the Ecosystem</h2>
+
+<p class="text-muted" style="max-width:600px;margin:0 auto 1.5rem auto;">
+
+You can explore the DTECH ecosystem through the platforms below:
+
+</p>
+
+<p class="text-muted" style="max-width:600px;margin:0 auto 2rem auto;">
+
+<a href="https://dtech-services.co.za" style="color:var(--primary-color);" target="_blank">dtech-services.co.za</a> •
+<a href="https://app.dtech-services.co.za" style="color:var(--primary-color);" target="_blank">app.dtech-services.co.za</a> •
+<a href="https://books.dtech-services.co.za" style="color:var(--primary-color);" target="_blank">books.dtech-services.co.za</a>
+
+</p>
+
+<a href="contact.html" class="btn">Contact</a>
+
+</div>
+
+
+</section>
+
+
+<footer>
+<div class="container">
+
+<p>&copy; <span id="year"></span> DTECH</p>
+<p style="font-size:0.8rem;margin-top:0.5rem;">Digital Technology Services</p>
+
+</div>
+</footer>
+
+
+<script>
+
+const menuToggle = document.getElementById('menuToggle');
+const closeMenu = document.getElementById('closeMenu');
+const navOverlay = document.getElementById('navOverlay');
+
+function toggleMenu(){
+navOverlay.classList.toggle('active');
+document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+closeMenu.addEventListener('click', toggleMenu);
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+</script>
+
 </body>
 </html>
