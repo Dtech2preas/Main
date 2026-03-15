@@ -76,13 +76,24 @@
             text-decoration: none; font-weight: 800; font-size: 1.5rem;
             color: var(--text-light); letter-spacing: -0.03em;
         }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
 
         /* Mobile Menu */
         .hamburger-btn {
-            display: flex; flex-direction: column; gap: 6px;
+            display: flex; flex-direction: column; gap: 5px;
             background: none; border: none; cursor: pointer; z-index: 1000;
+            align-items: flex-end; /* right-align the asymmetric lines */
         }
-        .hamburger-line { width: 28px; height: 2px; background-color: var(--text-light); transition: 0.3s; }
+        .hamburger-line { height: 2px; background-color: var(--text-light); transition: 0.3s; border-radius: 2px; }
+        .hamburger-line:nth-child(1) { width: 28px; }
+        .hamburger-line:nth-child(2) { width: 20px; }
+        .hamburger-line:nth-child(3) { width: 28px; }
+
+        .hamburger-btn:hover .hamburger-line { background-color: var(--primary); }
+        .hamburger-btn:hover .hamburger-line:nth-child(2) { width: 28px; }
 
         .nav-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
@@ -96,11 +107,19 @@
         .nav-links a:hover { color: var(--primary); }
 
         /* --- HERO SECTION (The "Wow" Factor) --- */
+        @keyframes driftBackground {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
         .hero {
             background-color: var(--dark-bg);
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1), transparent 25%);
+                radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1), transparent 30%);
+            background-size: 150% 150%;
+            animation: driftBackground 20s ease-in-out infinite;
             min-height: 90vh;
             display: flex;
             align-items: center;
@@ -197,40 +216,30 @@
         .card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
 
         /* Founder Section */
-        .founder-wrapper { background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
-        .founder-img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; background: #E2E8F0; }
+        .founder-wrapper { background: #1E293B; color: var(--text-light); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .founder-img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; background: #0F172A; }
         .founder-content { padding: 4rem 3rem; }
         .founder-label { color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
-        .founder-content h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem; letter-spacing: -0.03em; }
-        .founder-content h4 { color: var(--text-muted); font-weight: 500; margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .founder-content h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem; letter-spacing: -0.03em; color: var(--text-light); }
+        .founder-content h4 { color: #94A3B8; font-weight: 500; margin-bottom: 1.5rem; font-size: 1.1rem; }
 
         /* Footer */
         footer { background: var(--dark-bg); color: #94A3B8; padding: 3rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
         footer p { margin-bottom: 0.5rem; font-size: 0.95rem; }
 
-        /* Core Features List */
-        .core-features-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            align-items: center;
+        /* Core Features Intro */
+        .core-features-intro {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: #E2E8F0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
         }
-        .core-features-list li {
-            font-size: 1.25rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .core-features-list li::before {
-            content: '';
-            display: block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary);
-            border-radius: 50%;
+        .core-features-intro strong {
+            color: #60A5FA;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -240,7 +249,7 @@
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    DTECH.
+                    <img src="images/logo.png" alt="DTECH Logo">
                 </a>
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
@@ -276,32 +285,28 @@
         </div>
     </section>
 
-    <section id="focus" style="padding: 4rem 0;">
+    <section id="focus" style="background-color: var(--dark-bg); padding: 4rem 0;">
         <div class="container">
-            <ul class="core-features-list">
-                <li>Practical Tools</li>
-                <li>Community-Oriented</li>
-                <li>Accessible Tech</li>
-                <li>Digital Support</li>
-                <li>User-Friendly Platforms</li>
-            </ul>
+            <p class="core-features-intro animate-up">
+                Welcome to a world of <strong>practical tools</strong>, <strong>community-oriented</strong> solutions, and <strong>accessible tech</strong>, providing robust <strong>digital support</strong> through <strong>user-friendly platforms</strong>.
+            </p>
         </div>
     </section>
 
-    <section style="background-color: var(--surface); padding: 0 0 6rem 0;">
+    <section style="background-color: var(--dark-bg); padding: 0 0 6rem 0;">
         <div class="container">
             <div class="founder-wrapper grid-2" style="gap: 0;">
                 <div>
-                    <img src="images/founder.jpg" alt="Seakwa Jonas Mochebane" class="founder-img" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'">
+                    <img src="images/dtech.png" alt="Seakwa Jonas Mochebane" class="founder-img" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'">
                 </div>
                 <div class="founder-content">
                     <span class="founder-label">The Visionary</span>
                     <h2>Seakwa Jonas Mochebane</h2>
                     <h4>PREASX24</h4>
-                    <p class="text-muted" style="margin-bottom: 2rem;">
+                    <p style="color: #CBD5E1; margin-bottom: 2rem;">
                         Seakwa Jonas Mochebane, the visionary founder and driving force behind DTECH, leads an ecosystem of technology-driven solutions based in South Africa. He established DTECH to build tools, platforms, and experiences that genuinely help students and communities navigate the digital world. Every solution is practical, approachable, and meaningful, reflecting his belief that technology should serve people
                     </p>
-                    <a href="founder.html" class="btn btn-primary" style="background-color: var(--text-main); box-shadow: none;">Meet the Founder</a>
+                    <a href="founder.html" class="btn btn-primary" style="background-color: var(--primary); box-shadow: none;">Meet the Founder</a>
                 </div>
             </div>
         </div>
@@ -309,9 +314,11 @@
 
     <footer>
         <div class="container">
-            <h2 style="color: white; margin-bottom: 1rem; font-weight: 800; font-size: 1.5rem;">DTECH.</h2>
-            <p>&copy; 2024 Digital Technology Services. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 1rem;">Empowering South African Students</p>
+            <p>&copy; 2026 Digital Technology Services. All Rights Reserved.</p>
+            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Empowering the youth through digital innovation</p>
+            <p style="margin-top: 1.5rem;">
+                <a href="http://legal.dtech-services.co.za" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 500;">Terms and Conditions</a>
+            </p>
         </div>
     </footer>
 
