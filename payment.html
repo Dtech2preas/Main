@@ -1,309 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D-TECH Secure Payment Gateway</title>
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-color: #c9d1d9;
-            --primary-color: #58a6ff;
-            --success-color: #238636;
-            --error-color: #f85149;
-            --border-color: #30363d;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D-TECH Secure Gateway</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --primary: #58a6ff;
+    --success: #2ea043;
+    --error: #f85149;
+}
 
-        .payment-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-            text-align: center;
-        }
+/* BACKGROUND GLOW */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: radial-gradient(circle at top, #0d1117, #000);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        h2 {
-            color: #ffffff;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
+/* CARD */
+.payment-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 0 25px rgba(88,166,255,0.1);
+    animation: fadeIn 0.6s ease;
+}
 
-        .order-details {
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 25px;
-            text-align: left;
-        }
+/* HEADER */
+h2 {
+    margin: 0 0 20px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+}
 
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+/* ORDER BOX */
+.order-details {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
 
-        .detail-row:last-child {
-            margin-bottom: 0;
-        }
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
 
-        .label {
-            color: #8b949e;
-            font-size: 0.9em;
-        }
+.label {
+    color: #8b949e;
+    font-size: 0.9em;
+}
 
-        .value {
-            font-weight: bold;
-            color: #ffffff;
-        }
+.value {
+    font-weight: bold;
+    color: #fff;
+}
 
-        .amount {
-            font-size: 1.2em;
-            color: var(--primary-color);
-        }
+.amount {
+    color: var(--primary);
+    font-size: 1.2em;
+}
 
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #8b949e;
-            font-size: 0.9em;
-        }
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(88,166,255,0.3);
+}
 
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            background-color: #0d1117;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: #ffffff;
-            font-size: 1em;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.2s;
-        }
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #238636, #2ea043);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        input[type="text"]:focus {
-            border-color: var(--primary-color);
-        }
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46,160,67,0.4);
+}
 
-        .warning-text {
-            font-size: 0.8em;
-            color: #d29922;
-            margin-top: 8px;
-            margin-bottom: 20px;
-            text-align: left;
-            line-height: 1.4;
-        }
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--success-color);
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
+/* MESSAGE */
+#message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    font-size: 0.9em;
+}
 
-        button:hover {
-            background-color: #2ea043;
-        }
+.success {
+    background: rgba(46,160,67,0.1);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
 
-        button:disabled {
-            background-color: #23863680;
-            cursor: not-allowed;
-        }
+.error {
+    background: rgba(248,81,73,0.1);
+    color: var(--error);
+    border: 1px solid var(--error);
+}
 
-        #message {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 6px;
-            display: none;
-            font-size: 0.9em;
-        }
+/* LOADER */
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: auto;
+}
 
-        .error {
-            background-color: rgba(248, 81, 73, 0.1);
-            color: var(--error-color);
-            border: 1px solid rgba(248, 81, 73, 0.4);
-        }
+/* WARNING */
+.warning {
+    font-size: 0.8em;
+    color: #d29922;
+    margin-top: 10px;
+}
 
-        .success {
-            background-color: rgba(35, 134, 54, 0.1);
-            color: var(--success-color);
-            border: 1px solid rgba(35, 134, 54, 0.4);
-        }
+/* ANIMATIONS */
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
 
-        .loader {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-            display: none;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-    <div class="payment-card">
-        <h2>D-TECH Gateway</h2>
+<div class="payment-card">
 
-        <div id="loadingState">Loading payment details...</div>
+<h2>D-TECH SECURE</h2>
 
-        <div id="paymentForm" style="display: none;">
-            <div class="order-details">
-                <div class="detail-row">
-                    <span class="label">Item:</span>
-                    <span class="value" id="itemName">-</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Amount Due:</span>
-                    <span class="value amount">R<span id="amountDue">0.00</span></span>
-                </div>
-            </div>
+<div id="loadingState">Initializing secure session...</div>
 
-            <div class="input-group">
-                <label for="voucherCode">Enter D-TECH Voucher Code</label>
-                <input type="text" id="voucherCode" placeholder="x24-XXXX-XXXX" autocomplete="off">
-            </div>
+<div id="paymentForm" style="display:none;">
 
-            <div class="warning-text">
-                ⚠️ <strong>Important:</strong> The voucher value must match the exact Amount Due. Any extra value will be lost, as vouchers are strictly one-time use.
-            </div>
-
-            <button id="payBtn" onclick="processPayment()">
-                <span id="btnText">Pay Now</span>
-                <span id="btnLoader" class="loader"></span>
-            </button>
-
-            <div id="message"></div>
-        </div>
+<div class="order-details">
+    <div class="detail-row">
+        <span class="label">Item</span>
+        <span class="value" id="itemName"></span>
     </div>
+    <div class="detail-row">
+        <span class="label">Amount</span>
+        <span class="value amount">R<span id="amountDue"></span></span>
+    </div>
+</div>
 
-    <script>
-        const API_URL = "https://dark-mud-87fb.jonasmochebane.workers.dev"; // Adjust if different
+<input type="text" id="voucherCode" placeholder="x24-XXXX-XXXX">
 
-        let orderParams = {};
+<div class="warning">
+⚠ Voucher must match exact amount. Overpayments are lost.
+</div>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
+<button id="payBtn" onclick="processPayment()">
+<span id="btnText">Authorize Payment</span>
+<div id="btnLoader" class="loader"></div>
+</button>
 
-            orderParams = {
-                amount: urlParams.get('amount'),
-                item: urlParams.get('item'),
-                order_id: urlParams.get('order_id'),
-                return_url: urlParams.get('return_url')
-            };
+<div id="message"></div>
 
-            const loadingState = document.getElementById('loadingState');
-            const paymentForm = document.getElementById('paymentForm');
-            const messageEl = document.getElementById('message');
+</div>
+</div>
 
-            if (!orderParams.amount || !orderParams.item || !orderParams.order_id || !orderParams.return_url) {
-                loadingState.style.display = 'none';
-                showMessage('Missing required payment parameters in URL.', 'error');
-                return;
-            }
+<script>
+const API_URL = "https://dark-mud-87fb.jonasmochebane.workers.dev";
 
-            document.getElementById('itemName').textContent = orderParams.item;
-            document.getElementById('amountDue').textContent = parseFloat(orderParams.amount).toFixed(2);
+let orderParams = {};
 
-            loadingState.style.display = 'none';
-            paymentForm.style.display = 'block';
-        });
+document.addEventListener('DOMContentLoaded', () => {
 
-        function showMessage(msg, type) {
-            const messageEl = document.getElementById('message');
-            messageEl.textContent = msg;
-            messageEl.className = type; // 'error' or 'success'
-            messageEl.style.display = 'block';
-        }
+const params = new URLSearchParams(window.location.search);
 
-        async function processPayment() {
-            const voucherCode = document.getElementById('voucherCode').value.trim();
-            if (!voucherCode) {
-                showMessage('Please enter a voucher code.', 'error');
-                return;
-            }
+orderParams = {
+    amount: params.get('amount'),
+    item: params.get('item'),
+    order_id: params.get('order_id'),
+    return_url: params.get('return_url')
+};
 
-            const payBtn = document.getElementById('payBtn');
-            const btnText = document.getElementById('btnText');
-            const btnLoader = document.getElementById('btnLoader');
+if (!orderParams.amount || !orderParams.item || !orderParams.order_id || !orderParams.return_url) {
+    showMessage("Invalid payment session", "error");
+    return;
+}
 
-            payBtn.disabled = true;
-            btnText.style.display = 'none';
-            btnLoader.style.display = 'inline-block';
-            document.getElementById('message').style.display = 'none';
+document.getElementById('itemName').textContent = orderParams.item;
+document.getElementById('amountDue').textContent = parseFloat(orderParams.amount).toFixed(2);
 
-            try {
-                const response = await fetch(`${API_URL}/redeem-voucher`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        voucher: voucherCode,
-                        amount: orderParams.amount,
-                        order_id: orderParams.order_id
-                    })
-                });
+document.getElementById('loadingState').style.display = 'none';
+document.getElementById('paymentForm').style.display = 'block';
 
-                const data = await response.json();
+});
 
-                if (response.ok && data.success) {
-                    showMessage('Payment Successful! Redirecting...', 'success');
+function showMessage(msg, type) {
+const el = document.getElementById('message');
+el.innerHTML = (type === "success" ? "✔ " : "❌ ") + msg;
+el.className = type;
+el.style.display = 'block';
+}
 
-                    // Construct return URL
-                    const returnUrlObj = new URL(orderParams.return_url);
-                    returnUrlObj.searchParams.append('status', 'success');
-                    returnUrlObj.searchParams.append('token', data.token);
-                    returnUrlObj.searchParams.append('order_id', orderParams.order_id);
+async function processPayment() {
 
-                    setTimeout(() => {
-                        window.location.href = returnUrlObj.toString();
-                    }, 1500);
-                } else {
-                    showMessage(data.error || 'Payment failed.', 'error');
-                    payBtn.disabled = false;
-                    btnText.style.display = 'inline-block';
-                    btnLoader.style.display = 'none';
-                }
-            } catch (error) {
-                showMessage('Network error. Please try again.', 'error');
-                payBtn.disabled = false;
-                btnText.style.display = 'inline-block';
-                btnLoader.style.display = 'none';
-            }
-        }
-    </script>
+const voucher = document.getElementById('voucherCode').value.trim();
+if (!voucher) return showMessage("Enter voucher code", "error");
+
+const btn = document.getElementById('payBtn');
+const loader = document.getElementById('btnLoader');
+const text = document.getElementById('btnText');
+
+btn.disabled = true;
+text.style.display = "none";
+loader.style.display = "block";
+
+try {
+
+const res = await fetch(`${API_URL}/redeem-voucher`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        voucher,
+        amount: orderParams.amount,
+        order_id: orderParams.order_id
+    })
+});
+
+const data = await res.json();
+
+if (res.ok && data.success) {
+
+    showMessage("Payment Approved", "success");
+
+    const url = new URL(orderParams.return_url);
+    url.searchParams.append("status","success");
+    url.searchParams.append("token",data.token);
+
+    setTimeout(()=> window.location.href = url, 1500);
+
+} else {
+    throw new Error(data.error || "Failed");
+}
+
+} catch(e) {
+    showMessage(e.message, "error");
+    btn.disabled = false;
+    loader.style.display = "none";
+    text.style.display = "block";
+}
+
+}
+</script>
+
 </body>
 </html>
