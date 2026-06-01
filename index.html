@@ -120,31 +120,18 @@
                 radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1), transparent 30%);
             background-size: 150% 150%;
             animation: driftBackground 20s ease-in-out infinite;
-            min-height: 90vh;
+            /* Changed from 90vh to 75vh to eliminate false bottom and show cards below */
+            min-height: 75vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 8rem 1rem 4rem;
+            padding: 8rem 1rem 2rem;
             position: relative;
             overflow: hidden;
         }
 
         .hero-content { position: relative; z-index: 2; max-width: 900px; }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(37, 99, 235, 0.1);
-            color: #60A5FA;
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(37, 99, 235, 0.2);
-        }
 
         .hero h1 {
             font-size: clamp(3rem, 8vw, 5.5rem);
@@ -264,23 +251,81 @@
         <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:white; font-size: 2.5rem; cursor: pointer;">&times;</button>
         <div class="nav-links">
             <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="#marketplace" onclick="toggleMenu()" style="color: #60A5FA;">Marketplace</a>
+            <a href="#builder" onclick="toggleMenu()" style="color: #60A5FA;">Site Builder</a>
+            <a href="contact.html" onclick="toggleMenu()" style="color: #60A5FA;">Custom Dev</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
             <a href="founder.html" onclick="toggleMenu()">Founder</a>
-            <a href="ecosystem.html" onclick="toggleMenu()">Ecosystem</a>
-            <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
         </div>
     </div>
 
     <section class="hero">
         <div class="container hero-content">
-            <span class="hero-badge animate-up">technology with purpose</span>
-            <h1 class="animate-up delay-1">Welcome to <br><span class="highlight">D-TECH</span></h1>
+            <h1 class="animate-up delay-1">Welcome to <br><span class="highlight">D-TECH Services</span></h1>
             <p class="animate-up delay-2">
-                A digital ecosystem focused on building online tools and systems designed to empower the youth through digital innovation.
+                We build, license, and automate practical digital platforms. Choose a service below to start scaling your online presence.
             </p>
-            <div class="btn-group animate-up delay-3">
-                <a href="ecosystem.html" class="btn btn-primary">Explore Ecosystem</a>
-                <a href="about.html" class="btn btn-outline">Learn More</a>
+            <div class="btn-group animate-up delay-3" style="margin-bottom: 1.5rem; gap: 0.75rem;">
+                <a href="#marketplace" class="btn btn-primary">🛒 Digital Marketplace</a>
+                <a href="#builder" class="btn btn-outline">⚡ Site Builder</a>
+                <a href="contact.html" class="btn btn-outline">🛠️ Custom Dev</a>
+            </div>
+            <div class="animate-up delay-3" style="margin-top: 1rem;">
+                 <a href="ecosystem.html" style="color: #94A3B8; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px dotted #64748B; padding-bottom: 2px; transition: color 0.3s;">
+                    &rarr; Or view our Free Educational Ecosystem
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Business Engine</h2>
+                <p class="core-features-intro">Accelerate your digital presence. Choose from our pre-built solutions, automate your own platform, or let us build something bespoke.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- 1. The Marketplace -->
+                <div class="card">
+                    <div class="card-icon">🛒</div>
+                    <h3>Digital Marketplace</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Explore our portfolio of fully developed websites, digital tools, and services available for outright purchase, licensing, or white-labeling.</p>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li>✓ Full Source Code Access</li>
+                        <li>✓ White-Label Licensing</li>
+                        <li>✓ Transparent Pricing</li>
+                    </ul>
+                    <a href="#marketplace" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Browse Listings</a>
+                </div>
+
+                <!-- 2. Automated Site Builder -->
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Automated Site Builder</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Use our automated system to instantly generate your own website. Includes robust hosting and a custom subdomain (e.g., yourname.dtech.co.za).</p>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li>✓ Instant Setup & Deployment</li>
+                        <li>✓ Reliable Cloud Hosting included</li>
+                        <li>✓ "Sponsored by DTECH" Tier available</li>
+                    </ul>
+                    <a href="#builder" class="btn btn-primary" style="width: 100%;">Start Building Now</a>
+                </div>
+
+                <!-- 3. Custom Development -->
+                <div class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Custom Development</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Have a unique vision? Partner with our engineering team to architect and build bespoke websites, SaaS tools, and scalable digital ecosystems.</p>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li>✓ Dedicated Engineering Team</li>
+                        <li>✓ Complex System Integrations</li>
+                        <li>✓ Scalable Architecture Design</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Contact Sales</a>
+                </div>
             </div>
         </div>
     </section>
