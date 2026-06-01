@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DTECH Digital Marketplace - Explore our portfolio of fully developed websites, digital tools, and services available for outright purchase or white-labeling.">
+    <title>Digital Marketplace | DTECH</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Reusing global styles, adding marketplace specific tweaks */
+        body {
+            background-color: var(--bg-color);
+            padding-top: 72px; /* For fixed header */
+        }
+
+        .marketplace-hero {
+            background: linear-gradient(180deg, var(--bg-color) 0%, #0F172A 100%);
+            padding: 5rem 1rem 3rem;
+            text-align: center;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .marketplace-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .marketplace-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Product Cards */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+
+        .product-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 60%; /* 16:9 Aspect Ratio approx */
+            background: var(--bg-color);
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.03);
+        }
+
+        .product-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .pricing-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .price-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .btn-buy {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-buy:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-demo {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-demo:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-main);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="DTECH Logo" style="height: 40px;">
+                </a>
+                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:white; font-size: 2.5rem; cursor: pointer;">&times;</button>
+        <div class="nav-links">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="marketplace.html" onclick="toggleMenu()" style="color: #60A5FA;">Marketplace</a>
+            <a href="index.html#builder" onclick="toggleMenu()" style="color: #60A5FA;">Site Builder</a>
+            <a href="contact.html" onclick="toggleMenu()" style="color: #60A5FA;">Custom Dev</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
+            <a href="about.html" onclick="toggleMenu()">About Us</a>
+            <a href="founder.html" onclick="toggleMenu()">Founder</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="marketplace-hero">
+        <div class="container">
+            <h1>Digital Marketplace</h1>
+            <p>Explore our portfolio of fully developed, production-ready digital platforms available for outright purchase or white-label licensing.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container">
+        <div class="products-grid">
+
+            <!-- Product 1: DTECH Hub -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/product-hub.png" alt="DTECH Educational Hub Interface" class="product-image">
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Educational Platform</span>
+                    <h3 class="product-title">DTECH Hub Clone</h3>
+                    <p class="product-desc">A comprehensive, low-data optimized educational hub. Features include structured access to past papers, study guides, interactive quizzes, and SBA/PAT resources. Perfect for schools or educational NGOs.</p>
+
+                    <div class="pricing-box">
+                        <div class="price-row">
+                            <span class="price-label">White-Label License</span>
+                            <span class="price-value">R 1,500</span>
+                        </div>
+                        <div class="price-row" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border-color);">
+                            <span class="price-label">Outright Purchase (Source)</span>
+                            <span class="price-value">R 4,500</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <a href="payment.html?product=hub-clone" class="btn-buy">Purchase / License</a>
+                        <a href="http://www.preasx24.co.za" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Textbook Exchange -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/product-books.png" alt="Peer-to-Peer Textbook Exchange Interface" class="product-image">
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Marketplace Engine</span>
+                    <h3 class="product-title">Campus Textbook Exchange</h3>
+                    <p class="product-desc">A peer-to-peer directory facilitating textbook exchanges. Includes secure WhatsApp routing, POPIA-compliant data handling, and zero-fee offline matching. Ideal for university student councils or localized communities.</p>
+
+                    <div class="pricing-box">
+                        <div class="price-row">
+                            <span class="price-label">White-Label License</span>
+                            <span class="price-value">R 2,000</span>
+                        </div>
+                        <div class="price-row" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border-color);">
+                            <span class="price-label">Outright Purchase (Source)</span>
+                            <span class="price-value">R 6,000</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <a href="payment.html?product=book-exchange" class="btn-buy">Purchase / License</a>
+                        <a href="https://books.dtech-services.co.za" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Student Rewards App -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/product-student.png" alt="Student Rewards App Interface" class="product-image">
+                </div>
+                <div class="product-content">
+                    <span class="product-category">Telegram Mini-App</span>
+                    <h3 class="product-title">Student Rewards Engine</h3>
+                    <p class="product-desc">A lightweight web app integrated with Telegram Auth. Features a voucher reward system, user balance tracking, and secure access portals. Great for loyalty programs or campus incentive schemes.</p>
+
+                    <div class="pricing-box">
+                        <div class="price-row">
+                            <span class="price-label">White-Label License</span>
+                            <span class="price-value">R 2,500</span>
+                        </div>
+                        <div class="price-row" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border-color);">
+                            <span class="price-label">Outright Purchase (Source)</span>
+                            <span class="price-value">R 7,500</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <a href="payment.html?product=rewards-app" class="btn-buy">Purchase / License</a>
+                        <a href="https://student.dtech-services.co.za" target="_blank" class="btn-demo">View Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="text-align: center; padding: 3rem 0; color: var(--text-muted); border-top: 1px solid var(--border-color);">
+            <p>&copy; 2026 Digital Technology Services. All Rights Reserved.</p>
+            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Empowering the youth through digital innovation</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const header = document.getElementById('mainHeader');
+
+        function toggleMenu() {
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(11, 15, 25, 0.95)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(11, 15, 25, 0.7)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Initial setup for non-index pages
+        header.style.background = 'rgba(11, 15, 25, 0.95)';
+    </script>
+</body>
+</html>
