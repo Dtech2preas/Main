@@ -1,88 +1,160 @@
+
+// Data for the modals
+const nodeData = {
+    'preasx24': {
+        name: 'Preasx24',
+        icon: 'ri-graduation-cap-line',
+        domain: 'preasx24.co.za',
+        status: 'Live',
+        purpose: 'A comprehensive academic support platform tailored for Grade 12 learners in South Africa, providing crucial resources for passing matric and transitioning to university.',
+        users: 'Grade 12 Learners',
+        features: ['Past Exam Papers', 'NSFAS Info', 'University Info', 'Subject Study Material', 'Video & Audio Lessons']
+    },
+    'quiz': {
+        name: 'DTECH Quiz Platform',
+        icon: 'ri-gamepad-line',
+        domain: 'quiz.dtech-services.co.za',
+        status: 'Live',
+        purpose: 'A CAPS-aligned gamified learning system designed to make testing knowledge engaging and competitive across multiple grades.',
+        users: 'Grade 4–12 Learners',
+        features: ['CAPS Alignment', 'Subject Quizzes', 'Weekly Exams', 'Global Leaderboards']
+    },
+    'studyapp': {
+        name: 'DTECH Study App',
+        icon: 'ri-robot-line',
+        domain: 'App',
+        status: 'Beta',
+        purpose: 'An AI-powered study assistant that analyzes uploaded documents to provide simplified explanations and generate dynamic quizzes.',
+        users: 'High School & Uni Students',
+        features: ['AI Document Analysis', 'Simplified Explanations', 'Auto-Quiz Generation', 'Interactive Support']
+    },
+    'uni': {
+        name: 'University Eligibility Portal',
+        icon: 'ri-bank-line',
+        domain: 'uni.dtech-services.co.za',
+        status: 'Live',
+        purpose: 'A tool that helps learners input their marks to find out which university courses they qualify for based on current prospectuses.',
+        users: 'Grade 11 & 12 Learners',
+        features: ['Course Matching', 'University DB', 'Detailed Requirements', 'Prospectus Analysis']
+    },
+    'books': {
+        name: 'NMU Books Marketplace',
+        icon: 'ri-book-open-line',
+        domain: 'books.dtech-services.co.za',
+        status: 'Live',
+        purpose: 'A centralized marketplace for university students to buy and sell textbooks easily using WhatsApp for communication.',
+        users: 'University Students',
+        features: ['Buy & Sell Books', 'WhatsApp Integration', 'Student-Focused', 'Easy Discovery']
+    },
+    'income': {
+        name: 'Student Income Platform',
+        icon: 'ri-coins-line',
+        domain: 'student.dtech-services.co.za',
+        status: 'In Dev',
+        purpose: 'A platform allowing students to earn rewards and revenue through active platform participation and advertising engagement.',
+        users: 'Students',
+        features: ['Reward System', 'Ad Engagement', 'Revenue Sharing', 'Student Empowerment']
+    },
+    'discover': {
+        name: 'DTECH Discover',
+        icon: 'ri-music-2-line',
+        domain: 'Android App',
+        status: 'Live',
+        purpose: 'A modern music streaming and downloading platform featuring smart recommendations and an intuitive interface.',
+        users: 'General Consumers',
+        features: ['Music Streaming', 'Offline Listening', 'Discovery Roulette', 'Smart Playlists']
+    },
+    'server': {
+        name: 'DTECH Server',
+        icon: 'ri-server-line',
+        domain: 'Android App',
+        status: 'Live',
+        purpose: 'An application that turns any Android phone into a public web server, complete with a free DTECH subdomain.',
+        users: 'Developers & Creators',
+        features: ['Local Hosting', 'Free Subdomain', 'Auto Configuration', 'Mobile-First']
+    },
+    'apps': {
+        name: 'DTECH Apps Portal',
+        icon: 'ri-app-store-line',
+        domain: 'app.dtech-services.co.za',
+        status: 'Live',
+        purpose: 'The central software library and discovery hub for all DTECH applications.',
+        users: 'All Users',
+        features: ['App Discovery', 'APK Downloads', 'Documentation', 'Central Library']
+    },
+    'mainweb': {
+        name: 'DTECH Main Website',
+        icon: 'ri-global-line',
+        domain: 'dtech-services.co.za',
+        status: 'Live',
+        purpose: 'The central corporate hub providing information about DTECH services, business offerings, and the overall ecosystem.',
+        users: 'Public & Partners',
+        features: ['Platform Directory', 'Ecosystem Overview', 'Business Offerings']
+    },
+    'about': {
+        name: 'About DTECH',
+        icon: 'ri-information-line',
+        domain: 'about.preasx24.co.za',
+        status: 'Live',
+        purpose: 'The definitive source for understanding the mission, vision, and origins of the DTECH ecosystem and its founder.',
+        users: 'Public',
+        features: ['Mission Statement', 'Founder Info', 'Vision']
+    },
+    'legal': {
+        name: 'DTECH Legal Portal',
+        icon: 'ri-scale-3-line',
+        domain: 'legal.dtech-services.co.za',
+        status: 'Live',
+        purpose: 'The central platform hosting all legal documentation, compliance policies, and user agreements for the ecosystem.',
+        users: 'All Users',
+        features: ['Terms & Conditions', 'Privacy Policies', 'User Agreements']
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Scroll Animations (IntersectionObserver) ---
+
+    // --- Scroll Animations ---
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.2
+        threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-
-                // Trigger counters
-                const counters = entry.target.querySelectorAll('.counter');
-                counters.forEach(counter => {
-                    if (!counter.classList.contains('counted')) {
-                        startCounter(counter);
-                        counter.classList.add('counted');
-                    }
-                });
             }
         });
     }, observerOptions);
 
-    // Select elements to animate
-    const animatableElements = document.querySelectorAll('.branch-content, .milestone-card, .node-compact');
-
-    // Set initial styles for animation via JS to avoid FOUC if JS fails/CSS mismatch
+    const animatableElements = document.querySelectorAll('.category-node, .leaf-node');
     animatableElements.forEach(el => {
-        // Only if not already styled for animation (branch-content & milestone-card handle it in CSS now)
-        if (!el.classList.contains('branch-content') && !el.classList.contains('milestone-card')) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
-        }
-    });
-
-    // Observe
-    animatableElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease';
         observer.observe(el);
-    });
 
-    // Add 'visible' class style handling for compact nodes (others handled in CSS)
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = `
-        .node-compact.visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(styleSheet);
-
-    // --- 1.5 Constrained Physics (Parallax) ---
-    const physicsNodes = document.querySelectorAll('.milestone-card, .branch-content');
-
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.clientX) / 20; // Divide by 20 for subtle effect
-        const y = (window.innerHeight / 2 - e.clientY) / 20;
-
-        physicsNodes.forEach(node => {
-            // Constrain movement to max 15px to preserve layout order
-            const constrainedX = Math.max(-15, Math.min(15, x));
-            const constrainedY = Math.max(-15, Math.min(15, y));
-
-            node.style.setProperty('--px', `${constrainedX}px`);
-            node.style.setProperty('--py', `${constrainedY}px`);
+        // Add specific visible class logic
+        el.addEventListener('transitionend', () => {
+             if(el.classList.contains('visible')) {
+                 el.style.opacity = '1';
+                 el.style.transform = 'translateY(0)';
+             }
         });
     });
 
 
-    // --- 2. Dynamic Path Drawing ---
-    // We need to connect the .central-hub to each node in sequence
 
+
+    // --- Network Path Drawing ---
     const pathBase = document.getElementById('connectionPathBase');
     const pathActive = document.getElementById('connectionPathActive');
 
     function updatePath() {
-        const hub = document.querySelector('.central-hub');
-        // Select all nodes that are part of the path, excluding the hub itself if it has the class
-        const nodes = document.querySelectorAll('.path-node:not(.central-hub)');
+        const hub = document.getElementById('dtech-hub');
+        if (!hub || !pathBase) return;
 
-        if (!hub || nodes.length === 0) return;
-
-        // Get coordinates relative to the viewport/document
         const getCenter = (element) => {
             const rect = element.getBoundingClientRect();
             return {
@@ -92,109 +164,59 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const hubCenter = getCenter(hub);
+        let d = '';
 
-        // Start path at Hub
-        let d = `M ${hubCenter.x} ${hubCenter.y}`;
+        // 1. Draw from Hub to Categories
+        const categories = document.querySelectorAll('.category-node');
+        categories.forEach(cat => {
+            const catCenter = getCenter(cat);
+            // Draw curve
+            const midY = (hubCenter.y + catCenter.y) / 2;
+            d += `M ${hubCenter.x} ${hubCenter.y} C ${hubCenter.x} ${midY}, ${catCenter.x} ${midY}, ${catCenter.x} ${catCenter.y} `;
 
-        let previousPoint = hubCenter;
-
-        nodes.forEach(node => {
-            const nodeCenter = getCenter(node);
-
-            // Draw a curve to the next node
-            // S-Curve logic handles wide horizontal gaps gracefully
-            const midY = (previousPoint.y + nodeCenter.y) / 2;
-
-            // Adjust control points based on horizontal distance to smoothen wide turns
-            const dist = Math.abs(nodeCenter.x - previousPoint.x);
-            // If distance is large, we might want a slightly different curve, but standard cubic works well.
-
-            d += ` C ${previousPoint.x} ${midY}, ${nodeCenter.x} ${midY}, ${nodeCenter.x} ${nodeCenter.y}`;
-
-            previousPoint = nodeCenter;
+            // 2. Draw from Category to its Leaves
+            const branch = cat.closest('.network-branch');
+            if(branch) {
+                const leaves = branch.querySelectorAll('.leaf-node');
+                leaves.forEach(leaf => {
+                    const leafCenter = getCenter(leaf);
+                    // Use a tighter curve for leaves
+                    const leafMidY = catCenter.y + (leafCenter.y - catCenter.y) * 0.2;
+                    d += `M ${catCenter.x} ${catCenter.y} C ${catCenter.x} ${leafMidY}, ${leafCenter.x} ${leafMidY}, ${leafCenter.x} ${leafCenter.y} `;
+                });
+            }
         });
 
-        // Extend line a bit further down from the last node (Roadmap will be last)
-        d += ` L ${previousPoint.x} ${previousPoint.y + 100}`;
-
-        // Set path data for both
-        if (pathBase) pathBase.setAttribute('d', d);
+        pathBase.setAttribute('d', d);
         if (pathActive) {
             pathActive.setAttribute('d', d);
 
-            // Set dasharray for animation
+            // Animation handling
             const pathLength = pathActive.getTotalLength();
             pathActive.style.strokeDasharray = pathLength;
 
-            // Initial draw state
-            updateScrollDraw();
+            // Create a flowing effect rather than scroll-based reveal
+            // To do this via CSS:
+            pathActive.style.animation = 'dashFlow 3s linear infinite';
         }
     }
 
-    function updateScrollDraw() {
-        if (!pathActive) return;
 
-        const pathLength = pathActive.getTotalLength();
 
-        // Calculate scroll progress relative to the document height
-        const maxScroll = document.body.scrollHeight - window.innerHeight;
-        const scrollY = window.scrollY;
-
-        // Strategy: Draw line up to the center of viewport + offset
-        // Find the relative position on the page
-        const triggerPoint = scrollY + (window.innerHeight * 0.75);
-
-        // Map this trigger point to path length?
-        // A simple linear mapping isn't perfect because nodes vary in distance.
-        // Ideally, we find the point on path closest to scrollY.
-        // But for simplicity, we use a percentage of total height mapped to total length.
-
-        const docHeight = document.body.scrollHeight;
-        const drawPercent = Math.min((triggerPoint / docHeight) * 1.2, 1); // 1.2 multiplier to stay ahead
-
-        const drawOffset = pathLength * (1 - drawPercent);
-
-        pathActive.style.strokeDashoffset = Math.max(0, drawOffset);
-    }
-
-    // Update path on resize and scroll
-    window.addEventListener('resize', updatePath);
-    window.addEventListener('scroll', () => {
-        requestAnimationFrame(updateScrollDraw);
-    });
-
-    // Continuous Path Update for Floating Nodes
-    function animatePath() {
-        updatePath();
-        requestAnimationFrame(animatePath);
-    }
-
-    // Initial draw & Start Loop
+    // Initial draw & Start Loop for responsive connections
     setTimeout(() => {
         updatePath();
-        animatePath();
+
+        // Use ResizeObserver for better performance than continuous loop
+        const resizeObserver = new ResizeObserver(() => {
+            requestAnimationFrame(updatePath);
+        });
+        resizeObserver.observe(document.body);
+
     }, 100);
 });
 
-// Utility: Counter Animation
-function startCounter(el) {
-    const target = parseInt(el.getAttribute('data-target'));
-    const duration = 2000;
-    const step = Math.ceil(target / (duration / 16));
-    let current = 0;
-
-    const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            el.textContent = target + "+";
-            clearInterval(timer);
-        } else {
-            el.textContent = current;
-        }
-    }, 16);
-}
-
-// Utility: Modal
+// Modal Logic
 function openModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
@@ -209,4 +231,41 @@ function closeModal(id) {
         modal.style.display = 'none';
         document.body.style.overflow = '';
     }
+}
+
+function openNodeModal(nodeKey) {
+    const data = nodeData[nodeKey];
+    if(!data) return;
+
+    document.getElementById('modalTitle').textContent = data.name;
+    document.getElementById('modalDomain').textContent = data.domain;
+
+    const iconEl = document.getElementById('modalIcon');
+    iconEl.innerHTML = `<i class="${data.icon}"></i>`;
+
+    const statusEl = document.getElementById('modalStatus');
+    statusEl.textContent = data.status;
+    statusEl.className = 'status-badge ' + (data.status === 'Live' ? 'live' : 'dev');
+
+    document.getElementById('modalPurpose').textContent = data.purpose;
+    document.getElementById('modalUsers').innerHTML = `<i class="ri-user-line" style="color: var(--eco-accent); margin-right: 5px;"></i> ${data.users}`;
+
+    const featuresList = document.getElementById('modalFeatures');
+    featuresList.innerHTML = '';
+    data.features.forEach(f => {
+        const li = document.createElement('li');
+        li.className = 'feature-item';
+        li.innerHTML = `<i class="ri-checkbox-circle-fill"></i> ${f}`;
+        featuresList.appendChild(li);
+    });
+
+    const linkEl = document.getElementById('modalLink');
+    if(data.domain.includes('.co.za') || data.domain.includes('http')) {
+        linkEl.style.display = 'inline-flex';
+        linkEl.href = data.domain.startsWith('http') ? data.domain : `https://${data.domain}`;
+    } else {
+        linkEl.style.display = 'none'; // Hide if it's "App" or "Android App" without a link
+    }
+
+    openModal('nodeModal');
 }
