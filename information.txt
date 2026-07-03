@@ -1,0 +1,90 @@
+# DTECH System Analysis
+
+## 1. High-Level Overview
+**What it is:** DTECH is a South African student-focused digital innovation platform and ecosystem founded by Seakwa Jonas Mochebane (PREASX24). It serves as a digital marketplace, automated site builder, and a free educational ecosystem.
+**What it does:** It builds, licenses, and automates practical digital platforms. It offers digital tools, outright purchase/white-labeling of websites, and provides an educational ecosystem targeting Grade 12 learners and university students.
+**Purpose:** The core philosophy leverages freely available systems and services to build scalable, user-friendly, and accessible platforms without cost barriers for the public, particularly youth in South Africa.
+**How it works (Logic, Interactions & Requests):** The project is a static HTML/CSS/JS website. It relies primarily on client-side interactions rather than a backend server. Navigation uses a hamburger menu triggering a full-screen overlay. The Ecosystem page uses advanced CSS and JS (`ecosystem.js`, `particles.js`) for interactive radial/hybrid network maps, pulsing nodes, animated SVG connections, and particle backgrounds. Requests are primarily static asset fetches (HTML, CSS, JS, Images, Fonts). The payment/gateway handles client-side form validation (voucher authentication) mimicking a gateway. Modals are heavily used in the ecosystem view to show details without leaving the page.
+
+## 2. File-by-File Detailed Breakdown
+
+### HTML Files
+
+#### `founder.html`
+- **Title:** Founder: Seakwa Jonas Mochebane | DTECH
+- **Description:** Meet Seakwa Jonas Mochebane (PREASX24), the founder of DTECH.
+- **Role/Purpose:**
+  - A dedicated page about the founder, Seakwa Jonas Mochebane (PREASX24), detailing his background and vision.
+
+#### `ecosystem.html`
+- **Title:** DTECH Ecosystem | The Connected Digital World
+- **Description:** N/A
+- **Role/Purpose:**
+  - An interactive map showing the DTECH Free Educational Ecosystem. Features a complex radial UI with categories (Education, Student Services, Technology, Corporate Infrastructure) and uses SVG paths and particles for a 'futuristic OS' feel.
+
+#### `vision.html`
+- **Title:** Our Vision | DTECH
+- **Description:** Explore DTECH's vision for long-term digital infrastructure and scalable ecosystems.
+- **Role/Purpose:**
+  - Outlines the long-term vision of DTECH regarding digital infrastructure and scalable ecosystems.
+
+#### `about.html`
+- **Title:** About DTECH | Technology With Purpose
+- **Description:** Learn about DTECH — a South African technology ecosystem building practical, freely accessible digital tools and platforms.
+- **Role/Purpose:**
+  - Details the history, mission, and philosophy of DTECH. Explains how it builds technology with purpose.
+
+#### `contact.html`
+- **Title:** Contact DTECH | Business Inquiries
+- **Description:** Contact DTECH for business inquiries and collaboration opportunities.
+- **Role/Purpose:**
+  - The contact page for business inquiries, custom development requests, and general communication.
+
+#### `marketplace.html`
+- **Title:** Digital Marketplace | DTECH
+- **Description:** DTECH Digital Marketplace - Explore our portfolio of fully developed websites, digital tools, and services available for outright purchase or white-labeling.
+- **Role/Purpose:**
+  - Displays the digital products and platforms available for purchase, licensing, or white-labeling.
+
+#### `index.html`
+- **Title:** DTECH | Student-Focused Digital Innovation
+- **Description:** DTECH is a South African student-focused digital innovation platform founded by Seakwa Jonas Mochebane.
+- **Role/Purpose:**
+  - The main landing page. Introduces DTECH, its core services (Digital Marketplace, Automated Site Builder, Custom Dev), and provides navigation to other sections like the Free Ecosystem.
+
+#### `payment.html`
+- **Title:** DTECH Secure Gateway | Voucher Authentication
+- **Description:** N/A
+- **Role/Purpose:**
+  - A secure gateway for voucher authentication. It intercepts payment form submissions and makes a real `fetch()` POST request to a Cloudflare Worker backend to validate and process voucher payments.
+
+#### `apps/D-TECH_MUSIC.html`
+- **Title:** D-TECH Music App
+- **Description:** N/A
+- **Role/Purpose:**
+  - A standalone app page for D-TECH Music, demonstrating additional service offerings.
+
+### CSS Files
+
+#### `css/style.css`
+- **Role/Purpose:** The core stylesheet for the website. It defines global variables (Friendly Dark Theme: deep space dark, tech blue primary), typography (Inter font), reset rules, navigation styling (hamburger menu, overlay), button styles, and general layout utilities (grid, flexbox). It ensures a compact content layout minimizing vertical space.
+
+#### `css/ecosystem-style.css`
+- **Role/Purpose:** Specific styles for `ecosystem.html`. Manages the complex grid background, neon accents, glowing nodes, animations (pulsing, floating), and SVG connection styling. It constraints physics effects to +/- 15px to maintain visual hierarchy.
+
+### JavaScript Files
+
+#### `js/ecosystem.js`
+- **Role/Purpose:** Controls the interactive logic for the Ecosystem map. It stores `nodeData` (details about Preasx24, NMU Books, etc.), handles clicking on nodes to open modals containing the data, dynamically draws SVG paths to connect nodes, and manages mousemove parallax effects updating CSS variables.
+
+#### `js/particles.js`
+- **Role/Purpose:** Provides a canvas-based particle network animation. Used to enhance the 'futuristic OS' aesthetic by rendering floating dots connected by lines based on proximity.
+
+## 3. System Architecture & Requests Explanation
+- **Architecture:** Fully Static Architecture (Jamstack style with external API calls). Hosted likely on static hosting platforms (Vercel, Netlify, GitHub Pages, or standard cloud buckets). No backend database or server-side rendering is present in this repository.
+- **Requests/Data Flow:**
+  - **Initial Load:** Client browser requests an HTML file (e.g., `index.html`). Server returns the HTML.
+  - **Asset Fetching:** The browser parses HTML and initiates subsequent requests for CSS (`style.css`), JS (`ecosystem.js`), images (logos), and external fonts (Google Fonts Inter).
+  - **User Interactions (Navigation):** Handled entirely via standard HTML `<a>` tags for page routing, and DOM manipulation (JS) for toggling the hamburger menu overlay.
+  - **User Interactions (Ecosystem Map):** Clicking a node in `ecosystem.html` triggers a JS function in `ecosystem.js`. This function reads static JSON-like object data in memory, populates a hidden modal div, and changes its CSS class to make it visible. No network request is made.
+  - **API Requests (Payment Gateway):** The `payment.html` page uses JS to intercept form submission and performs a real POST request using `fetch()` to a Cloudflare Worker API (`https://dark-mud-87fb.jonasmochebane.workers.dev/redeem-voucher`). It sends the voucher code, amount, and order_id to this backend service to securely authenticate and redeem the voucher, displaying success or error messages based on the server response.
