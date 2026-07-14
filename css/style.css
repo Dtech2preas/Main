@@ -75,7 +75,7 @@ img {
     gap: var(--spacing-md);
 }
 
-.grid-3 {
+.grid-3, .auto-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-md);
@@ -301,7 +301,7 @@ footer {
         --spacing-lg: 3rem;
     }
 
-    .grid-2, .grid-3 {
+    .grid-2, .grid-3, .auto-grid {
         grid-template-columns: 1fr;
     }
 }
