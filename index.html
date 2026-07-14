@@ -182,7 +182,7 @@
         .section-header h2 { font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; letter-spacing: -0.03em; }
 
         /* Grid Layouts */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
         @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
 
@@ -268,8 +268,8 @@
             </p>
             <div class="btn-group animate-up delay-3" style="margin-bottom: 1.5rem; gap: 0.75rem;">
                 <a href="marketplace.html" class="btn btn-primary">🛒 Digital Marketplace</a>
-                <a href="#builder" class="btn btn-outline">⚡ Site Builder</a>
-                <a href="contact.html" class="btn btn-outline">🛠️ Custom Dev</a>
+                <a href="#development-services" class="btn btn-outline">💼 Development Services</a>
+                <a href="#licensing-solutions" class="btn btn-outline">🚀 Licensing Solutions</a>
             </div>
             <div class="animate-up delay-3" style="margin-top: 1rem;">
                  <a href="ecosystem.html" style="color: #94A3B8; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px dotted #64748B; padding-bottom: 2px; transition: color 0.3s;">
@@ -279,58 +279,288 @@
         </div>
     </section>
 
-    <!-- CORE SERVICES SECTION -->
-    <section id="services">
+        <!-- SECTION 1: What We Build -->
+    <section id="what-we-build" style="padding: 6rem 0; background: var(--dark-bg);">
+        <div class="container">
+            <div class="section-header" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2>What We Build</h2>
+                <p class="core-features-intro">We design and develop affordable digital solutions for businesses, schools, organisations and entrepreneurs.</p>
+                <p style="color: #94A3B8; font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">From simple websites to complete business management systems, D-TECH focuses on practical technology that solves real problems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Development Services -->
+    <section id="development-services">
         <div class="container">
             <div class="section-header">
-                <h2>Our Business Engine</h2>
-                <p class="core-features-intro">Accelerate your digital presence. Choose from our pre-built solutions, automate your own platform, or let us build something bespoke.</p>
+                <h2>Development Services</h2>
+                <p class="core-features-intro">Custom-built solutions tailored to your unique requirements.</p>
             </div>
 
-            <div class="grid-3">
-                <!-- 1. The Marketplace -->
+            <div class="auto-grid">
+                <!-- Website Development -->
                 <div class="card">
-                    <div class="card-icon">🛒</div>
-                    <h3>Digital Marketplace</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Explore our portfolio of fully developed websites, digital tools, and services available for outright purchase, licensing, or white-labeling.</p>
-                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>✓ Full Source Code Access</li>
-                        <li>✓ White-Label Licensing</li>
-                        <li>✓ Transparent Pricing</li>
+                    <div class="card-icon">🌐</div>
+                    <h3>Website Development</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Professional, responsive websites designed to grow your online presence.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R500</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 180px;">
+                        <li>✓ Responsive websites</li>
+                        <li>✓ Business websites</li>
+                        <li>✓ School websites</li>
+                        <li>✓ Portfolio websites</li>
+                        <li>✓ Landing pages</li>
+                        <li>✓ Basic SEO</li>
+                        <li>✓ Mobile optimisation</li>
                     </ul>
-                    <a href="marketplace.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Browse Listings</a>
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Request Quote</a>
                 </div>
 
-                <!-- 2. Automated Site Builder -->
+                <!-- Mobile App Development -->
                 <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Automated Site Builder</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Use our automated system to instantly generate your own website. Includes robust hosting and a custom subdomain (e.g., yourname.dtech.co.za).</p>
-                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>✓ Instant Setup & Deployment</li>
-                        <li>✓ Reliable Cloud Hosting included</li>
-                        <li>✓ "Sponsored by DTECH" Tier available</li>
+                    <div class="card-icon">📱</div>
+                    <h3>Mobile App Development</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Native and cross-platform applications for iOS and Android.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R1,500</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 180px;">
+                        <li>✓ Android applications</li>
+                        <li>✓ Firebase integration</li>
+                        <li>✓ Push notifications</li>
+                        <li>✓ Offline functionality</li>
+                        <li>✓ Custom UI</li>
                     </ul>
-                    <a href="#builder" class="btn btn-primary" style="width: 100%;">Start Building Now</a>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Start Project</a>
                 </div>
 
-                <!-- 3. Custom Development -->
+                <!-- Business Systems -->
                 <div class="card">
-                    <div class="card-icon">🛠️</div>
-                    <h3>Custom Development</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Have a unique vision? Partner with our engineering team to architect and build bespoke websites, SaaS tools, and scalable digital ecosystems.</p>
-                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>✓ Dedicated Engineering Team</li>
-                        <li>✓ Complex System Integrations</li>
-                        <li>✓ Scalable Architecture Design</li>
+                    <div class="card-icon">⚙️</div>
+                    <h3>Business Systems</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Internal tools and platforms to automate and manage your operations.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R2,000</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 180px;">
+                        <li>✓ CRM Systems</li>
+                        <li>✓ Inventory Systems</li>
+                        <li>✓ Booking Systems</li>
+                        <li>✓ Admin Dashboards</li>
+                        <li>✓ Reporting Systems</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Contact Sales</a>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Get Quote</a>
+                </div>
+
+                <!-- E-Commerce Websites -->
+                <div class="card">
+                    <div class="card-icon">🛍️</div>
+                    <h3>E-Commerce Websites</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Complete online stores with secure payments and inventory management.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R2,000</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 180px;">
+                        <li>✓ Product catalogue</li>
+                        <li>✓ Shopping cart</li>
+                        <li>✓ Payment integration</li>
+                        <li>✓ Order management</li>
+                        <li>✓ Admin dashboard</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Build Store</a>
+                </div>
+
+                <!-- Website Revamps -->
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3>Website Revamps</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Breathe new life into your existing website with a modern redesign.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R500</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 180px;">
+                        <li>✓ Modern redesign</li>
+                        <li>✓ Better speed</li>
+                        <li>✓ Improved SEO</li>
+                        <li>✓ Mobile responsiveness</li>
+                        <li>✓ Security improvements</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Revamp Website</a>
                 </div>
             </div>
         </div>
     </section>
 
-        <footer>
+    <!-- SECTION 3: Licensing Solutions -->
+    <section id="licensing-solutions" style="background: var(--dark-bg); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Licensing Solutions</h2>
+                <p class="core-features-intro">Don't need software built from scratch? License existing D-TECH platforms.</p>
+            </div>
+
+            <div class="auto-grid">
+                <!-- Student Marketplace -->
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Student Marketplace</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Pre-built marketplace platforms tailored for student environments.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R250/month</span></div>
+                    <a href="marketplace.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">View Platform</a>
+                </div>
+
+                <!-- Educational Platforms -->
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Educational Platforms</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Ready-to-use e-learning and quiz systems for schools and tutors.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R250/month</span></div>
+                    <a href="ecosystem.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Learn More</a>
+                </div>
+
+                <!-- Business Portals -->
+                <div class="card">
+                    <div class="card-icon">🏢</div>
+                    <h3>Business Portals</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Internal company portals and client dashboards.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Custom Quote</div>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Inquire</a>
+                </div>
+
+                <!-- White-label Solutions -->
+                <div class="card">
+                    <div class="card-icon">🏷️</div>
+                    <h3>White-label Solutions</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Launch our software under your own brand and domain name.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Custom Quote</div>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Inquire</a>
+                </div>
+
+                <!-- Custom Branding -->
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Custom Branding</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Fully modify themes, logos, and UI of existing systems.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Custom Quote</div>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Inquire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Monthly Support -->
+    <section id="support-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Monthly Support</h2>
+                <p class="core-features-intro">Ongoing maintenance and technical support to keep your platforms running smoothly.</p>
+            </div>
+
+            <div class="auto-grid" style="justify-content: center;">
+                <!-- Website Management -->
+                <div class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Website Management</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Let us handle the technical maintenance while you focus on business.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R50/month</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 130px;">
+                        <li>✓ Updates</li>
+                        <li>✓ Security</li>
+                        <li>✓ Backups</li>
+                        <li>✓ Performance optimisation</li>
+                        <li>✓ Technical support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Get Support</a>
+                </div>
+
+                <!-- Hosting & Deployment -->
+                <div class="card">
+                    <div class="card-icon">☁️</div>
+                    <h3>Hosting & Deployment</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Reliable infrastructure and deployment services for your projects.</p>
+                    <div style="font-weight: 700; color: #E2E8F0; margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: #60A5FA;">R100</span></div>
+                    <ul style="list-style: none; color: #94A3B8; font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 130px;">
+                        <li>✓ Domain assistance</li>
+                        <li>✓ SSL setup</li>
+                        <li>✓ Hosting configuration</li>
+                        <li>✓ Website deployment</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">View Options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Why Choose D-TECH? -->
+    <section id="why-dtech" style="background: var(--dark-bg); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose D-TECH?</h2>
+                <p class="core-features-intro">We provide high-quality software solutions without the large agency overhead.</p>
+            </div>
+
+            <div class="auto-grid">
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">💰</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Affordable pricing</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">High-quality development that fits within reasonable budgets.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🧩</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Custom-built solutions</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">Software tailored exactly to your unique business needs.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">⚡</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Fast turnaround</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">Efficient development cycles to get you launched quicker.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🚀</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Modern technologies</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">Built using the latest frameworks and best practices.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">📈</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Scalable architecture</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">Systems designed to grow alongside your business.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🤝</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Ongoing support</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">Reliable maintenance and assistance post-launch.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🔑</div>
+                    <div>
+                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Licensing available</h4>
+                        <p style="color: #94A3B8; font-size: 0.9rem;">Options to license or white-label our existing platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Need Something Custom? -->
+    <section id="custom-project" style="padding: 6rem 0; text-align: center;">
+        <div class="container">
+            <div class="card" style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(15,23,42,1) 100%); border: 1px solid var(--primary);">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #E2E8F0;">Need Something Custom?</h2>
+                <p style="color: #94A3B8; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Every project is different.<br>
+                    If you don't see exactly what you're looking for, contact D-TECH for a free consultation and custom quotation.
+                </p>
+                <a href="contact.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Request Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <p>&copy; 2026 Digital Technology Services. All Rights Reserved.</p>
             <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Empowering the youth through digital innovation</p>
