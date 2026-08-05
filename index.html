@@ -39,7 +39,7 @@
             overflow-x: hidden;
         }
 
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .container { width: 100%; max-width: 98%; margin: 0 auto; padding: 0 1rem; }
 
         /* --- ANIMATIONS --- */
         @keyframes fadeUp {
@@ -182,13 +182,15 @@
         .section-header h2 { font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; letter-spacing: -0.03em; }
 
         /* Grid Layouts */
-        .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
         @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
 
         /* Feature Cards */
         .card {
-            background: var(--surface); padding: 2.5rem 2rem;
+            display: flex; flex-direction: column;
+
+            background: var(--surface); padding: 2rem 1.5rem;
             border-radius: var(--radius-lg); border: 1px solid var(--border);
             transition: var(--transition); position: relative; overflow: hidden;
         }
@@ -204,7 +206,7 @@
 
         /* Founder Section */
         .founder-wrapper { background: #1E293B; color: var(--text-light); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
-        .founder-img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; background: #0F172A; }
+        .founder-img { width: 100%; height: 100%; object-fit: cover; background: #0F172A; }
         .founder-content { padding: 4rem 3rem; }
         .founder-label { color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
         .founder-content h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem; letter-spacing: -0.03em; color: var(--text-light); }
@@ -292,9 +294,10 @@
                 <div class="card">
                     <div class="card-icon">🌐</div>
                     <h3>Level 1 – Static Website</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Perfect for simple online presence and portfolios.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Perfect for portfolios, churches, small businesses, NGOs, and personal websites.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R500</span> <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">once off</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 230px;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">2 - 5 days</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
                         <li>✓ 1–5 Pages</li>
                         <li>✓ Responsive Design</li>
                         <li>✓ Contact Form</li>
@@ -304,16 +307,17 @@
                         <li>✓ Mobile Optimisation</li>
                         <li>✓ No Backend or Database</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%201%20%E2%80%93%20Static%20Website.%0A%0AStarting%20Price%3A%20R500%0A%0APackage%20Includes%3A%0A%E2%80%A2%201%E2%80%935%20Pages%0A%E2%80%A2%20Responsive%20Design%0A%E2%80%A2%20Contact%20Form%0A%E2%80%A2%20WhatsApp%20Integration%0A%E2%80%A2%20Google%20Maps%0A%E2%80%A2%20Basic%20SEO%0A%E2%80%A2%20Mobile%20Optimisation%0A%E2%80%A2%20No%20Backend%20or%20Database%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%201%20%E2%80%93%20Static%20Website.%0A%0AStarting%20Price%3A%20R500%0A%0AEstimated%20Delivery%3A%202%20-%205%20days%0A%0APackage%20Includes%3A%0A%E2%80%A2%201%E2%80%935%20Pages%0A%E2%80%A2%20Responsive%20Design%0A%E2%80%A2%20Contact%20Form%0A%E2%80%A2%20WhatsApp%20Integration%0A%E2%80%A2%20Google%20Maps%0A%E2%80%A2%20Basic%20SEO%0A%E2%80%A2%20Mobile%20Optimisation%0A%E2%80%A2%20No%20Backend%20or%20Database%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
                 </div>
 
                 <!-- Level 2 -->
                 <div class="card">
                     <div class="card-icon">🌐</div>
                     <h3>Level 2 – Dynamic Website</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Ideal for businesses needing content management.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Ideal for businesses, schools, organisations, and clubs that need to manage content or users.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R1,500</span> <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">once off</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 230px;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
                         <li>✓ Everything in Level 1</li>
                         <li>✓ Admin Dashboard</li>
                         <li>✓ Database Integration</li>
@@ -322,16 +326,17 @@
                         <li>✓ Blog/News System</li>
                         <li>✓ Form Submission Storage</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%202%20%E2%80%93%20Dynamic%20Website.%0A%0AStarting%20Price%3A%20R1%2C500%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Everything%20in%20Level%201%0A%E2%80%A2%20Admin%20Dashboard%0A%E2%80%A2%20Database%20Integration%0A%E2%80%A2%20User%20Authentication%0A%E2%80%A2%20Content%20Management%0A%E2%80%A2%20Blog/News%20System%0A%E2%80%A2%20Form%20Submission%20Storage%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%202%20%E2%80%93%20Dynamic%20Website.%0A%0AStarting%20Price%3A%20R1%2C500%0A%0AEstimated%20Delivery%3A%203%20-%205%20days%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Everything%20in%20Level%201%0A%E2%80%A2%20Admin%20Dashboard%0A%E2%80%A2%20Database%20Integration%0A%E2%80%A2%20User%20Authentication%0A%E2%80%A2%20Content%20Management%0A%E2%80%A2%20Blog/News%20System%0A%E2%80%A2%20Form%20Submission%20Storage%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
                 </div>
 
                 <!-- Level 3 -->
                 <div class="card">
                     <div class="card-icon">🌐</div>
                     <h3>Level 3 – Web Application</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Complex solutions with custom logic and integrations.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Designed for organisations that need custom workflows, automation, and online services.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R3,000</span> <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">once off</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 230px;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 7 days</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
                         <li>✓ Everything in Level 2</li>
                         <li>✓ Custom Business Logic</li>
                         <li>✓ Booking Systems</li>
@@ -340,16 +345,17 @@
                         <li>✓ API & Payment Integrations</li>
                         <li>✓ Analytics Dashboard</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%203%20%E2%80%93%20Web%20Application.%0A%0AStarting%20Price%3A%20R3%2C000%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Everything%20in%20Level%202%0A%E2%80%A2%20Custom%20Business%20Logic%0A%E2%80%A2%20Booking%20Systems%0A%E2%80%A2%20Inventory%20/%20CRM%20Management%0A%E2%80%A2%20Student%20Management%0A%E2%80%A2%20API%20%26%20Payment%20Integrations%0A%E2%80%A2%20Analytics%20Dashboard%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%203%20%E2%80%93%20Web%20Application.%0A%0AStarting%20Price%3A%20R3%2C000%0A%0AEstimated%20Delivery%3A%203%20-%207%20days%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Everything%20in%20Level%202%0A%E2%80%A2%20Custom%20Business%20Logic%0A%E2%80%A2%20Booking%20Systems%0A%E2%80%A2%20Inventory%20/%20CRM%20Management%0A%E2%80%A2%20Student%20Management%0A%E2%80%A2%20API%20%26%20Payment%20Integrations%0A%E2%80%A2%20Analytics%20Dashboard%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
                 </div>
 
                 <!-- Level 4 -->
                 <div class="card">
                     <div class="card-icon">🌐</div>
                     <h3>Level 4 – Enterprise Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; min-height: 45px;">Large-scale, scalable infrastructure and custom architecture.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Built for large organisations requiring scalable infrastructure, advanced security, and custom integrations.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Custom Quote <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">negotiable</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 230px;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">1 week - a month</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
                         <li>✓ Fully Custom Architecture</li>
                         <li>✓ Cloud Deployment</li>
                         <li>✓ High-Level Security</li>
@@ -358,7 +364,7 @@
                         <li>✓ Scalable Infrastructure</li>
                         <li>✓ Ongoing Support</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%204%20%E2%80%93%20Enterprise%20Platform.%0A%0AStarting%20Price%3A%20Custom%20Quote%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Fully%20Custom%20Architecture%0A%E2%80%A2%20Cloud%20Deployment%0A%E2%80%A2%20High-Level%20Security%0A%E2%80%A2%20Multi-user%20Roles%0A%E2%80%A2%20Advanced%20Integrations%0A%E2%80%A2%20Scalable%20Infrastructure%0A%E2%80%A2%20Ongoing%20Support%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%204%20%E2%80%93%20Enterprise%20Platform.%0A%0AStarting%20Price%3A%20Custom%20Quote%0A%0AEstimated%20Delivery%3A%201%20week%20-%20a%20month%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Fully%20Custom%20Architecture%0A%E2%80%A2%20Cloud%20Deployment%0A%E2%80%A2%20High-Level%20Security%0A%E2%80%A2%20Multi-user%20Roles%0A%E2%80%A2%20Advanced%20Integrations%0A%E2%80%A2%20Scalable%20Infrastructure%0A%E2%80%A2%20Ongoing%20Support%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
                 </div>
             </div>
 
@@ -389,10 +395,11 @@
                 <div class="card">
                     <div class="card-icon">🎓</div>
                     <h3>University Eligibility Checker</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; min-height: 45px;">An intelligent platform helping students estimate university acceptance based on APS and admission requirements.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">An intelligent platform helping students estimate university acceptance based on APS and admission requirements.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 150 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 1,200 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
+                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
                         <a href="https://uni.dtech-services.co.za/index.html" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
                         <a href="marketplace.html#uni-eligibility" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
                     </div>
@@ -402,10 +409,11 @@
                 <div class="card">
                     <div class="card-icon">📦</div>
                     <h3>Marketplace Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; min-height: 45px;">Ready-to-launch marketplace enabling users to browse listings and contact sellers directly via WhatsApp.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Ready-to-launch marketplace enabling users to browse listings and contact sellers directly via WhatsApp.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 350 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 3,000 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
+                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
                         <a href="https://books.dtech-services.co.za" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
                         <a href="marketplace.html#marketplace-platform" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
                     </div>
@@ -415,10 +423,11 @@
                 <div class="card">
                     <div class="card-icon">📚</div>
                     <h3>Study Material Downloader</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; min-height: 45px;">Educational platform providing students quick access to past papers, study guides, and PAT resources.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Educational platform providing students quick access to past papers, study guides, and PAT resources.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 100 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 900 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
+                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
                         <a href="https://grade12.dtech-services.co.za/downloader.html" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
                         <a href="marketplace.html#study-material" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
                     </div>
@@ -428,10 +437,11 @@
                 <div class="card">
                     <div class="card-icon">🎓</div>
                     <h3>D-TECH Learning Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; min-height: 45px;">Interactive digital learning system for schools and tutors featuring dynamic quizzes and progress tracking.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Interactive digital learning system for schools and tutors featuring dynamic quizzes and progress tracking.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 850 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 8,000 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">1 week - 3 weeks</span></div>
+                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
                         <a href="https://quiz.dtech-services.co.za/" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
                         <a href="marketplace.html#learning-platform" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
                     </div>
@@ -441,10 +451,11 @@
                 <div class="card">
                     <div class="card-icon">🏢</div>
                     <h3>Business Hub Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; min-height: 45px;">Central business directory allowing companies to create accounts, list services, and get a profile website.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Central business directory allowing companies to create accounts, list services, and get a profile website.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 350 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 3,000 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
+                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
                         <a href="https://business.dtech-services.co.za/" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
                         <a href="marketplace.html#business-hub" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
                     </div>
@@ -468,14 +479,14 @@
                     <h3>Website Management</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Let us handle the technical maintenance while you focus on business.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R50/month</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 130px;">
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
                         <li>✓ Updates</li>
                         <li>✓ Security</li>
                         <li>✓ Backups</li>
                         <li>✓ Performance optimisation</li>
                         <li>✓ Technical support</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">Get Support</a>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary); margin-top: auto;">Get Support</a>
                 </div>
 
                 <!-- Hosting & Deployment -->
@@ -484,13 +495,13 @@
                     <h3>Hosting & Deployment</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Reliable infrastructure and deployment services for your projects.</p>
                     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R100</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 130px;">
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
                         <li>✓ Domain assistance</li>
                         <li>✓ SSL setup</li>
                         <li>✓ Hosting configuration</li>
                         <li>✓ Website deployment</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">View Options</a>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary); margin-top: auto;">View Options</a>
                 </div>
             </div>
         </div>
