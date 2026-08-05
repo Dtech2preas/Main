@@ -182,7 +182,7 @@
         .section-header h2 { font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; letter-spacing: -0.03em; }
 
         /* Grid Layouts */
-        .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
+        .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 2rem; }
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
         @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
 
