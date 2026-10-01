@@ -23,7 +23,8 @@
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    DTECH.
+                    <img src="images/logo.png" alt="DTECH Logo">
+                    <span>DTECH</span>
                 </a>
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
@@ -89,148 +90,175 @@
         <section id="network-map">
             <div class="network-container">
 
-                <!-- Category: Education -->
+                <!-- Category: DTECH Edu -->
                 <div class="network-branch" id="branch-education">
                     <div class="category-node path-node" id="cat-education">
                         <i class="ri-book-read-line"></i>
-                        <span>Education</span>
+                        <span>DTECH Edu</span>
                     </div>
                     <div class="network-leaves">
-                        <!-- Preasx24 -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('preasx24')">
-                            <i class="ri-graduation-cap-line leaf-icon"></i>
+                        <!-- StudyApp -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('studyapp')">
+                            <i class="ri-robot-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">Preasx24</span>
-                                <span class="leaf-desc">Grade 12 academic support platform</span>
+                                <span class="leaf-name">StudyApp</span>
+                                <span class="leaf-desc">AI Tutor</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
-                        <!-- Quiz Platform -->
+                        <!-- D-TECH Quiz Platform -->
                         <div class="leaf-node path-node" onclick="openNodeModal('quiz')">
                             <i class="ri-gamepad-line leaf-icon"></i>
                             <div class="leaf-info">
                                 <span class="leaf-name">Quiz Platform</span>
-                                <span class="leaf-desc">Grade 4–12 CAPS gamified system</span>
+                                <span class="leaf-desc">CAPS mapped EdTech</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
-                        <!-- Study App -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('studyapp')">
-                            <i class="ri-robot-line leaf-icon"></i>
-                            <div class="leaf-info">
-                                <span class="leaf-name">Study App</span>
-                                <span class="leaf-desc">AI document + quiz system</span>
-                            </div>
-                            <span class="status-badge dev">Beta</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category: Student Services -->
-                <div class="network-branch" id="branch-student">
-                    <div class="category-node path-node" id="cat-student">
-                        <i class="ri-user-star-line"></i>
-                        <span>Student Services</span>
-                    </div>
-                    <div class="network-leaves">
-                        <!-- Uni Eligibility Portal -->
+                        <!-- Eligibility Checker -->
                         <div class="leaf-node path-node" onclick="openNodeModal('uni')">
                             <i class="ri-bank-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">Uni Eligibility</span>
-                                <span class="leaf-desc">Admission requirement matcher</span>
+                                <span class="leaf-name">Eligibility Checker</span>
+                                <span class="leaf-desc">APS/FPS evaluator</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
-                        <!-- NMU Books Marketplace -->
+                        <!-- High School Learning Portal -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('learning_portal')">
+                            <i class="ri-graduation-cap-line leaf-icon"></i>
+                            <div class="leaf-info">
+                                <span class="leaf-name">Learning Portal</span>
+                                <span class="leaf-desc">Low-data student hub</span>
+                            </div>
+                            <span class="status-badge live">Live</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: DTECH Services -->
+                <div class="network-branch" id="branch-student">
+                    <div class="category-node path-node" id="cat-student">
+                        <i class="ri-building-line"></i>
+                        <span>DTECH Services</span>
+                    </div>
+                    <div class="network-leaves">
+                        <!-- Custom Web Development -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('web_dev')">
+                            <i class="ri-code-s-slash-line leaf-icon"></i>
+                            <div class="leaf-info">
+                                <span class="leaf-name">Custom Web Dev</span>
+                                <span class="leaf-desc">Level 1-4 Web solutions</span>
+                            </div>
+                            <span class="status-badge live">Live</span>
+                        </div>
+                        <!-- Software Licensing -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('licensing')">
+                            <i class="ri-file-shield-2-line leaf-icon"></i>
+                            <div class="leaf-info">
+                                <span class="leaf-name">Software Licensing</span>
+                                <span class="leaf-desc">Ready-to-launch platforms</span>
+                            </div>
+                            <span class="status-badge live">Live</span>
+                        </div>
+                        <!-- Business Hub -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('business_hub')">
+                            <i class="ri-store-3-line leaf-icon"></i>
+                            <div class="leaf-info">
+                                <span class="leaf-name">Business Hub</span>
+                                <span class="leaf-desc">Small business directory</span>
+                            </div>
+                            <span class="status-badge live">Live</span>
+                        </div>
+                        <!-- Marketplace -->
                         <div class="leaf-node path-node" onclick="openNodeModal('books')">
                             <i class="ri-book-open-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">NMU Books</span>
-                                <span class="leaf-desc">Student textbook marketplace</span>
+                                <span class="leaf-name">Student Marketplace</span>
+                                <span class="leaf-desc">P2P textbook exchange</span>
                             </div>
                             <span class="status-badge live">Live</span>
-                        </div>
-                        <!-- Student Income Platform -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('income')">
-                            <i class="ri-coins-line leaf-icon"></i>
-                            <div class="leaf-info">
-                                <span class="leaf-name">Student Income</span>
-                                <span class="leaf-desc">Earn rewards and revenue</span>
-                            </div>
-                            <span class="status-badge dev">In Dev</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Category: Technology -->
+                <!-- Category: DTECH Lab -->
                 <div class="network-branch" id="branch-tech">
                     <div class="category-node path-node" id="cat-tech">
-                        <i class="ri-cpu-line"></i>
-                        <span>Technology</span>
+                        <i class="ri-flask-line"></i>
+                        <span>DTECH Lab</span>
                     </div>
                     <div class="network-leaves">
-                        <!-- DTECH Discover -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('discover')">
-                            <i class="ri-music-2-line leaf-icon"></i>
+                        <!-- WebRTC Tunnel -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('webrtc_tunnel')">
+                            <i class="ri-cloud-windy-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">DTECH Discover</span>
-                                <span class="leaf-desc">Music streaming platform</span>
+                                <span class="leaf-name">WebRTC Tunnel</span>
+                                <span class="leaf-desc">Global mobile web server</span>
                             </div>
-                            <span class="status-badge live">Live</span>
+                            <span class="status-badge dev">R&D</span>
                         </div>
-                        <!-- DTECH Server -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('server')">
-                            <i class="ri-server-line leaf-icon"></i>
+                        <!-- Algorithmic Trading Bot -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('trading_bot')">
+                            <i class="ri-robot-2-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">DTECH Server</span>
-                                <span class="leaf-desc">Mobile web hosting system</span>
+                                <span class="leaf-name">DTECH_BOT_V1</span>
+                                <span class="leaf-desc">Autonomous Forex bot</span>
                             </div>
-                            <span class="status-badge live">Live</span>
+                            <span class="status-badge dev">R&D</span>
                         </div>
-                        <!-- DTECH Apps Portal -->
+                        <!-- Project X24 -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('project_x24')">
+                            <i class="ri-spy-line leaf-icon"></i>
+                            <div class="leaf-info">
+                                <span class="leaf-name">Project X24</span>
+                                <span class="leaf-desc">Private research projects</span>
+                            </div>
+                            <span class="status-badge dev">R&D</span>
+                        </div>
+                        <!-- D-TECH Apps Store -->
                         <div class="leaf-node path-node" onclick="openNodeModal('apps')">
                             <i class="ri-app-store-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">Apps Portal</span>
-                                <span class="leaf-desc">Central software library</span>
+                                <span class="leaf-name">Apps Store</span>
+                                <span class="leaf-desc">APK distribution platform</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Category: Infrastructure -->
+                <!-- Category: DTECH Entertainment -->
                 <div class="network-branch" id="branch-infrastructure">
                     <div class="category-node path-node" id="cat-infrastructure">
-                        <i class="ri-building-line"></i>
-                        <span>Infrastructure</span>
+                        <i class="ri-gamepad-line"></i>
+                        <span>DTECH Entertainment</span>
                     </div>
                     <div class="network-leaves">
-                        <!-- Main Website -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('mainweb')">
-                            <i class="ri-global-line leaf-icon"></i>
+                        <!-- Orbit Game Suite -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('orbit_games')">
+                            <i class="ri-space-ship-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">Main Website</span>
-                                <span class="leaf-desc">Ecosystem central hub</span>
+                                <span class="leaf-name">Orbit Game Suite</span>
+                                <span class="leaf-desc">P2P 3D browser gaming</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
-                        <!-- About Page -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('about')">
-                            <i class="ri-information-line leaf-icon"></i>
+                        <!-- D-TECH Discover -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('discover')">
+                            <i class="ri-music-2-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">About DTECH</span>
-                                <span class="leaf-desc">Mission and vision</span>
+                                <span class="leaf-name">D-TECH Discover</span>
+                                <span class="leaf-desc">Music downloader</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
-                        <!-- Legal Portal -->
-                        <div class="leaf-node path-node" onclick="openNodeModal('legal')">
-                            <i class="ri-scale-3-line leaf-icon"></i>
+                        <!-- Rewards Platform -->
+                        <div class="leaf-node path-node" onclick="openNodeModal('rewards')">
+                            <i class="ri-coins-line leaf-icon"></i>
                             <div class="leaf-info">
-                                <span class="leaf-name">Legal Portal</span>
-                                <span class="leaf-desc">Compliance and terms</span>
+                                <span class="leaf-name">Rewards Platform</span>
+                                <span class="leaf-desc">Telegram virtual economy</span>
                             </div>
                             <span class="status-badge live">Live</span>
                         </div>
@@ -313,8 +341,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <h2 style="color: white; margin-bottom: 1rem; font-weight: 800; font-size: 1.5rem;">DTECH.</h2>
-            <p>&copy; 2024 Digital Technology Services. All Rights Reserved.</p>
+            <p>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
         </div>
     </footer>
 

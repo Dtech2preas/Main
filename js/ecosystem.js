@@ -1,113 +1,147 @@
 
 // Data for the modals
 const nodeData = {
-    'preasx24': {
-        name: 'Preasx24',
-        icon: 'ri-graduation-cap-line',
-        domain: 'preasx24.co.za',
+    // DTECH Edu
+    'studyapp': {
+        name: 'StudyApp (AI Tutor)',
+        icon: 'ri-robot-line',
+        domain: 'Android App',
         status: 'Live',
-        purpose: 'A comprehensive academic support platform tailored for Grade 12 learners in South Africa, providing crucial resources for passing matric and transitioning to university.',
-        users: 'Grade 12 Learners',
-        features: ['Past Exam Papers', 'NSFAS Info', 'University Info', 'Subject Study Material', 'Video & Audio Lessons']
+        purpose: 'A native Android application acting as an intelligent study assistant. Extracts text from PDFs/Docs and utilizes the Groq LLM API to dynamically generate summaries and interactive quizzes.',
+        users: 'High School & Uni Students',
+        features: ['Kotlin', 'Groq LLM', 'Room DB']
     },
     'quiz': {
-        name: 'DTECH Quiz Platform',
+        name: 'D-TECH Quiz Platform',
         icon: 'ri-gamepad-line',
         domain: 'quiz.dtech-services.co.za',
         status: 'Live',
-        purpose: 'A CAPS-aligned gamified learning system designed to make testing knowledge engaging and competitive across multiple grades.',
+        purpose: 'A massive EdTech platform featuring CAPS/NSC curriculum mapping, offline capabilities, and gamification to practice past papers natively in Android.',
         users: 'Grade 4–12 Learners',
-        features: ['CAPS Alignment', 'Subject Quizzes', 'Weekly Exams', 'Global Leaderboards']
-    },
-    'studyapp': {
-        name: 'DTECH Study App',
-        icon: 'ri-robot-line',
-        domain: 'App',
-        status: 'Beta',
-        purpose: 'An AI-powered study assistant that analyzes uploaded documents to provide simplified explanations and generate dynamic quizzes.',
-        users: 'High School & Uni Students',
-        features: ['AI Document Analysis', 'Simplified Explanations', 'Auto-Quiz Generation', 'Interactive Support']
+        features: ['Firebase RTDB', 'Vanilla JS', 'Android Wrapper']
     },
     'uni': {
-        name: 'University Eligibility Portal',
+        name: 'DTech Eligibility Checker',
         icon: 'ri-bank-line',
         domain: 'uni.dtech-services.co.za',
         status: 'Live',
-        purpose: 'A tool that helps learners input their marks to find out which university courses they qualify for based on current prospectuses.',
+        purpose: 'A complex calculation engine helping students evaluate university acceptance likelihood based on NSC marks and processing dynamic variations in admission criteria (APS/FPS).',
         users: 'Grade 11 & 12 Learners',
-        features: ['Course Matching', 'University DB', 'Detailed Requirements', 'Prospectus Analysis']
+        features: ['Vanilla JS', 'Algorithms', 'Android WebView']
+    },
+    'learning_portal': {
+        name: 'High School Learning Portal',
+        icon: 'ri-graduation-cap-line',
+        domain: 'preasx24.co.za',
+        status: 'Live',
+        purpose: 'A comprehensive static student hub for past papers built for extreme low-data environments, utilizing optimized JSON routing for offline capabilities.',
+        users: 'Grade 12 Learners',
+        features: ['Vanilla JS', 'Static Routing']
+    },
+
+    // DTECH Services
+    'web_dev': {
+        name: 'Custom Web Development',
+        icon: 'ri-code-s-slash-line',
+        domain: 'dtech-services.co.za',
+        status: 'Live',
+        purpose: 'From Level 1 Static Websites for small businesses to Level 4 Enterprise Platforms requiring scalable infrastructure and advanced security integrations.',
+        users: 'Businesses & Orgs',
+        features: ['Custom Dev', 'Full-Stack']
+    },
+    'licensing': {
+        name: 'Software Licensing',
+        icon: 'ri-file-shield-2-line',
+        domain: 'dtech-services.co.za',
+        status: 'Live',
+        purpose: 'Providing ready-to-launch platforms for organizations, including white-labeled Marketplaces, Business Hubs, and custom Learning Systems.',
+        users: 'Businesses & Orgs',
+        features: ['Licensing', 'SaaS']
+    },
+    'business_hub': {
+        name: 'DTECH Student Business Hub',
+        icon: 'ri-store-3-line',
+        domain: 'business.dtech-services.co.za',
+        status: 'Live',
+        purpose: 'A serverless marketplace platform for listing and managing small businesses with dynamic subdomain routing and JWT authentication.',
+        users: 'Student Entrepreneurs',
+        features: ['Cloudflare Workers', 'KV', 'Dynamic Subdomains']
     },
     'books': {
-        name: 'NMU Books Marketplace',
+        name: 'DTECH Student Marketplace',
         icon: 'ri-book-open-line',
         domain: 'books.dtech-services.co.za',
         status: 'Live',
-        purpose: 'A centralized marketplace for university students to buy and sell textbooks easily using WhatsApp for communication.',
+        purpose: 'A peer-to-peer textbook marketplace connecting buyers with sellers over WhatsApp. Fully serverless architecture using IndexedDB.',
         users: 'University Students',
-        features: ['Buy & Sell Books', 'WhatsApp Integration', 'Student-Focused', 'Easy Discovery']
+        features: ['Cloudflare Workers', 'P2P', 'WhatsApp']
     },
-    'income': {
-        name: 'Student Income Platform',
-        icon: 'ri-coins-line',
-        domain: 'student.dtech-services.co.za',
-        status: 'In Dev',
-        purpose: 'A platform allowing students to earn rewards and revenue through active platform participation and advertising engagement.',
-        users: 'Students',
-        features: ['Reward System', 'Ad Engagement', 'Revenue Sharing', 'Student Empowerment']
+
+    // DTECH Lab
+    'webrtc_tunnel': {
+        name: 'Flutter WebRTC Tunnel',
+        icon: 'ri-cloud-windy-line',
+        domain: 'Internal Tool',
+        status: 'R&D',
+        purpose: 'A hardcore networking utility that transforms a mobile device into a global web server by exposing local mobile environments to the public internet via secure WebRTC tunneling.',
+        users: 'Engineers',
+        features: ['Flutter', 'WebRTC DataChannels', 'P2P Networking']
     },
-    'discover': {
-        name: 'DTECH Discover',
-        icon: 'ri-music-2-line',
-        domain: 'Android App',
-        status: 'Live',
-        purpose: 'A modern music streaming and downloading platform featuring smart recommendations and an intuitive interface.',
-        users: 'General Consumers',
-        features: ['Music Streaming', 'Offline Listening', 'Discovery Roulette', 'Smart Playlists']
+    'trading_bot': {
+        name: 'DTECH_BOT_V1 (MetaTrader 5)',
+        icon: 'ri-robot-2-line',
+        domain: 'Internal Tool',
+        status: 'R&D',
+        purpose: 'A fully autonomous Algorithmic Trading Bot for the Forex market utilizing EMA/RSI crossovers, dynamic risk management, and automated trailing stops.',
+        users: 'Traders',
+        features: ['MQL5', 'Algorithmic Finance']
     },
-    'server': {
-        name: 'DTECH Server',
-        icon: 'ri-server-line',
-        domain: 'Android App',
-        status: 'Live',
-        purpose: 'An application that turns any Android phone into a public web server, complete with a free DTECH subdomain.',
-        users: 'Developers & Creators',
-        features: ['Local Hosting', 'Free Subdomain', 'Auto Configuration', 'Mobile-First']
+    'project_x24': {
+        name: 'Private R&D (Project X24)',
+        icon: 'ri-spy-line',
+        domain: 'Internal Tool',
+        status: 'R&D',
+        purpose: 'Advanced, private research projects focusing on Android Foreground Services, Deep JSON State-Merging, secure cloud proxies, and seamless API bridging.',
+        users: 'Internal',
+        features: ['Android Services', 'Internal R&D']
     },
     'apps': {
-        name: 'DTECH Apps Portal',
+        name: 'D-TECH Apps Store',
         icon: 'ri-app-store-line',
         domain: 'app.dtech-services.co.za',
         status: 'Live',
-        purpose: 'The central software library and discovery hub for all DTECH applications.',
-        users: 'All Users',
-        features: ['App Discovery', 'APK Downloads', 'Documentation', 'Central Library']
+        purpose: 'A custom Android APK distribution platform built natively as an SPA, probing static JSON metadata files for rapid app discovery.',
+        users: 'Android Users',
+        features: ['Vanilla JS', 'Static SPA']
     },
-    'mainweb': {
-        name: 'DTECH Main Website',
-        icon: 'ri-global-line',
-        domain: 'dtech-services.co.za',
+
+    // DTECH Entertainment
+    'orbit_games': {
+        name: 'Orbit Game Suite',
+        icon: 'ri-space-ship-line',
+        domain: 'In Dev',
         status: 'Live',
-        purpose: 'The central corporate hub providing information about DTECH services, business offerings, and the overall ecosystem.',
-        users: 'Public & Partners',
-        features: ['Platform Directory', 'Ecosystem Overview', 'Business Offerings']
+        purpose: 'A peer-to-peer (P2P) 3D browser gaming engine that bypasses centralized game servers entirely using WebRTC DataChannels to sync real-time physics.',
+        users: 'Gamers',
+        features: ['WebRTC', 'Three.js', 'P2P Gaming']
     },
-    'about': {
-        name: 'About DTECH',
-        icon: 'ri-information-line',
-        domain: 'about.preasx24.co.za',
+    'discover': {
+        name: 'D-TECH DISCOVER',
+        icon: 'ri-music-2-line',
+        domain: 'Android App',
         status: 'Live',
-        purpose: 'The definitive source for understanding the mission, vision, and origins of the DTECH ecosystem and its founder.',
-        users: 'Public',
-        features: ['Mission Statement', 'Founder Info', 'Vision']
+        purpose: 'A modern music discovery and background streaming app utilizing custom workers, ExoPlayer for gapless playback, and smart shuffling.',
+        users: 'Music Listeners',
+        features: ['Jetpack Compose', 'ExoPlayer', 'MediaSessionService']
     },
-    'legal': {
-        name: 'DTECH Legal Portal',
-        icon: 'ri-scale-3-line',
-        domain: 'legal.dtech-services.co.za',
+    'rewards': {
+        name: 'The D-TECH Rewards Platform',
+        icon: 'ri-coins-line',
+        domain: 'Telegram Mini App',
         status: 'Live',
-        purpose: 'The central platform hosting all legal documentation, compliance policies, and user agreements for the ecosystem.',
-        users: 'All Users',
-        features: ['Terms & Conditions', 'Privacy Policies', 'User Agreements']
+        purpose: 'A centralized virtual economy and ad monetization engine integrated via Telegram Mini Apps featuring seamless passwordless authentication.',
+        users: 'General Users',
+        features: ['Cloudflare Workers', 'Telegram Mini Apps']
     }
 };
 
