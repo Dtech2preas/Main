@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get a custom quote for your digital project with DTECH.">
+    <meta name="author" content="Seakwa Jonas Mochebane">
+    <title>Get a Quote | DTECH Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="DTECH Logo">
+                    <span>DTECH</span>
+                </a>
+                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
+        <div class="nav-links">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Marketplace</a>
+            <a href="quote.html" onclick="toggleMenu()" class="active">Get a Quote</a>
+            <a href="index.html#builder" onclick="toggleMenu()">Site Builder</a>
+            <a href="contact.html" onclick="toggleMenu()">Custom Dev</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
+            <a href="about.html" onclick="toggleMenu()">About Us</a>
+            <a href="founder.html" onclick="toggleMenu()">Founder</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section style="padding: 6rem 0 3rem 0; text-align: center;">
+        <div class="container">
+            <h1 class="section-title" style="margin-bottom: 0.5rem;">Interactive Quote Estimator</h1>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.25rem;">
+                Select your requirements below to get an instant cost estimate for your digital project.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="container" style="padding-bottom: 6rem;">
+        <div class="grid-2">
+            <!-- Form Area -->
+            <div>
+                <div style="background-color: var(--surface-color); padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+
+                    <div class="form-group">
+                        <label for="platformType" style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">1. Select Base Platform</label>
+                        <select id="platformType" style="width: 100%; padding: 0.75rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-main); font-family: var(--font-main); font-size: 1rem; cursor: pointer;">
+                            <option value="500">Level 1: Static Website (Starting R500)</option>
+                            <option value="1500">Level 2: Dynamic Website (Starting R1,500)</option>
+                            <option value="3000">Level 3: Web Application (Starting R3,000)</option>
+                            <option value="custom">Level 4: Enterprise Platform (Custom Quote)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="pageSize" style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">2. Number of Pages</label>
+                        <select id="pageSize" style="width: 100%; padding: 0.75rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-main); font-family: var(--font-main); font-size: 1rem; cursor: pointer;">
+                            <option value="0">1-5 Pages (Included in Base)</option>
+                            <option value="300">6-10 Pages (+ R300)</option>
+                            <option value="700">11-20 Pages (+ R700)</option>
+                            <option value="1500">20+ Pages (+ R1,500)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; display: block;">3. Additional Features</label>
+
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
+                                <input type="checkbox" class="feature-cb" value="500" data-name="Admin Panel / CMS" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
+                                Admin Panel / CMS (+ R500)
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
+                                <input type="checkbox" class="feature-cb" value="1000" data-name="E-commerce / Payments" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
+                                E-commerce / Payments (+ R1,000)
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
+                                <input type="checkbox" class="feature-cb" value="400" data-name="User Authentication" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
+                                User Authentication / Login (+ R400)
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
+                                <input type="checkbox" class="feature-cb" value="300" data-name="Advanced SEO Setup" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
+                                Advanced SEO Setup (+ R300)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="domainOption" style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">4. Domain Registration (Optional)</label>
+                        <select id="domainOption" style="width: 100%; padding: 0.75rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-main); font-family: var(--font-main); font-size: 1rem; cursor: pointer;">
+                            <option value="0">No Domain Needed</option>
+                            <option value="150">.co.za Domain (+ R150/year)</option>
+                            <option value="350">.com Domain (+ R350/year)</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Summary Area -->
+            <div>
+                <div style="background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(17,24,39,1) 100%); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--primary-color); position: sticky; top: 100px;">
+                    <h3 style="color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Estimate Summary</h3>
+
+                    <ul id="summaryList" style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; color: var(--text-muted); font-size: 0.95rem;">
+                        <!-- Dynamic list items go here -->
+                    </ul>
+
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.2rem;">Total Estimate:</span>
+                        <span id="totalPrice" style="font-weight: 800; color: var(--primary-color); font-size: 1.8rem;">R 500</span>
+                    </div>
+
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; text-align: center;">
+                        * This is an estimate only. Final cost will be confirmed after discussion.
+                    </p>
+
+                    <button id="submitQuoteBtn" class="btn" style="width: 100%; font-size: 1.1rem; padding: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        Request Quote via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+
+        // Quote Estimator Logic
+        const platformSelect = document.getElementById('platformType');
+        const pageSelect = document.getElementById('pageSize');
+        const domainSelect = document.getElementById('domainOption');
+        const featureCheckboxes = document.querySelectorAll('.feature-cb');
+        const summaryList = document.getElementById('summaryList');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const submitQuoteBtn = document.getElementById('submitQuoteBtn');
+
+        function updateQuote() {
+            summaryList.innerHTML = '';
+            let total = 0;
+            let isCustom = false;
+            let summaryText = [];
+
+            // 1. Platform Base
+            const platformVal = platformSelect.value;
+            const platformText = platformSelect.options[platformSelect.selectedIndex].text.split(' (')[0];
+
+            if (platformVal === 'custom') {
+                isCustom = true;
+                summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Platform:</strong> ${platformText} <span style="float:right; color:var(--text-main)">Custom</span></li>`;
+                summaryText.push(`- Platform: ${platformText}`);
+            } else {
+                const basePrice = parseInt(platformVal);
+                total += basePrice;
+                summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Platform:</strong> ${platformText} <span style="float:right; color:var(--text-main)">R ${basePrice.toLocaleString()}</span></li>`;
+                summaryText.push(`- Platform: ${platformText} (R ${basePrice.toLocaleString()})`);
+            }
+
+            // 2. Pages
+            const pageVal = parseInt(pageSelect.value);
+            const pageText = pageSelect.options[pageSelect.selectedIndex].text.split(' (')[0];
+            if (!isCustom) total += pageVal;
+            summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Pages:</strong> ${pageText} <span style="float:right; color:var(--text-main)">${pageVal > 0 ? '+R ' + pageVal.toLocaleString() : 'Included'}</span></li>`;
+            summaryText.push(`- Pages: ${pageText} ${pageVal > 0 ? '(+R ' + pageVal.toLocaleString() + ')' : '(Included)'}`);
+
+            // 3. Features
+            let featuresAdded = [];
+            featureCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    const featPrice = parseInt(cb.value);
+                    const featName = cb.getAttribute('data-name');
+                    if (!isCustom) total += featPrice;
+                    featuresAdded.push(`${featName} (+R ${featPrice.toLocaleString()})`);
+                    summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Add-on:</strong> ${featName} <span style="float:right; color:var(--text-main)">+R ${featPrice.toLocaleString()}</span></li>`;
+                }
+            });
+            if (featuresAdded.length > 0) {
+                summaryText.push(`- Features: ${featuresAdded.join(', ')}`);
+            } else {
+                summaryText.push(`- Features: None selected`);
+            }
+
+            // 4. Domain
+            const domainVal = parseInt(domainSelect.value);
+            const domainText = domainSelect.options[domainSelect.selectedIndex].text.split(' (')[0];
+            if (domainVal > 0) {
+                if (!isCustom) total += domainVal;
+                summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Domain:</strong> ${domainText} <span style="float:right; color:var(--text-main)">+R ${domainVal.toLocaleString()}/yr</span></li>`;
+                summaryText.push(`- Domain: ${domainText} (+R ${domainVal.toLocaleString()}/yr)`);
+            } else {
+                summaryText.push(`- Domain: No domain needed`);
+            }
+
+            // Update Total
+            let finalPriceText = "";
+            if (isCustom) {
+                totalPriceEl.textContent = 'Custom Quote';
+                finalPriceText = "Custom Quote (To be discussed)";
+            } else {
+                totalPriceEl.textContent = `R ${total.toLocaleString()}`;
+                finalPriceText = `R ${total.toLocaleString()}`;
+            }
+
+            // Build WhatsApp Link
+            const greeting = `Hi D-TECH Services 👋\n\nI used your Interactive Quote Estimator and would like to request a custom project quote. Here are my selections:\n\n`;
+            const details = summaryText.join('\n');
+            const totalStr = `\n\n*Estimated Budget:* ${finalPriceText}\n\nCan we discuss moving forward with this?`;
+
+            const encodedMessage = encodeURIComponent(greeting + details + totalStr);
+            submitQuoteBtn.onclick = function() {
+                window.location.href = `https://wa.me/27670015423?text=${encodedMessage}`;
+            };
+        }
+
+        // Attach listeners
+        platformSelect.addEventListener('change', updateQuote);
+        pageSelect.addEventListener('change', updateQuote);
+        domainSelect.addEventListener('change', updateQuote);
+        featureCheckboxes.forEach(cb => cb.addEventListener('change', updateQuote));
+
+        // Initial render
+        updateQuote();
+
+    </script>
+</body>
+</html>
