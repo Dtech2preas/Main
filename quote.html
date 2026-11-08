@@ -116,6 +116,24 @@
             </div>
         </div>
 
+        <!-- 3-Step Process Ribbon -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 0.9rem 1.25rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 0.75rem; box-shadow: var(--shadow-xs);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-main);">
+                <span style="background: var(--primary-light); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">1</span>
+                <span>Pick Your Options</span>
+            </div>
+            <span style="color: #94A3B8; font-size: 0.85rem;">&rarr;</span>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-main);">
+                <span style="background: var(--primary-light); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">2</span>
+                <span>Send via WhatsApp</span>
+            </div>
+            <span style="color: #94A3B8; font-size: 0.85rem;">&rarr;</span>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-main);">
+                <span style="background: #ECFDF5; color: #10B981; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">3</span>
+                <span>Live in 2–5 Days</span>
+            </div>
+        </div>
+
         <!-- Main Configurator Layout -->
         <div class="estimator-layout-grid">
             
@@ -278,6 +296,12 @@
                             <div style="font-size: 0.8rem; color: var(--primary); font-weight: 700; margin-top: 0.2rem;">+ R 350 / year</div>
                         </div>
                     </div>
+
+                    <!-- Optional Project Name Input -->
+                    <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">
+                        <label for="projectNameInput" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; display: block;">Your Business or Project Name <span style="color: var(--text-muted); font-weight: 400; font-size: 0.8rem;">(Optional)</span></label>
+                        <input type="text" id="projectNameInput" placeholder="e.g. Apex Logistics, Grace Community Church, etc." style="padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1.5px solid var(--border); font-size: 0.9rem; width: 100%; box-sizing: border-box;">
+                    </div>
                 </div>
 
             </div>
@@ -416,6 +440,11 @@
         const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
         const copyBreakdownBtn = document.getElementById('copyBreakdownBtn');
         const copySuccessMsg = document.getElementById('copySuccessMsg');
+        const projectNameInput = document.getElementById('projectNameInput');
+
+        if (projectNameInput) {
+            projectNameInput.addEventListener('input', renderQuote);
+        }
 
         // Toggle Drawer on Top Floating Card
         toggleDrawerBtn.addEventListener('click', () => {
@@ -496,6 +525,16 @@
             let summaryHtmlRows = '';
             let summaryTextLines = [];
 
+            // 0. Project Name Row if provided
+            const projName = projectNameInput ? projectNameInput.value.trim() : '';
+            if (projName) {
+                summaryHtmlRows += `
+                    <div class="quote-summary-row" style="color: #60A5FA;">
+                        <span><strong>Project:</strong> ${projName}</span>
+                    </div>
+                `;
+            }
+
             // 1. Base Platform Row
             const platformPriceText = isCustom ? 'Custom' : `R ${parseInt(selectedPlatform.value).toLocaleString()}`;
             if (!isCustom) total += parseInt(selectedPlatform.value);
@@ -568,7 +607,9 @@
             }
 
             // Prepare WhatsApp Pre-filled message
+            const projectHeader = projName ? `*Project:* ${projName}\n\n` : '';
             const message = `Hi D-TECH Services 👋\n\nI configured an estimate using your Interactive Quote Estimator:\n\n`
+                + projectHeader
                 + summaryTextLines.join('\n')
                 + `\n\n*Estimated Delivery:* ${selectedPlatform.delivery}`
                 + `\n*Total Estimate:* ${finalTotalStr}`
