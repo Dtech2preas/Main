@@ -116,16 +116,26 @@ def run_walkthrough():
 
             # Navigate to Digital Marketplace
             print("=== [3/5] Recording Marketplace (marketplace.html) ===")
-            page.click("nav a[href='marketplace.html']")
+            smooth_scroll(page, 350, 0, step=30, delay=0.02)
+            time.sleep(0.6)
+            try:
+                page.click(".nav-desktop a[href='marketplace.html']")
+            except Exception:
+                page.goto("http://localhost:8080/marketplace.html")
             page.wait_for_load_state("networkidle")
             time.sleep(1.5)
-            page.screenshot(path="screenshots/06_marketplace.html.png")
+            page.screenshot(path="screenshots/06_marketplace.png")
             smooth_scroll(page, 0, 700, step=30, delay=0.03)
             time.sleep(1.5)
 
             # Navigate to Ecosystem
             print("=== [4/5] Recording Ecosystem Map (ecosystem.html) ===")
-            page.click("nav a[href='ecosystem.html']")
+            smooth_scroll(page, 700, 0, step=35, delay=0.02)
+            time.sleep(0.6)
+            try:
+                page.click(".nav-desktop a[href='ecosystem.html']")
+            except Exception:
+                page.goto("http://localhost:8080/ecosystem.html")
             page.wait_for_load_state("networkidle")
             time.sleep(2.0)
             page.screenshot(path="screenshots/07_ecosystem_map.png")
