@@ -825,22 +825,23 @@ nav {
     flex-shrink: 0;
 }
 
-/* --- Floating Top Estimate Card (User Requested Mobile & Desktop UX) --- */
+/* --- True Floating Top Estimate Card (Fixed Over Page on Scroll) --- */
 .floating-estimate-card {
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    position: fixed;
+    top: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(calc(100% - 2rem), 900px);
+    background: rgba(15, 23, 42, 0.94);
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
     border-radius: var(--radius-xl);
-    padding: 1.15rem 1.35rem;
+    padding: 0.85rem 1.25rem;
     color: var(--text-white);
-    box-shadow: 0 12px 30px -5px rgba(15, 23, 42, 0.3);
-    margin-bottom: 2rem;
-    position: sticky;
-    top: 80px;
-    z-index: 95;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    transition: var(--transition);
-    width: 100%;
+    box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.45);
+    z-index: 990;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     box-sizing: border-box;
 }
 
@@ -848,14 +849,14 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.85rem;
     flex-wrap: wrap;
 }
 
 .floating-card-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.85rem;
     flex-wrap: wrap;
 }
 
@@ -863,23 +864,23 @@ nav {
     background: rgba(37, 99, 235, 0.25);
     border: 1px solid rgba(96, 165, 250, 0.35);
     color: #93C5FD;
-    padding: 0.3rem 0.75rem;
+    padding: 0.25rem 0.75rem;
     border-radius: var(--radius-full);
     font-size: 0.8rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
 }
 
 .floating-price-wrap {
     display: flex;
     align-items: baseline;
-    gap: 0.4rem;
+    gap: 0.35rem;
 }
 
 .floating-price-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #94A3B8;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -887,7 +888,7 @@ nav {
 }
 
 .floating-price-amount {
-    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
     font-weight: 900;
     color: #60A5FA;
     line-height: 1;
@@ -897,7 +898,10 @@ nav {
 .floating-card-actions {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.6rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
     margin-left: auto;
     flex-wrap: wrap;
 }
@@ -1512,8 +1516,10 @@ footer {
     }
 
     .floating-estimate-card {
-        top: 74px;
-        padding: 0.9rem 1.15rem;
+        top: 76px;
+        width: calc(100% - 1.25rem);
+        padding: 0.65rem 0.85rem;
+        border-radius: var(--radius-lg);
     }
 }
 
@@ -1526,14 +1532,26 @@ footer {
         width: 100%;
     }
 
+    .floating-card-main {
+        gap: 0.5rem;
+    }
+
     .floating-card-actions {
         width: 100%;
-        justify-content: space-between;
-        margin-top: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.25rem;
     }
 
     .floating-card-actions .btn {
         flex: 1;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-drawer-toggle {
+        padding: 0.5rem 0.65rem;
+        font-size: 0.75rem;
     }
 
     .option-cards-grid {

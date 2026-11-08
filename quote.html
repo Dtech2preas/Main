@@ -75,9 +75,9 @@
     </section>
 
     <!-- Main Configurator Section -->
-    <main class="container" style="padding: 2.5rem 1rem 5rem;">
+    <main class="container" style="padding: 6.5rem 1rem 5rem;">
 
-        <!-- Floating Live Estimate Top Bar (Always visible as user scrolls) -->
+        <!-- True Floating Live Estimate Top Bar (Fixed over page as user scrolls) -->
         <div class="floating-estimate-card" id="topFloatingCard">
             <div class="floating-card-main">
                 <div class="floating-card-info">
@@ -585,6 +585,28 @@
                     setTimeout(() => { copySuccessMsg.style.display = 'none'; }, 2500);
                 });
             };
+        }
+
+        // Parse URL params for pre-selected tier (e.g., quote.html?tier=2)
+        const urlParams = new URLSearchParams(window.location.search);
+        const tierParam = urlParams.get('tier');
+        if (tierParam) {
+            let targetVal = '500';
+            if (tierParam === '2') targetVal = '1500';
+            else if (tierParam === '3') targetVal = '3000';
+            else if (tierParam === '4') targetVal = 'custom';
+
+            platformCards.forEach(c => {
+                if (c.getAttribute('data-value') === targetVal) {
+                    platformCards.forEach(card => card.classList.remove('selected'));
+                    c.classList.add('selected');
+                    selectedPlatform = {
+                        value: c.getAttribute('data-value'),
+                        name: c.getAttribute('data-name'),
+                        delivery: c.getAttribute('data-delivery')
+                    };
+                }
+            });
         }
 
         // Initialize Quote on Load
