@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact DTECH for business inquiries and collaboration opportunities.">
+    <meta name="description" content="Contact D-TECH Services for business inquiries, custom software development, or platform licensing.">
     <meta name="author" content="Seakwa Jonas Mochebane">
-    <title>Contact DTECH | Business Inquiries</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Contact Us | D-TECH Services</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="DTECH Logo">
-                    <span>DTECH</span>
+                    <div>
+                        <span class="logo-text">DTECH</span>
+                        <span class="logo-sub">Contact</span>
+                    </div>
                 </a>
+
+                <div class="nav-desktop">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#development-services">Services</a>
+                    <a href="quote.html">Get a Quote</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="ecosystem.html">Ecosystem</a>
+                    <a href="about.html">About</a>
+                    <a href="founder.html">Founder</a>
+                    <a href="contact.html" class="active">Contact</a>
+                    <a href="quote.html" class="btn btn-primary btn-sm btn-pill">Get a Quote</a>
+                </div>
+
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -30,88 +47,181 @@
         </div>
     </header>
 
-    <!-- Navigation Overlay -->
+    <!-- Mobile Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay">
-        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
+        <button class="close-menu-btn" id="closeMenu" aria-label="Close Navigation">&times;</button>
         <div class="nav-links">
             <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="index.html#development-services" onclick="toggleMenu()">Services</a>
             <a href="quote.html" onclick="toggleMenu()">Get a Quote</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Marketplace</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
             <a href="founder.html" onclick="toggleMenu()">Founder</a>
-            <a href="ecosystem.html" onclick="toggleMenu()">Ecosystem</a>
-            <a href="contact.html" onclick="toggleMenu()" class="active">Contact Us</a>
+            <a href="contact.html" onclick="toggleMenu()" class="active">Contact</a>
         </div>
     </div>
 
     <!-- Page Header -->
-    <section style="padding: 6rem 0 3rem 0; text-align: center;">
-        <div class="container">
-            <h1 class="section-title" style="margin-bottom: 0.5rem;">Contact Us</h1>
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.25rem;">
-                Business Inquiries Only
+    <section style="background: radial-gradient(circle at 50% 0%, #EFF6FF 0%, #F8FAFC 80%); padding: 4.5rem 0 3rem; border-bottom: 1px solid var(--border);">
+        <div class="container text-center">
+            <span class="section-pill">Let's Connect</span>
+            <h1 style="margin-bottom: 0.5rem;">Contact D-TECH</h1>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem;">
+                Have a project proposal, inquiry, or licensing request? We are available via direct chat, email, or telephone.
             </p>
         </div>
     </section>
 
-    <!-- Content -->
-    <section class="container" style="padding-bottom: 6rem;">
-        <div class="grid-2">
+    <!-- Main Content -->
+    <main class="container" style="padding: 4rem 1.5rem 6rem;">
+        <div class="grid-2" style="grid-template-columns: 1fr 1.2fr; gap: 3.5rem; align-items: start;">
+            
+            <!-- Contact Channels -->
             <div>
-                <h3 style="color: var(--primary-color);">Get in Touch</h3>
-                <p class="text-muted" style="margin-bottom: 2rem;">
-                    Please use the form to send us a message regarding partnerships, collaborations, or business opportunities. We appreciate serious inquiries only.
+                <span class="section-pill">Channels</span>
+                <h2 style="font-size: 1.85rem; margin-bottom: 1rem;">Direct Inquiries</h2>
+                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">
+                    We believe in prompt communication. Reach out directly on WhatsApp for instantaneous responses regarding development timelines and technical feasibility.
                 </p>
 
-                <div style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">Email</h4>
-                    <a href="mailto:info@dtech-services.co.za" style="color: var(--primary-color); font-weight: 600;">info@dtech-services.co.za</a>
-                </div>
+                <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                    
+                    <!-- WhatsApp -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon" style="background-color: #ECFDF5; color: #10B981;">💬</div>
+                        <div class="benefit-content">
+                            <h4>WhatsApp (Recommended)</h4>
+                            <p style="margin-bottom: 0.35rem;">Fastest direct line to the engineering team.</p>
+                            <a href="https://wa.me/27670015423" target="_blank" style="color: var(--primary); font-weight: 700; font-size: 0.95rem;">067 001 5423 &rarr;</a>
+                        </div>
+                    </div>
 
-                <div style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">Phone / WhatsApp</h4>
-                    <a href="tel:+27720374751" style="color: var(--primary-color); font-weight: 600;">+27 72 037 4751</a> |
-                    <a href="tel:+27670015423" style="color: var(--primary-color); font-weight: 600;">067 001 5423</a>
-                </div>
+                    <!-- Email -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✉️</div>
+                        <div class="benefit-content">
+                            <h4>Official Email</h4>
+                            <p style="margin-bottom: 0.35rem;">For formal proposals, RFPs, and corporate inquiries.</p>
+                            <a href="mailto:info@dtech-services.co.za" style="color: var(--primary); font-weight: 700; font-size: 0.95rem;">info@dtech-services.co.za &rarr;</a>
+                        </div>
+                    </div>
 
-                <div style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">Telegram</h4>
-                    <a href="https://t.me/PREASX24" target="_blank" style="color: var(--primary-color); font-weight: 600;">@PREASX24</a>
-                </div>
+                    <!-- Phone -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📞</div>
+                        <div class="benefit-content">
+                            <h4>Direct Phone Lines</h4>
+                            <p style="margin-bottom: 0.35rem;">Monday – Friday, 08:00 – 17:00 (SAST).</p>
+                            <span style="color: var(--text-main); font-weight: 600; font-size: 0.9rem;">+27 72 037 4751 / 067 001 5423</span>
+                        </div>
+                    </div>
 
-                <div>
-                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">LinkedIn</h4>
-                    <a href="https://linkedin.com/in/jonas-mochebane" target="_blank" style="color: var(--primary-color); font-weight: 600;">Jonas Mochebane</a>
+                    <!-- Telegram -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✈️</div>
+                        <div class="benefit-content">
+                            <h4>Telegram Handle</h4>
+                            <p style="margin-bottom: 0.35rem;">Direct founder handle for technical inquiries.</p>
+                            <a href="https://t.me/PREASX24" target="_blank" style="color: var(--primary); font-weight: 700; font-size: 0.95rem;">@PREASX24 &rarr;</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
+            <!-- Message Form Card -->
             <div>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="box-shadow: var(--shadow-lg);">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                </form>
+                <div style="background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md);">
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Send a Direct Message</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.75rem;">Fill out the form below or launch our instant WhatsApp consultation.</p>
+
+                    <form id="contactForm" style="padding: 0; background: none; border: none; box-shadow: none;">
+                        <div class="form-group">
+                            <label for="contactName">Your Name / Organization</label>
+                            <input type="text" id="contactName" required placeholder="e.g. Lerato Khumalo or Apex Logistics">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Your Email or Phone Number</label>
+                            <input type="text" id="contactEmail" required placeholder="e.g. name@company.co.za or 072 123 4567">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Project Type</label>
+                            <select id="contactSubject">
+                                <option value="Web Development (Level 1-3)">Web Development (Level 1, 2, or 3)</option>
+                                <option value="Enterprise Platform">Enterprise / Custom Platform</option>
+                                <option value="Platform Licensing">Licensing / White-Label Inquiry</option>
+                                <option value="Educational Ecosystem">Educational Ecosystem Partnership</option>
+                                <option value="General Support">Maintenance / Technical Support</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Project Details & Requirements</label>
+                            <textarea id="contactMessage" rows="4" required placeholder="Describe what you want to build, target launch date, and any specific features you need..."></textarea>
+                        </div>
+
+                        <button type="button" id="submitContactBtn" class="btn btn-whatsapp" style="width: 100%; font-size: 1.05rem; padding: 0.9rem;">
+                            💬 Send Directly via WhatsApp
+                        </button>
+                        
+                        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 1rem; margin-bottom: 0;">
+                            Prefers email? You can also email us directly at <a href="mailto:info@dtech-services.co.za" style="color: var(--primary);">info@dtech-services.co.za</a>
+                        </p>
+                    </form>
+                </div>
             </div>
+
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>THE D-TECH ECOSYSTEM</h3>
+                    <p>A registered South African Tech & Digital Innovation Company (Pty) Ltd. Empowering youth and businesses with accessible technology.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#development-services">Services</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                        <li><a href="marketplace.html">Digital Marketplace</a></li>
+                        <li><a href="ecosystem.html">Free Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="founder.html">The Founder</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="http://legal.dtech-services.co.za" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><a href="https://wa.me/27670015423" target="_blank">WhatsApp: 067 001 5423</a></li>
+                        <li><a href="tel:+27720374751">Phone: +27 72 037 4751</a></li>
+                        <li><a href="mailto:info@dtech-services.co.za">info@dtech-services.co.za</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</div>
+                <div>Technology With Purpose</div>
+            </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Scripts -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
@@ -122,8 +232,19 @@
             document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
+        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+        // WhatsApp Direct Message
+        document.getElementById('submitContactBtn').addEventListener('click', () => {
+            const name = document.getElementById('contactName').value.trim() || 'A potential client';
+            const contact = document.getElementById('contactEmail').value.trim() || 'Not specified';
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value.trim() || 'I would like to discuss a project with D-TECH.';
+
+            const text = `Hi D-TECH Services 👋\n\n*Name:* ${name}\n*Contact:* ${contact}\n*Subject:* ${subject}\n\n*Message:*\n${message}`;
+            window.open(`https://wa.me/27670015423?text=${encodeURIComponent(text)}`, '_blank');
+        });
     </script>
 </body>
 </html>

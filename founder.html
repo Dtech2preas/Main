@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet Seakwa Jonas Mochebane (PREASX24), the founder of DTECH.">
+    <meta name="description" content="Meet Seakwa Jonas Mochebane (PREASX24), CEO and Founder of THE D-TECH ECOSYSTEM (Pty) Ltd.">
     <meta name="author" content="Seakwa Jonas Mochebane">
-    <title>Founder: Seakwa Jonas Mochebane | DTECH</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>The Founder: Seakwa Jonas Mochebane | D-TECH</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -19,8 +20,24 @@
             <nav>
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="DTECH Logo">
-                    <span>DTECH</span>
+                    <div>
+                        <span class="logo-text">DTECH</span>
+                        <span class="logo-sub">Founder</span>
+                    </div>
                 </a>
+
+                <div class="nav-desktop">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#development-services">Services</a>
+                    <a href="quote.html">Get a Quote</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="ecosystem.html">Ecosystem</a>
+                    <a href="about.html">About</a>
+                    <a href="founder.html" class="active">Founder</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="quote.html" class="btn btn-primary btn-sm btn-pill">Get a Quote</a>
+                </div>
+
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -30,64 +47,167 @@
         </div>
     </header>
 
-    <!-- Navigation Overlay -->
+    <!-- Mobile Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay">
-        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
+        <button class="close-menu-btn" id="closeMenu" aria-label="Close Navigation">&times;</button>
         <div class="nav-links">
             <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="index.html#development-services" onclick="toggleMenu()">Services</a>
             <a href="quote.html" onclick="toggleMenu()">Get a Quote</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Marketplace</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
             <a href="founder.html" onclick="toggleMenu()" class="active">Founder</a>
-            <a href="ecosystem.html" onclick="toggleMenu()">Ecosystem</a>
-            <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
         </div>
     </div>
 
     <!-- Page Header -->
-    <section style="padding: 6rem 0 3rem 0; text-align: center;">
-        <div class="container">
-            <h1 class="section-title" style="margin-bottom: 0.5rem;">The Founder</h1>
-            <p style="font-size: 1.5rem; color: var(--primary-color); font-weight: 700;">
+    <section style="background: radial-gradient(circle at 50% 0%, #EFF6FF 0%, #F8FAFC 80%); padding: 4.5rem 0 3rem; border-bottom: 1px solid var(--border);">
+        <div class="container text-center">
+            <span class="section-pill">Executive Leadership</span>
+            <h1 style="margin-bottom: 0.5rem;">The Founder</h1>
+            <p style="font-size: 1.35rem; color: var(--primary); font-weight: 700;">
                 Seakwa Jonas Mochebane (PREASX24)
+            </p>
+            <p style="max-width: 600px; margin: 0.5rem auto 0; color: var(--text-muted); font-size: 1.05rem;">
+                CEO & Lead Systems Architect &bull; THE D-TECH ECOSYSTEM (Pty) Ltd
             </p>
         </div>
     </section>
 
     <!-- Content -->
-    <section class="container" style="padding-bottom: 6rem;">
-        <div class="grid-2" style="align-items: start; margin-bottom: 2rem;">
-            <div>
-                <img src="images/founder.jpg" alt="Seakwa Jonas Mochebane" style="border-radius: var(--radius-lg); width: 100%; box-shadow: var(--shadow-lg);">
+    <main class="container" style="padding: 4rem 1.5rem 6rem;">
+        
+        <div class="grid-2" style="grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start; margin-bottom: 3.5rem;">
+            
+            <!-- Founder Profile Visual Card -->
+            <div style="background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; text-align: center; box-shadow: var(--shadow-md);">
+                <div style="width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #60A5FA 100%); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; font-weight: 800; box-shadow: 0 10px 25px var(--primary-glow);">
+                    JM
+                </div>
+                
+                <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Seakwa Jonas Mochebane</h3>
+                <p style="color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">@PREASX24</p>
+                
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.75rem;">
+                    Founder & Digital Architect passionate about low-cost, high-impact software systems for South African learners and enterprises.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="https://linkedin.com/in/jonas-mochebane" target="_blank" class="btn btn-secondary btn-sm" style="width: 100%;">
+                        🔗 LinkedIn: Jonas Mochebane
+                    </a>
+                    <a href="https://t.me/PREASX24" target="_blank" class="btn btn-secondary btn-sm" style="width: 100%;">
+                        ✈️ Telegram: @PREASX24
+                    </a>
+                    <a href="https://wa.me/27670015423" target="_blank" class="btn btn-whatsapp btn-sm" style="width: 100%;">
+                        💬 WhatsApp Directly
+                    </a>
+                </div>
             </div>
+
+            <!-- Founder Story / Bio -->
             <div>
-                <h3>Professional Overview</h3>
-                <p class="text-muted" style="margin-bottom: 1.5rem;">
-                    Seakwa Jonas Mochebane, operating under the alias PREASX24, is the CEO and Founder of THE D-TECH ECOSYSTEM (Pty) Ltd, a registered Tech and Digital Innovation Company based in South Africa.
+                <span class="section-pill">Philosophy & Journey</span>
+                <h2 style="margin-bottom: 1.25rem;">Technology With Purpose</h2>
+                
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.25rem;">
+                    Seakwa Jonas Mochebane, operating under the alias <strong>PREASX24</strong>, is the CEO and Founder of <strong>THE D-TECH ECOSYSTEM (Pty) Ltd</strong>, a formally registered Tech and Digital Innovation Company based in South Africa.
                 </p>
-                <p class="text-muted" style="margin-bottom: 1.5rem;">
-                    Guided by the philosophy of "Technology With Purpose," Jonas specializes in building practical, accessible, and meaningful digital systems designed to solve real-world problems. His journey began in 2018 with early utilities for students, leading to the formal establishment of D-TECH in 2020, and ultimately its registration as an enterprise.
+
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.25rem;">
+                    Guided by the core philosophy of <em>"Technology With Purpose,"</em> Jonas specializes in building practical, accessible, and meaningful digital platforms designed to solve real-world problems. His journey began in 2018 with early utilities for students, leading to the formal establishment of D-TECH in 2020, and ultimately its registration as a private enterprise.
                 </p>
+
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.75rem;">
+                    Jonas is an expert in resource-efficient engineering—leveraging serverless Edge computing (Cloudflare Workers), WebRTC Peer-to-Peer systems, and native Android integrations to create scalable, enterprise-grade software that remains affordable and highly accessible. By creatively combining open tools and structured design principles, he ensures digital innovation remains open, inclusive, and built for long-term sustainability.
+                </p>
+
+                <div style="background-color: var(--primary-light); border-left: 4px solid var(--primary); padding: 1.25rem 1.5rem; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+                    <p style="font-size: 0.95rem; color: #1E3A8A; margin: 0; font-style: italic;">
+                        "The goal is simple: create technology that solves real problems without financial barriers, and remains useful over time."
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Ecosystem Subdivisions -->
+        <div style="background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 3rem 2.5rem; box-shadow: var(--shadow-sm);">
+            <div class="text-center" style="max-width: 600px; margin: 0 auto 2.5rem;">
+                <span class="section-pill">Ecosystem Branches</span>
+                <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Led by Purpose</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">THE D-TECH ECOSYSTEM spans multiple specialized subdivisions.</p>
+            </div>
+
+            <div class="grid-4" style="gap: 1.5rem;">
+                <div class="card" style="padding: 1.5rem;">
+                    <div class="card-icon">📚</div>
+                    <h4 style="margin-bottom: 0.35rem;">DTECH Edu</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Freely accessible study repositories, past paper tools, and matric prep platforms.</p>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div class="card-icon">💼</div>
+                    <h4 style="margin-bottom: 0.35rem;">DTECH Services</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Affordable web development, custom applications, and white-label platforms.</p>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div class="card-icon">🔬</div>
+                    <h4 style="margin-bottom: 0.35rem;">DTECH Lab</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Experimental prototypes, P2P utilities, and serverless Edge architectures.</p>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div class="card-icon">🎧</div>
+                    <h4 style="margin-bottom: 0.35rem;">DTECH Entertainment</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Interactive media tools, community music apps, and student audio platforms.</p>
+                </div>
             </div>
         </div>
 
-        <div style="max-width: 900px; margin: 0 auto;">
-            <p class="text-muted" style="margin-bottom: 1.5rem;">
-                Jonas is an expert in resource-efficient engineering—leveraging serverless Edge computing (Cloudflare Workers), WebRTC Peer-to-Peer systems, and native Android integrations to create scalable, enterprise-grade software that remains affordable and highly accessible. By creatively combining open tools and structured design principles, he ensures that digital innovation remains open, inclusive, and built for long-term sustainability.
-            </p>
-            <p class="text-muted" style="margin-bottom: 1.5rem;">
-                THE D-TECH ECOSYSTEM spans multiple subdivisions—DTECH Edu, DTECH Services, DTECH Lab, and DTECH Entertainment—each dedicated to empowering learners, businesses, and communities by building technology that works for them.
-            </p>
-            <p class="text-muted">
-                Since its inception, D-TECH has continued to lay the foundation for impactful digital innovation in South Africa, creating tools, services, and experiences that are practical, reliable, and inclusive.
-            </p>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>THE D-TECH ECOSYSTEM</h3>
+                    <p>A registered South African Tech & Digital Innovation Company (Pty) Ltd. Empowering youth and businesses with accessible technology.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#development-services">Services</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                        <li><a href="marketplace.html">Digital Marketplace</a></li>
+                        <li><a href="ecosystem.html">Free Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="founder.html">The Founder</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="http://legal.dtech-services.co.za" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><a href="https://wa.me/27670015423" target="_blank">WhatsApp: 067 001 5423</a></li>
+                        <li><a href="tel:+27720374751">Phone: +27 72 037 4751</a></li>
+                        <li><a href="mailto:info@dtech-services.co.za">info@dtech-services.co.za</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</div>
+                <div>Technology With Purpose</div>
+            </div>
         </div>
     </footer>
 
@@ -102,8 +222,8 @@
             document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
+        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>

@@ -3,243 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DTECH is a South African student-focused digital innovation platform founded by Seakwa Jonas Mochebane.">
+    <meta name="description" content="D-TECH Services - Affordable web development, custom software solutions, and turnkey digital platforms in South Africa. From R500 once-off.">
     <meta name="author" content="Seakwa Jonas Mochebane">
-    <title>DTECH | Student-Focused Digital Innovation</title>
+    <title>DTECH Services | Web & Software Engineering</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- CORE VARIABLES --- */
-        :root {
-            --primary: #2563EB; /* Vibrant Tech Blue */
-            --primary-glow: rgba(37, 99, 235, 0.4);
-            --dark-bg: #0B0F19; /* Deep space dark */
-            --light-bg: #F8FAFC;
-            --surface: #FFFFFF;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
-            --text-light: #F1F5F9;
-            --border: #E2E8F0;
-            --radius-lg: 16px;
-            --radius-md: 8px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* --- GLOBAL RESETS --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        .container { width: 100%; max-width: 98%; margin: 0 auto; padding: 0 1rem; }
-
-        /* --- ANIMATIONS --- */
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes glow {
-            0% { text-shadow: 0 0 20px var(--primary-glow); }
-            50% { text-shadow: 0 0 40px var(--primary), 0 0 10px var(--primary); }
-            100% { text-shadow: 0 0 20px var(--primary-glow); }
-        }
-
-        .animate-up { opacity: 0; animation: fadeUp 0.8s ease forwards; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
-        /* --- HEADER & GLASS NAVIGATION --- */
-        header {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(11, 15, 25, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            z-index: 100;
-            transition: var(--transition);
-        }
-
-        nav { display: flex; justify-content: space-between; align-items: center; height: 72px; }
-
-        .logo {
-            display: flex; align-items: center; gap: 0.75rem;
-            text-decoration: none; font-weight: 800; font-size: 1.5rem;
-            color: var(--text-light); letter-spacing: -0.03em;
-        }
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        /* Mobile Menu */
-        .hamburger-btn {
-            display: flex; flex-direction: column; gap: 5px;
-            background: none; border: none; cursor: pointer; z-index: 1000;
-            align-items: flex-end; /* right-align the asymmetric lines */
-        }
-        .hamburger-line { height: 2px; background-color: var(--text-light); transition: 0.3s; border-radius: 2px; }
-        .hamburger-line:nth-child(1) { width: 28px; }
-        .hamburger-line:nth-child(2) { width: 20px; }
-        .hamburger-line:nth-child(3) { width: 28px; }
-
-        .hamburger-btn:hover .hamburger-line { background-color: var(--primary); }
-        .hamburger-btn:hover .hamburger-line:nth-child(2) { width: 28px; }
-
-        .nav-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background-color: rgba(11, 15, 25, 0.98);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 999;
-        }
-        .nav-overlay.active { opacity: 1; pointer-events: all; }
-        .nav-links { display: flex; flex-direction: column; gap: 2rem; text-align: center; }
-        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 1.5rem; font-weight: 600; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* --- HERO SECTION (The "Wow" Factor) --- */
-        @keyframes driftBackground {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
-
-        .hero {
-            background-color: var(--dark-bg);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15), transparent 30%),
-                radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1), transparent 30%);
-            background-size: 150% 150%;
-            animation: driftBackground 20s ease-in-out infinite;
-            /* Changed from 90vh to 75vh to eliminate false bottom and show cards below */
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 1rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content { position: relative; z-index: 2; max-width: 900px; }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 900;
-            color: var(--text-light);
-            line-height: 1.1;
-            letter-spacing: -0.04em;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #60A5FA, #2563EB);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 4s infinite alternate;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.25rem);
-            color: #94A3B8;
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
-            font-weight: 300;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 0.85rem 2rem; font-size: 1rem; font-weight: 600;
-            text-decoration: none; border-radius: 50px;
-            transition: var(--transition); cursor: pointer; border: 2px solid transparent;
-        }
-        .btn-primary {
-            background-color: var(--primary); color: white;
-            box-shadow: 0 4px 14px 0 var(--primary-glow);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--primary-glow); background-color: #1D4ED8; }
-        .btn-outline {
-            background-color: transparent; color: var(--text-light);
-            border-color: rgba(255,255,255,0.2);
-        }
-        .btn-outline:hover { background-color: rgba(255,255,255,0.05); border-color: var(--text-light); transform: translateY(-2px); }
-        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-        /* --- CONTENT SECTIONS --- */
-        section { padding: 6rem 0; }
-        .section-header { text-align: center; margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .section-header h2 { font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; letter-spacing: -0.03em; }
-
-        /* Grid Layouts */
-        .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 2rem; }
-        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
-        @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-
-        /* Feature Cards */
-        .card {
-            display: flex; flex-direction: column;
-
-            background: var(--surface); padding: 2rem 1.5rem;
-            border-radius: var(--radius-lg); border: 1px solid var(--border);
-            transition: var(--transition); position: relative; overflow: hidden;
-        }
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, #60A5FA, var(--primary)); transform: scaleX(0);
-            transform-origin: left; transition: transform 0.4s ease;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); }
-        .card:hover::before { transform: scaleX(1); }
-        .card-icon { width: 48px; height: 48px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--primary); font-size: 1.5rem; font-weight: bold; }
-        .card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
-
-        /* Founder Section */
-        .founder-wrapper { background: #1E293B; color: var(--text-light); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
-        .founder-img { width: 100%; height: 100%; object-fit: cover; background: #0F172A; }
-        .founder-content { padding: 4rem 3rem; }
-        .founder-label { color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
-        .founder-content h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem; letter-spacing: -0.03em; color: var(--text-light); }
-        .founder-content h4 { color: #94A3B8; font-weight: 500; margin-bottom: 1.5rem; font-size: 1.1rem; }
-
-        /* Footer */
-        footer { background: var(--dark-bg); color: #94A3B8; padding: 3rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        footer p { margin-bottom: 0.5rem; font-size: 0.95rem; }
-
-        /* Core Features Intro */
-        .core-features-intro {
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            color: #E2E8F0;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-        .core-features-intro strong {
-            color: #60A5FA;
-            font-weight: 600;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header id="mainHeader">
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="DTECH Logo">
+                    <div>
+                        <span class="logo-text">DTECH</span>
+                        <span class="logo-sub">Services</span>
+                    </div>
                 </a>
+
+                <!-- Desktop Nav -->
+                <div class="nav-desktop">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="#development-services">Services</a>
+                    <a href="#estimator">Estimator</a>
+                    <a href="#licensing-solutions">Licensing</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="ecosystem.html">Ecosystem</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="quote.html" class="btn btn-primary btn-sm btn-pill">Get a Quote</a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -249,353 +49,674 @@
         </div>
     </header>
 
+    <!-- Mobile Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay">
-        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:white; font-size: 2.5rem; cursor: pointer;">&times;</button>
+        <button class="close-menu-btn" id="closeMenu" aria-label="Close Navigation">&times;</button>
         <div class="nav-links">
-            <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="marketplace.html" onclick="toggleMenu()" style="color: #60A5FA;">Marketplace</a>
-            <a href="quote.html" onclick="toggleMenu()" style="color: #60A5FA;">Get a Quote</a>
-            <a href="#builder" onclick="toggleMenu()" style="color: #60A5FA;">Site Builder</a>
-            <a href="contact.html" onclick="toggleMenu()" style="color: #60A5FA;">Custom Dev</a>
+            <a href="index.html" onclick="toggleMenu()" class="active">Home</a>
+            <a href="#development-services" onclick="toggleMenu()">Services</a>
+            <a href="#estimator" onclick="toggleMenu()">Quote Estimator</a>
+            <a href="#licensing-solutions" onclick="toggleMenu()">Licensing Solutions</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Digital Marketplace</a>
             <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
-            <a href="founder.html" onclick="toggleMenu()">Founder</a>
+            <a href="founder.html" onclick="toggleMenu()">The Founder</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+            <a href="quote.html" class="btn btn-primary" style="margin-top: 1rem;">Launch Full Configurator</a>
         </div>
     </div>
 
-    <section class="hero">
+    <!-- HERO SECTION (Modern Professional SaaS) -->
+    <section class="hero-section">
         <div class="container hero-content">
-            <h1 class="animate-up delay-1">Welcome to <br><span class="highlight">D-TECH Services</span></h1>
-            <p class="animate-up delay-2">
-                Affordable software solutions for businesses, schools, organisations, and personal use. Custom development and ready-made platforms built to fit your budget..
-            </p>
-            <div class="btn-group animate-up delay-3" style="margin-bottom: 1.5rem; gap: 0.75rem;">
-                <a href="marketplace.html" class="btn btn-primary">🛒 Digital Marketplace</a>
-                <a href="#development-services" class="btn btn-outline">💼 Development Services</a>
-                <a href="#licensing-solutions" class="btn btn-outline">🚀 Licensing Solutions</a>
+            <div class="hero-pill">
+                <span>🇿🇦</span>
+                <span>THE D-TECH ECOSYSTEM (Pty) Ltd &bull; Registered Innovation Company</span>
             </div>
-            <div class="animate-up delay-3" style="margin-top: 1rem;">
-                 <a href="ecosystem.html" style="color: #94A3B8; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px dotted #64748B; padding-bottom: 2px; transition: color 0.3s;">
-                    &rarr; Or view our Free Educational Ecosystem
-                 </a>
+
+            <h1 class="hero-title">
+                Tailored Web & Software Engineering <br>
+                <span class="gradient-text">Built for Real Budgets</span>
+            </h1>
+
+            <p class="hero-sub">
+                Affordable, high-performance websites, custom platforms, and ready-to-launch digital solutions for South African businesses, schools, organizations, and creators.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#estimator" class="btn btn-primary btn-lg">
+                    ⚡ Instant Quote Estimator
+                </a>
+                <a href="marketplace.html" class="btn btn-secondary btn-lg">
+                    🛒 Explore Marketplace
+                </a>
+                <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%20I'd%20like%20to%20inquire%20about%20a%20project." target="_blank" class="btn btn-whatsapp btn-lg">
+                    💬 WhatsApp Us
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-val">R 500</div>
+                    <div class="stat-label">Starting Web Price</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">2 - 5 Days</div>
+                    <div class="stat-label">Fast Delivery</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">R 150/yr</div>
+                    <div class="stat-label">.co.za Domain Setup</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">100%</div>
+                    <div class="stat-label">Mobile Optimized</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: Development Services -->
-    <section id="development-services">
+    <!-- SECTION 1: Development Services -->
+    <section id="development-services" style="padding: 5.5rem 0;">
         <div class="container">
             <div class="section-header">
+                <span class="section-pill">Custom Engineering</span>
                 <h2>Development Services</h2>
-                <p class="core-features-intro">Custom-built solutions tailored to your unique requirements.</p>
+                <p>Tailored development packages crafted for your exact requirements with transparent once-off pricing.</p>
             </div>
 
-            <div class="auto-grid">
+            <div class="grid-4" style="align-items: stretch;">
+                
                 <!-- Level 1 -->
-                <div class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3>Level 1 – Static Website</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Perfect for portfolios, churches, small businesses, NGOs, and personal websites.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R500</span> <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">once off</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">2 - 5 days</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
-                        <li>✓ 1–5 Pages</li>
-                        <li>✓ Responsive Design</li>
-                        <li>✓ Contact Form</li>
-                        <li>✓ WhatsApp Integration</li>
-                        <li>✓ Google Maps</li>
-                        <li>✓ Basic SEO</li>
-                        <li>✓ Mobile Optimisation</li>
-                        <li>✓ No Backend or Database</li>
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-level">Level 1</div>
+                        <h3 class="tier-title">Static Website</h3>
+                        <p class="tier-desc">Ideal for personal portfolios, churches, small businesses, and community organizations.</p>
+                    </div>
+
+                    <div class="tier-price-box">
+                        <div class="tier-price">
+                            <span class="amount">R 500</span>
+                            <span class="period">once off</span>
+                        </div>
+                        <div class="tier-delivery">
+                            <span>⏱️ Estimated Delivery: <strong>2 - 5 days</strong></span>
+                        </div>
+                    </div>
+
+                    <ul class="tier-features">
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> 1–5 Custom Pages</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Responsive Mobile Design</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Direct Contact Form</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> WhatsApp Click-to-Chat</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Google Maps Integration</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Basic Search Engine SEO</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Zero Monthly Server Fees</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%201%20%E2%80%93%20Static%20Website.%0A%0AStarting%20Price%3A%20R500%0A%0AEstimated%20Delivery%3A%202%20-%205%20days%0A%0APackage%20Includes%3A%0A%E2%80%A2%201%E2%80%935%20Pages%0A%E2%80%A2%20Responsive%20Design%0A%E2%80%A2%20Contact%20Form%0A%E2%80%A2%20WhatsApp%20Integration%0A%E2%80%A2%20Google%20Maps%0A%E2%80%A2%20Basic%20SEO%0A%E2%80%A2%20Mobile%20Optimisation%0A%E2%80%A2%20No%20Backend%20or%20Database%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
+
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20the%20Level%201%20%E2%80%93%20Static%20Website%20(R500).%0A%0APlease%20let%20me%20know%20how%20we%20can%20get%20started." target="_blank" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Order Level 1</a>
                 </div>
 
-                <!-- Level 2 -->
-                <div class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3>Level 2 – Dynamic Website</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Ideal for businesses, schools, organisations, and clubs that need to manage content or users.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R1,500</span> <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">once off</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
-                        <li>✓ Everything in Level 1</li>
-                        <li>✓ Admin Dashboard</li>
-                        <li>✓ Database Integration</li>
-                        <li>✓ User Authentication</li>
-                        <li>✓ Content Management</li>
-                        <li>✓ Blog/News System</li>
-                        <li>✓ Form Submission Storage</li>
+                <!-- Level 2 (Featured) -->
+                <div class="tier-card featured">
+                    <div class="tier-badge">Most Popular</div>
+                    <div class="tier-header">
+                        <div class="tier-level">Level 2</div>
+                        <h3 class="tier-title">Dynamic Website</h3>
+                        <p class="tier-desc">Built for schools, companies, and clubs that need to manage live content, news, and users.</p>
+                    </div>
+
+                    <div class="tier-price-box">
+                        <div class="tier-price">
+                            <span class="amount">R 1,500</span>
+                            <span class="period">once off</span>
+                        </div>
+                        <div class="tier-delivery">
+                            <span>⏱️ Estimated Delivery: <strong>3 - 5 days</strong></span>
+                        </div>
+                    </div>
+
+                    <ul class="tier-features">
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Everything in Level 1</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Admin Management Dashboard</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Cloud Database Integration</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> User Authentication / Logins</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Dynamic Blog / News System</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Form Submission Storage</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> SSL Security Certificate</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%202%20%E2%80%93%20Dynamic%20Website.%0A%0AStarting%20Price%3A%20R1%2C500%0A%0AEstimated%20Delivery%3A%203%20-%205%20days%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Everything%20in%20Level%201%0A%E2%80%A2%20Admin%20Dashboard%0A%E2%80%A2%20Database%20Integration%0A%E2%80%A2%20User%20Authentication%0A%E2%80%A2%20Content%20Management%0A%E2%80%A2%20Blog/News%20System%0A%E2%80%A2%20Form%20Submission%20Storage%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
+
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20the%20Level%202%20%E2%80%93%20Dynamic%20Website%20(R1,500).%0A%0APlease%20share%20the%20next%20steps." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Order Level 2</a>
                 </div>
 
                 <!-- Level 3 -->
-                <div class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3>Level 3 – Web Application</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Designed for organisations that need custom workflows, automation, and online services.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R3,000</span> <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">once off</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 7 days</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
-                        <li>✓ Everything in Level 2</li>
-                        <li>✓ Custom Business Logic</li>
-                        <li>✓ Booking Systems</li>
-                        <li>✓ Inventory / CRM Management</li>
-                        <li>✓ Student Management</li>
-                        <li>✓ API & Payment Integrations</li>
-                        <li>✓ Analytics Dashboard</li>
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-level">Level 3</div>
+                        <h3 class="tier-title">Web Application</h3>
+                        <p class="tier-desc">Designed for organizations requiring automated workflows, student portals, and bookings.</p>
+                    </div>
+
+                    <div class="tier-price-box">
+                        <div class="tier-price">
+                            <span class="amount">R 3,000</span>
+                            <span class="period">once off</span>
+                        </div>
+                        <div class="tier-delivery">
+                            <span>⏱️ Estimated Delivery: <strong>3 - 7 days</strong></span>
+                        </div>
+                    </div>
+
+                    <ul class="tier-features">
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Everything in Level 2</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Custom Business Automation</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Booking & Appointment System</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Student & Member Portals</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Payment & API Integrations</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Live Analytics Dashboard</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Advanced Cloud Database</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%203%20%E2%80%93%20Web%20Application.%0A%0AStarting%20Price%3A%20R3%2C000%0A%0AEstimated%20Delivery%3A%203%20-%207%20days%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Everything%20in%20Level%202%0A%E2%80%A2%20Custom%20Business%20Logic%0A%E2%80%A2%20Booking%20Systems%0A%E2%80%A2%20Inventory%20/%20CRM%20Management%0A%E2%80%A2%20Student%20Management%0A%E2%80%A2%20API%20%26%20Payment%20Integrations%0A%E2%80%A2%20Analytics%20Dashboard%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
+
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20the%20Level%203%20%E2%80%93%20Web%20Application%20(R3,000).%0A%0ALet's%20discuss%20the%20details." target="_blank" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Order Level 3</a>
                 </div>
 
                 <!-- Level 4 -->
-                <div class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3>Level 4 – Enterprise Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; ">Built for large organisations requiring scalable infrastructure, advanced security, and custom integrations.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Custom Quote <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">negotiable</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">1 week - a month</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
-                        <li>✓ Fully Custom Architecture</li>
-                        <li>✓ Cloud Deployment</li>
-                        <li>✓ High-Level Security</li>
-                        <li>✓ Multi-user Roles</li>
-                        <li>✓ Advanced Integrations</li>
-                        <li>✓ Scalable Infrastructure</li>
-                        <li>✓ Ongoing Support</li>
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-level">Level 4</div>
+                        <h3 class="tier-title">Enterprise System</h3>
+                        <p class="tier-desc">Custom scalable infrastructure, high security, and dedicated maintenance agreements.</p>
+                    </div>
+
+                    <div class="tier-price-box">
+                        <div class="tier-price">
+                            <span class="amount" style="font-size: 1.6rem;">Custom</span>
+                            <span class="period">tailored scope</span>
+                        </div>
+                        <div class="tier-delivery">
+                            <span>⏱️ Estimated Delivery: <strong>1 - 4 weeks</strong></span>
+                        </div>
+                    </div>
+
+                    <ul class="tier-features">
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Bespoke Cloud Architecture</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Multi-Role Access Control</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> High-Level Encryption & Security</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Third-Party Enterprise APIs</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Serverless Edge Scalability</li>
+                        <li class="tier-feature-item"><span class="check-icon">✓</span> Dedicated SLA Support</li>
                     </ul>
-                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI%27m%20interested%20in%20the%20Level%204%20%E2%80%93%20Enterprise%20Platform.%0A%0AStarting%20Price%3A%20Custom%20Quote%0A%0AEstimated%20Delivery%3A%201%20week%20-%20a%20month%0A%0APackage%20Includes%3A%0A%E2%80%A2%20Fully%20Custom%20Architecture%0A%E2%80%A2%20Cloud%20Deployment%0A%E2%80%A2%20High-Level%20Security%0A%E2%80%A2%20Multi-user%20Roles%0A%E2%80%A2%20Advanced%20Integrations%0A%E2%80%A2%20Scalable%20Infrastructure%0A%E2%80%A2%20Ongoing%20Support%0A%0ABusiness/School/Organization%20Name%3A%0A%0AProject%20Description%3A%0A%0A.co.za%20Domain%20%28R150/year%29%3A%0A%E2%98%90%20Yes%0A%E2%98%90%20No%0A%0AThank%20you." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: auto;">Request Quote</a>
+
+                    <a href="https://wa.me/27670015423?text=Hi%20D-TECH%20Services%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20discussing%20a%20Level%204%20Enterprise%20Platform." target="_blank" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Request Proposal</a>
                 </div>
+
             </div>
 
-            <!-- Optional Add-on & Note -->
-            <div style="margin-top: 4rem; padding: 2rem; background: rgba(37, 99, 235, 0.05); border-radius: var(--radius-lg); border: 1px dashed var(--primary); text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Optional Add-on</h4>
-                <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem;">
-                    🇿🇦 .co.za Domain Registration & Setup: <span style="color: var(--primary);">+R150</span>
-                </p>
-                <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: var(--radius-md);">
-                    <strong>Note:</strong> A .co.za domain includes domain registration, DNS configuration, and website connection. Annual domain renewal fees apply after the first year. Hosting is quoted separately if required.
+            <!-- Domain Add-on Banner -->
+            <div style="margin-top: 3.5rem; padding: 1.75rem 2rem; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1.5px dashed var(--primary); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; box-shadow: var(--shadow-sm);">
+                <div>
+                    <span style="background-color: var(--primary-light); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Optional Domain Add-on</span>
+                    <h3 style="font-size: 1.3rem; margin: 0.5rem 0 0.25rem;">🇿🇦 .co.za Domain Registration & DNS Setup: <span style="color: var(--primary);">+ R 150 / year</span></h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Includes domain registration, full DNS configuration, SSL binding, and server connection. Annual renewal fees apply after Year 1.</p>
                 </div>
+                <a href="#estimator" class="btn btn-outline">Add in Estimator &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Interactive Quick Quote Estimator (Embedded on Homepage) -->
+    <section id="estimator" style="background: linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%); padding: 5.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Real-Time Pricing</span>
+                <h2>Interactive Quote Estimator</h2>
+                <p>Calculate your digital project cost instantly. Select your base tier, page count, and add-ons below.</p>
+            </div>
+
+            <div class="grid-2" style="grid-template-columns: 1.5fr 1fr; gap: 2.5rem; align-items: start;">
+                
+                <!-- Controls -->
+                <div class="quote-configurator">
+                    
+                    <!-- 1. Base Platform -->
+                    <div style="margin-bottom: 2rem;">
+                        <label style="font-size: 1rem; margin-bottom: 0.85rem; display: block;">1. Base Solution Tier</label>
+                        <div class="option-cards-grid" id="homePlatformSelector" style="grid-template-columns: 1fr 1fr;">
+                            <div class="option-card selected" data-value="500" data-name="Level 1: Static Website" data-delivery="2 - 5 Days">
+                                <div class="option-card-title">🌐 Static Website</div>
+                                <div class="option-card-price">R 500</div>
+                                <div class="option-card-desc">1–5 Pages, contact form, fast launch.</div>
+                            </div>
+                            <div class="option-card" data-value="1500" data-name="Level 2: Dynamic Website" data-delivery="3 - 5 Days">
+                                <div class="option-card-title">⚡ Dynamic Site</div>
+                                <div class="option-card-price">R 1,500</div>
+                                <div class="option-card-desc">CMS, admin dashboard & database.</div>
+                            </div>
+                            <div class="option-card" data-value="3000" data-name="Level 3: Web App" data-delivery="3 - 7 Days">
+                                <div class="option-card-title">🚀 Web Application</div>
+                                <div class="option-card-price">R 3,000</div>
+                                <div class="option-card-desc">Portals, logic, workflows & API.</div>
+                            </div>
+                            <div class="option-card" data-value="custom" data-name="Level 4: Enterprise" data-delivery="1 - 4 Weeks">
+                                <div class="option-card-title">🏢 Enterprise</div>
+                                <div class="option-card-price" style="font-size: 1rem; color: #64748B;">Custom Quote</div>
+                                <div class="option-card-desc">Scalable bespoke cloud architecture.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Page Count -->
+                    <div style="margin-bottom: 2rem;">
+                        <label style="font-size: 1rem; margin-bottom: 0.85rem; display: block;">2. Page Volume</label>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;" id="homePageSelector">
+                            <div class="option-card selected" style="padding: 0.75rem; text-align: center;" data-value="0" data-name="1–5 Pages">
+                                <div style="font-weight: 700; font-size: 0.9rem;">1–5 Pages</div>
+                                <div style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">Included</div>
+                            </div>
+                            <div class="option-card" style="padding: 0.75rem; text-align: center;" data-value="300" data-name="6–10 Pages">
+                                <div style="font-weight: 700; font-size: 0.9rem;">6–10 Pages</div>
+                                <div style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">+ R 300</div>
+                            </div>
+                            <div class="option-card" style="padding: 0.75rem; text-align: center;" data-value="700" data-name="11–20 Pages">
+                                <div style="font-weight: 700; font-size: 0.9rem;">11–20 Pages</div>
+                                <div style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">+ R 700</div>
+                            </div>
+                            <div class="option-card" style="padding: 0.75rem; text-align: center;" data-value="1500" data-name="20+ Pages">
+                                <div style="font-weight: 700; font-size: 0.9rem;">20+ Pages</div>
+                                <div style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">+ R 1,500</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Key Add-ons -->
+                    <div style="margin-bottom: 2rem;">
+                        <label style="font-size: 1rem; margin-bottom: 0.85rem; display: block;">3. Select Add-on Features</label>
+                        <div class="feature-chips-grid" style="grid-template-columns: 1fr 1fr;">
+                            <label class="feature-chip">
+                                <input type="checkbox" class="home-feature-cb" value="500" data-name="Admin CMS">
+                                <div class="feature-chip-content">
+                                    <span class="feature-chip-name">Admin CMS</span>
+                                    <span class="feature-chip-price">+ R 500</span>
+                                </div>
+                            </label>
+                            <label class="feature-chip">
+                                <input type="checkbox" class="home-feature-cb" value="1000" data-name="E-Commerce">
+                                <div class="feature-chip-content">
+                                    <span class="feature-chip-name">E-Commerce & Pay</span>
+                                    <span class="feature-chip-price">+ R 1,000</span>
+                                </div>
+                            </label>
+                            <label class="feature-chip">
+                                <input type="checkbox" class="home-feature-cb" value="400" data-name="User Logins">
+                                <div class="feature-chip-content">
+                                    <span class="feature-chip-name">User Auth / Accounts</span>
+                                    <span class="feature-chip-price">+ R 400</span>
+                                </div>
+                            </label>
+                            <label class="feature-chip">
+                                <input type="checkbox" class="home-feature-cb" value="300" data-name="Advanced SEO">
+                                <div class="feature-chip-content">
+                                    <span class="feature-chip-name">Advanced Google SEO</span>
+                                    <span class="feature-chip-price">+ R 300</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 4. Domain -->
+                    <div>
+                        <label style="font-size: 1rem; margin-bottom: 0.85rem; display: block;">4. Domain Option</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;" id="homeDomainSelector">
+                            <div class="option-card selected" style="padding: 0.85rem;" data-value="0" data-name="No Domain Needed">
+                                <div style="font-weight: 700; font-size: 0.9rem;">No Domain</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Use existing</div>
+                            </div>
+                            <div class="option-card" style="padding: 0.85rem;" data-value="150" data-name=".co.za Domain Setup">
+                                <div style="font-weight: 700; font-size: 0.9rem;">🇿🇦 .co.za Domain</div>
+                                <div style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">+ R 150 / yr</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.75rem; text-align: center;">
+                        <a href="quote.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary);">
+                            Need more customization options? Open the full configurator &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live Summary Display -->
+                <div>
+                    <div class="quote-summary-card">
+                        <h3 class="quote-summary-title">Live Estimate</h3>
+
+                        <div class="quote-delivery-badge">
+                            <span>⏱️</span>
+                            <div>
+                                <strong style="color: white; display: block; font-size: 0.75rem; text-transform: uppercase;">Estimated Turnaround:</strong>
+                                <span id="homeDeliveryTime">2 - 5 Days</span>
+                            </div>
+                        </div>
+
+                        <div class="quote-summary-list" id="homeSummaryList">
+                            <!-- Populated dynamically -->
+                        </div>
+
+                        <div class="quote-total-box">
+                            <div class="quote-total-label">Total Estimate:</div>
+                            <div class="quote-total-amount" id="homeTotalAmount">R 500</div>
+                        </div>
+
+                        <button id="homeWhatsAppBtn" class="btn btn-whatsapp" style="width: 100%; font-size: 1.05rem; padding: 1rem; margin-bottom: 0.75rem;">
+                            Request Quote via WhatsApp
+                        </button>
+
+                        <a href="quote.html" class="btn btn-dark" style="width: 100%; font-size: 0.9rem; padding: 0.75rem;">
+                            Open Full Configurator Page
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- SECTION 3: Licensing Solutions -->
-    <section id="licensing-solutions" style="background: var(--dark-bg); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section id="licensing-solutions" style="padding: 5.5rem 0;">
         <div class="container">
             <div class="section-header">
+                <span class="section-pill">Turnkey Products</span>
                 <h2>Licensing Solutions</h2>
-                <p class="core-features-intro">Don't need software built from scratch? License existing D-TECH platforms.</p>
+                <p>Launch instantly without waiting for custom development. White-label and license proven D-TECH digital platforms.</p>
             </div>
 
-
             <div class="auto-grid">
-                <!-- Product 1: University Eligibility Checker -->
-                <div class="card">
-                    <div class="card-icon">🎓</div>
-                    <h3>University Eligibility Checker</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">An intelligent platform helping students estimate university acceptance based on APS and admission requirements.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 150 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 1,200 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
-                        <a href="https://uni.dtech-services.co.za/index.html" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
-                        <a href="marketplace.html#uni-eligibility" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
+                
+                <!-- Product 1: APS Calculator -->
+                <div class="license-card">
+                    <span class="license-category">Higher Education</span>
+                    <h3 class="license-title">University Eligibility Checker</h3>
+                    <p class="license-desc">An intelligent platform helping matric students estimate acceptance probabilities based on APS scores and faculty requirements across South African universities.</p>
+                    
+                    <div class="license-pricing">
+                        <span class="license-price-main">R 150 <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">/ month</span></span>
+                        <span class="license-price-alt">or R 1,200 / year</span>
+                    </div>
+
+                    <div class="license-actions">
+                        <a href="https://uni.dtech-services.co.za/index.html" target="_blank" class="btn btn-primary" style="flex: 1;">Live Demo</a>
+                        <a href="marketplace.html#uni-eligibility" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
 
                 <!-- Product 2: Marketplace Platform -->
-                <div class="card">
-                    <div class="card-icon">📦</div>
-                    <h3>Marketplace Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Ready-to-launch marketplace enabling users to browse listings and contact sellers directly via WhatsApp.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 350 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 3,000 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
-                        <a href="https://books.dtech-services.co.za" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
-                        <a href="marketplace.html#marketplace-platform" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
+                <div class="license-card">
+                    <span class="license-category">E-Commerce & Trade</span>
+                    <h3 class="license-title">WhatsApp Marketplace</h3>
+                    <p class="license-desc">Ready-to-launch commerce platform enabling community members to browse listings, view products, and close deals directly with sellers via WhatsApp.</p>
+                    
+                    <div class="license-pricing">
+                        <span class="license-price-main">R 350 <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">/ month</span></span>
+                        <span class="license-price-alt">or R 3,000 / year</span>
+                    </div>
+
+                    <div class="license-actions">
+                        <a href="https://books.dtech-services.co.za" target="_blank" class="btn btn-primary" style="flex: 1;">Live Demo</a>
+                        <a href="marketplace.html#marketplace-platform" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
 
-                <!-- Product 3: Grade 12 Study Material Downloader -->
-                <div class="card">
-                    <div class="card-icon">📚</div>
-                    <h3>Study Material Downloader</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Educational platform providing students quick access to past papers, study guides, and PAT resources.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 100 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 900 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
-                        <a href="https://grade12.dtech-services.co.za/downloader.html" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
-                        <a href="marketplace.html#study-material" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
+                <!-- Product 3: Study Downloader -->
+                <div class="license-card">
+                    <span class="license-category">School Education</span>
+                    <h3 class="license-title">Grade 12 Resource Portal</h3>
+                    <p class="license-desc">Fast, low-bandwidth educational platform providing matric learners with instant access to past exam papers, memorandums, study guides, and PAT guides.</p>
+                    
+                    <div class="license-pricing">
+                        <span class="license-price-main">R 100 <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">/ month</span></span>
+                        <span class="license-price-alt">or R 900 / year</span>
+                    </div>
+
+                    <div class="license-actions">
+                        <a href="https://grade12.dtech-services.co.za/downloader.html" target="_blank" class="btn btn-primary" style="flex: 1;">Live Demo</a>
+                        <a href="marketplace.html#study-material" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
 
-                <!-- Product 4: D-TECH Learning Platform -->
-                <div class="card">
-                    <div class="card-icon">🎓</div>
-                    <h3>D-TECH Learning Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Interactive digital learning system for schools and tutors featuring dynamic quizzes and progress tracking.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 850 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 8,000 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">1 week - 3 weeks</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
-                        <a href="https://quiz.dtech-services.co.za/" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
-                        <a href="marketplace.html#learning-platform" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
+                <!-- Product 4: Learning Platform -->
+                <div class="license-card">
+                    <span class="license-category">EdTech & Assessment</span>
+                    <h3 class="license-title">Interactive Quiz & LMS</h3>
+                    <p class="license-desc">Dynamic quiz platform for schools, tutors, and learning academies featuring timed assessments, progress tracking, and automated scorecards.</p>
+                    
+                    <div class="license-pricing">
+                        <span class="license-price-main">R 850 <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">/ month</span></span>
+                        <span class="license-price-alt">or R 8,000 / year</span>
+                    </div>
+
+                    <div class="license-actions">
+                        <a href="https://quiz.dtech-services.co.za/" target="_blank" class="btn btn-primary" style="flex: 1;">Live Demo</a>
+                        <a href="marketplace.html#learning-platform" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
 
-                <!-- Product 5: Business Hub Platform -->
-                <div class="card">
-                    <div class="card-icon">🏢</div>
-                    <h3>Business Hub Platform</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; ">Central business directory allowing companies to create accounts, list services, and get a profile website.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">R 350 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/month</span></div>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">R 3,000 <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">/year</span></div>
-                    <div style="font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; font-size: 0.95rem;">Estimated Delivery: <span style="color: var(--text-muted); font-weight: normal;">3 - 5 days</span></div>
-                    <div style="display: flex; gap: 0.5rem; flex-direction: column; margin-top: auto;">
-                        <a href="https://business.dtech-services.co.za/" target="_blank" class="btn btn-primary" style="width: 100%;">Live Demo</a>
-                        <a href="marketplace.html#business-hub" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary);">More Details</a>
+                <!-- Product 5: Business Hub -->
+                <div class="license-card">
+                    <span class="license-category">Enterprise Directory</span>
+                    <h3 class="license-title">Business Directory Hub</h3>
+                    <p class="license-desc">Directory portal allowing local businesses and freelancers to create verified profiles, showcase portfolios, and receive direct inquiries.</p>
+                    
+                    <div class="license-pricing">
+                        <span class="license-price-main">R 350 <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">/ month</span></span>
+                        <span class="license-price-alt">or R 3,000 / year</span>
+                    </div>
+
+                    <div class="license-actions">
+                        <a href="https://business.dtech-services.co.za/" target="_blank" class="btn btn-primary" style="flex: 1;">Live Demo</a>
+                        <a href="marketplace.html#business-hub" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: Monthly Support -->
-    <section id="support-services">
+    <!-- SECTION 4: Monthly Maintenance & Cloud Care -->
+    <section style="background-color: var(--bg-surface); padding: 5.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="container">
             <div class="section-header">
-                <h2>Monthly Support</h2>
-                <p class="core-features-intro">Ongoing maintenance and technical support to keep your platforms running smoothly.</p>
+                <span class="section-pill">Peace of Mind</span>
+                <h2>Ongoing Support & Cloud Care</h2>
+                <p>We handle updates, backups, security, and DNS configuration so you can focus entirely on running your organization.</p>
             </div>
 
-            <div class="auto-grid" style="justify-content: center;">
+            <div class="grid-2" style="max-width: 900px; margin: 0 auto; gap: 2rem;">
                 <!-- Website Management -->
-                <div class="card">
+                <div class="support-card">
                     <div class="card-icon">🛠️</div>
-                    <h3>Website Management</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Let us handle the technical maintenance while you focus on business.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R50/month</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
-                        <li>✓ Updates</li>
-                        <li>✓ Security</li>
-                        <li>✓ Backups</li>
-                        <li>✓ Performance optimisation</li>
-                        <li>✓ Technical support</li>
+                    <h3 style="margin-bottom: 0.5rem;">Website Management</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">Routine maintenance, content edits, and technical updates.</p>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1.25rem;">From R 50 <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted);">/ month</span></div>
+                    
+                    <ul style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.9rem; color: #475569;">
+                        <li>✓ Security patches & checks</li>
+                        <li>✓ Scheduled offsite backups</li>
+                        <li>✓ Performance speed optimization</li>
+                        <li>✓ Fast WhatsApp tech support</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary); margin-top: auto;">Get Support</a>
+                    <a href="contact.html" class="btn btn-secondary" style="margin-top: auto;">Get Support</a>
                 </div>
 
                 <!-- Hosting & Deployment -->
-                <div class="card">
+                <div class="support-card">
                     <div class="card-icon">☁️</div>
-                    <h3>Hosting & Deployment</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Reliable infrastructure and deployment services for your projects.</p>
-                    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.1rem;">Starting From <span style="color: var(--primary);">R100</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; ">
-                        <li>✓ Domain assistance</li>
-                        <li>✓ SSL setup</li>
-                        <li>✓ Hosting configuration</li>
-                        <li>✓ Website deployment</li>
+                    <h3 style="margin-bottom: 0.5rem;">Hosting & Domain Setup</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">Cloud deployment, custom email setup, and SSL security.</p>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1.25rem;">From R 100 <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted);">once off</span></div>
+                    
+                    <ul style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.9rem; color: #475569;">
+                        <li>✓ .co.za & international domain linking</li>
+                        <li>✓ Free SSL HTTPS installation</li>
+                        <li>✓ Cloudflare Edge deployment</li>
+                        <li>✓ Custom business email setup</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary); color: var(--primary); margin-top: auto;">View Options</a>
+                    <a href="contact.html" class="btn btn-secondary" style="margin-top: auto;">View Options</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: Why Choose D-TECH? -->
-    <section id="why-dtech" style="background: var(--dark-bg); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <!-- SECTION 5: High-Contrast "Why Choose D-TECH" -->
+    <section style="padding: 5.5rem 0;">
         <div class="container">
             <div class="section-header">
+                <span class="section-pill">The D-TECH Difference</span>
                 <h2>Why Choose D-TECH?</h2>
-                <p class="core-features-intro">We provide high-quality software solutions without the large agency overhead.</p>
+                <p>We provide high-quality engineering without agency markup, making digital software accessible to everyone.</p>
             </div>
 
-            <div class="auto-grid">
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">💰</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Affordable pricing</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">High-quality development that fits within reasonable budgets.</p>
+            <div class="grid-3" style="gap: 1.5rem;">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h4>Transparent Pricing</h4>
+                        <p>No unexpected hidden costs. Level 1 starts at R500 once-off with all core features included.</p>
                     </div>
                 </div>
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🧩</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Custom-built solutions</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">Software tailored exactly to your unique business needs.</p>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-content">
+                        <h4>Rapid 2–5 Day Delivery</h4>
+                        <p>Efficient development sprints get your website live and taking customers within days, not months.</p>
                     </div>
                 </div>
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">⚡</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Fast turnaround</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">Efficient development cycles to get you launched quicker.</p>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧩</div>
+                    <div class="benefit-content">
+                        <h4>Tailored Architecture</h4>
+                        <p>Custom built for your specific workflow—no rigid generic templates that slow down your business.</p>
                     </div>
                 </div>
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🚀</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Modern technologies</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">Built using the latest frameworks and best practices.</p>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-content">
+                        <h4>Modern Serverless Edge</h4>
+                        <p>Built with lightweight, cutting-edge frameworks ensuring lightning-fast load times even on mobile data.</p>
                     </div>
                 </div>
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">📈</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Scalable architecture</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">Systems designed to grow alongside your business.</p>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <div class="benefit-content">
+                        <h4>Direct Developer Support</h4>
+                        <p>Speak directly to the founder and engineering team via WhatsApp for personal, prompt assistance.</p>
                     </div>
                 </div>
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🤝</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Ongoing support</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">Reliable maintenance and assistance post-launch.</p>
-                    </div>
-                </div>
-                <div class="card" style="padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="color: #60A5FA; font-size: 1.5rem; line-height: 1;">🔑</div>
-                    <div>
-                        <h4 style="color: #E2E8F0; margin-bottom: 0.25rem;">Licensing available</h4>
-                        <p style="color: #94A3B8; font-size: 0.9rem;">Options to license or white-label our existing platforms.</p>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🇿🇦</div>
+                    <div class="benefit-content">
+                        <h4>Registered SA Enterprise</h4>
+                        <p>Operated under THE D-TECH ECOSYSTEM (Pty) Ltd with a deep commitment to student and youth empowerment.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: Need Something Custom? -->
-    <section id="custom-project" style="padding: 6rem 0; text-align: center;">
+    <!-- SECTION 6: Free Educational Ecosystem Spotlight -->
+    <section style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; padding: 5.5rem 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="container text-center" style="max-width: 860px;">
+            <span class="section-pill dark">Social Impact & Innovation</span>
+            <h2 style="color: white; margin-bottom: 1.25rem;">The D-TECH Educational Ecosystem</h2>
+            <p style="color: #CBD5E1; font-size: 1.15rem; line-height: 1.7; margin-bottom: 2.5rem;">
+                Beyond commercial development, D-TECH powers a network of freely accessible learning tools, past paper repositories, and student apps designed to remove financial barriers for South African youth.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="ecosystem.html" class="btn btn-primary btn-lg">
+                    🌌 Launch Interactive Ecosystem Map
+                </a>
+                <a href="about.html" class="btn btn-dark btn-lg">
+                    Read Our Mission
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Custom Project CTA Banner -->
+    <section style="padding: 5.5rem 0;">
         <div class="container">
-            <div class="card" style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(15,23,42,1) 100%); border: 1px solid var(--primary);">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #E2E8F0;">Need Something Custom?</h2>
-                <p style="color: #94A3B8; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                    Every project is different.<br>
-                    If you don't see exactly what you're looking for, use our quote estimator or contact D-TECH for a free consultation.
+            <div class="cta-banner">
+                <h2>Have a Unique Project in Mind?</h2>
+                <p>
+                    Every business and project has distinct needs. Get in touch with us for a free technical consultation and tailored proposal.
                 </p>
-                <a href="quote.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Request Custom Quote</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="quote.html" class="btn btn-primary btn-lg">
+                        ⚡ Configure Full Quote
+                    </a>
+                    <a href="contact.html" class="btn btn-dark btn-lg">
+                        Contact D-TECH
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</p>
-            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Empowering the youth through digital innovation</p>
-            <p style="margin-top: 1.5rem;">
-                <a href="http://legal.dtech-services.co.za" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 500;">Terms and Conditions</a>
-            </p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>THE D-TECH ECOSYSTEM</h3>
+                    <p>A registered South African Tech & Digital Innovation Company (Pty) Ltd. Creating technology that solves real problems and remains useful over time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#development-services">Web Development</a></li>
+                        <li><a href="#estimator">Quote Estimator</a></li>
+                        <li><a href="marketplace.html">Digital Marketplace</a></li>
+                        <li><a href="#licensing-solutions">Platform Licensing</a></li>
+                        <li><a href="ecosystem.html">Free Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About D-TECH</a></li>
+                        <li><a href="founder.html">The Founder</a></li>
+                        <li><a href="vision.html">Our Vision</a></li>
+                        <li><a href="contact.html">Business Inquiries</a></li>
+                        <li><a href="http://legal.dtech-services.co.za" target="_blank">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><a href="https://wa.me/27670015423" target="_blank">WhatsApp: 067 001 5423</a></li>
+                        <li><a href="tel:+27720374751">Phone: +27 72 037 4751</a></li>
+                        <li><a href="mailto:info@dtech-services.co.za">info@dtech-services.co.za</a></li>
+                        <li><a href="https://t.me/PREASX24" target="_blank">Telegram: @PREASX24</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</div>
+                <div>Technology With Purpose &bull; Built in South Africa</div>
+            </div>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
-        // Mobile Menu Toggle
+        // Mobile Navigation Toggle
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
         const navOverlay = document.getElementById('navOverlay');
@@ -605,20 +726,175 @@
             document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
+        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
 
         // Header Background on Scroll
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(11, 15, 25, 0.95)';
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            if (window.scrollY > 40) {
+                header.style.backgroundColor = 'rgba(15, 23, 42, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
             } else {
-                header.style.background = 'rgba(11, 15, 25, 0.7)';
+                header.style.backgroundColor = 'rgba(15, 23, 42, 0.94)';
                 header.style.boxShadow = 'none';
             }
         });
+
+        // Quick Quote Estimator Logic (Embedded on Homepage)
+        let homePlatform = { value: '500', name: 'Level 1: Static Website', delivery: '2 - 5 Days' };
+        let homePages = { value: 0, name: '1–5 Pages' };
+        let homeDomain = { value: 0, name: 'No Domain' };
+        let homeFeatures = [];
+
+        const hPlatformCards = document.querySelectorAll('#homePlatformSelector .option-card');
+        const hPageCards = document.querySelectorAll('#homePageSelector .option-card');
+        const hDomainCards = document.querySelectorAll('#homeDomainSelector .option-card');
+        const hFeatureCheckboxes = document.querySelectorAll('.home-feature-cb');
+        const homeSummaryList = document.getElementById('homeSummaryList');
+        const homeTotalAmount = document.getElementById('homeTotalAmount');
+        const homeDeliveryTime = document.getElementById('homeDeliveryTime');
+        const homeWhatsAppBtn = document.getElementById('homeWhatsAppBtn');
+
+        hPlatformCards.forEach(card => {
+            card.addEventListener('click', () => {
+                hPlatformCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                homePlatform = {
+                    value: card.getAttribute('data-value'),
+                    name: card.getAttribute('data-name'),
+                    delivery: card.getAttribute('data-delivery')
+                };
+                renderHomeQuote();
+            });
+        });
+
+        hPageCards.forEach(card => {
+            card.addEventListener('click', () => {
+                hPageCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                homePages = {
+                    value: parseInt(card.getAttribute('data-value')),
+                    name: card.getAttribute('data-name')
+                };
+                renderHomeQuote();
+            });
+        });
+
+        hDomainCards.forEach(card => {
+            card.addEventListener('click', () => {
+                hDomainCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                homeDomain = {
+                    value: parseInt(card.getAttribute('data-value')),
+                    name: card.getAttribute('data-name')
+                };
+                renderHomeQuote();
+            });
+        });
+
+        hFeatureCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const chip = cb.closest('.feature-chip');
+                if (cb.checked) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+                updateHomeFeatures();
+                renderHomeQuote();
+            });
+        });
+
+        function updateHomeFeatures() {
+            homeFeatures = [];
+            hFeatureCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    homeFeatures.push({
+                        name: cb.getAttribute('data-name'),
+                        price: parseInt(cb.value)
+                    });
+                }
+            });
+        }
+
+        function renderHomeQuote() {
+            homeSummaryList.innerHTML = '';
+            let total = 0;
+            let isCustom = (homePlatform.value === 'custom');
+            let summaryLines = [];
+
+            // Platform Row
+            const pText = isCustom ? 'Custom' : `R ${parseInt(homePlatform.value).toLocaleString()}`;
+            if (!isCustom) total += parseInt(homePlatform.value);
+            homeSummaryList.innerHTML += `
+                <div class="quote-summary-row">
+                    <span><strong>Platform:</strong> ${homePlatform.name}</span>
+                    <span style="color: #60A5FA; font-weight: 700;">${pText}</span>
+                </div>
+            `;
+            summaryLines.push(`• Platform: ${homePlatform.name} (${pText})`);
+
+            // Pages Row
+            const pageText = homePages.value > 0 ? `+ R ${homePages.value.toLocaleString()}` : 'Included';
+            if (!isCustom) total += homePages.value;
+            homeSummaryList.innerHTML += `
+                <div class="quote-summary-row">
+                    <span><strong>Pages:</strong> ${homePages.name}</span>
+                    <span style="color: #93C5FD;">${pageText}</span>
+                </div>
+            `;
+            summaryLines.push(`• Pages: ${homePages.name} (${pageText})`);
+
+            // Features Row
+            if (homeFeatures.length > 0) {
+                homeFeatures.forEach(feat => {
+                    if (!isCustom) total += feat.price;
+                    homeSummaryList.innerHTML += `
+                        <div class="quote-summary-row">
+                            <span><strong>Add-on:</strong> ${feat.name}</span>
+                            <span style="color: #93C5FD;">+ R ${feat.price.toLocaleString()}</span>
+                        </div>
+                    `;
+                    summaryLines.push(`• Add-on: ${feat.name} (+ R ${feat.price.toLocaleString()})`);
+                });
+            }
+
+            // Domain Row
+            if (homeDomain.value > 0) {
+                if (!isCustom) total += homeDomain.value;
+                homeSummaryList.innerHTML += `
+                    <div class="quote-summary-row">
+                        <span><strong>Domain:</strong> ${homeDomain.name}</span>
+                        <span style="color: #93C5FD;">+ R ${homeDomain.value.toLocaleString()}/yr</span>
+                    </div>
+                `;
+                summaryLines.push(`• Domain: ${homeDomain.name} (+ R ${homeDomain.value.toLocaleString()}/yr)`);
+            }
+
+            // Delivery & Total
+            homeDeliveryTime.textContent = homePlatform.delivery;
+            let finalStr = "";
+            if (isCustom) {
+                homeTotalAmount.textContent = 'Custom Quote';
+                finalStr = 'Custom Quote (To be discussed)';
+            } else {
+                homeTotalAmount.textContent = `R ${total.toLocaleString()}`;
+                finalStr = `R ${total.toLocaleString()}`;
+            }
+
+            const waMsg = `Hi D-TECH Services 👋\n\nI created a quick estimate on your website:\n\n`
+                + summaryLines.join('\n')
+                + `\n\n*Estimated Delivery:* ${homePlatform.delivery}`
+                + `\n*Total Estimate:* ${finalStr}`
+                + `\n\nCould we discuss starting this project?`;
+
+            homeWhatsAppBtn.onclick = () => {
+                window.open(`https://wa.me/27670015423?text=${encodeURIComponent(waMsg)}`, '_blank');
+            };
+        }
+
+        renderHomeQuote();
     </script>
 </body>
 </html>

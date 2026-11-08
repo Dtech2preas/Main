@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get a custom quote for your digital project with DTECH.">
+    <meta name="description" content="Calculate an instant estimate for your website, web application, or custom software project with D-TECH Services.">
     <meta name="author" content="Seakwa Jonas Mochebane">
-    <title>Get a Quote | DTECH Services</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Interactive Quote Estimator | D-TECH Services</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="DTECH Logo">
-                    <span>DTECH</span>
+                    <div>
+                        <span class="logo-text">DTECH</span>
+                        <span class="logo-sub">Services</span>
+                    </div>
                 </a>
+
+                <!-- Desktop Nav -->
+                <div class="nav-desktop">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#development-services">Services</a>
+                    <a href="quote.html" class="active">Get a Quote</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="ecosystem.html">Ecosystem</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="https://wa.me/27670015423" target="_blank" class="btn btn-whatsapp btn-sm btn-pill">💬 WhatsApp Us</a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -30,134 +48,292 @@
         </div>
     </header>
 
-    <!-- Navigation Overlay -->
+    <!-- Mobile Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay">
-        <button id="closeMenu" aria-label="Close Navigation" style="position: absolute; top: 30px; right: 30px; background:none; border:none; color:var(--text-main); font-size: 3rem; cursor: pointer;">&times;</button>
+        <button class="close-menu-btn" id="closeMenu" aria-label="Close Navigation">&times;</button>
         <div class="nav-links">
             <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="marketplace.html" onclick="toggleMenu()">Marketplace</a>
+            <a href="index.html#development-services" onclick="toggleMenu()">Services</a>
             <a href="quote.html" onclick="toggleMenu()" class="active">Get a Quote</a>
-            <a href="index.html#builder" onclick="toggleMenu()">Site Builder</a>
-            <a href="contact.html" onclick="toggleMenu()">Custom Dev</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Digital Marketplace</a>
             <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
             <a href="founder.html" onclick="toggleMenu()">Founder</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
         </div>
     </div>
 
-    <!-- Page Header -->
-    <section style="padding: 6rem 0 3rem 0; text-align: center;">
-        <div class="container">
-            <h1 class="section-title" style="margin-bottom: 0.5rem;">Interactive Quote Estimator</h1>
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.25rem;">
-                Select your requirements below to get an instant cost estimate for your digital project.
+    <!-- Page Banner -->
+    <section style="background: radial-gradient(circle at 50% 0%, #EFF6FF 0%, #F8FAFC 80%); padding: 4.5rem 0 3rem; border-bottom: 1px solid var(--border);">
+        <div class="container text-center">
+            <span class="section-pill">Transparent Pricing</span>
+            <h1 style="margin-bottom: 0.75rem;">Interactive Quote Estimator</h1>
+            <p style="max-width: 650px; margin: 0 auto; font-size: 1.15rem; color: var(--text-muted);">
+                Select your project requirements below to see an instant cost and timeline estimate. Our affordable pricing is 100% transparent with zero hidden fees.
             </p>
         </div>
     </section>
 
-    <!-- Content -->
-    <section class="container" style="padding-bottom: 6rem;">
-        <div class="grid-2">
-            <!-- Form Area -->
+    <!-- Main Configurator Section -->
+    <main class="container" style="padding: 3.5rem 1.5rem 6rem;">
+        <div class="grid-2" style="grid-template-columns: 1.6fr 1fr; align-items: start; gap: 2.5rem;">
+            
+            <!-- Configurator Controls -->
             <div>
-                <div style="background-color: var(--surface-color); padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
-
-                    <div class="form-group">
-                        <label for="platformType" style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">1. Select Base Platform</label>
-                        <select id="platformType" style="width: 100%; padding: 0.75rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-main); font-family: var(--font-main); font-size: 1rem; cursor: pointer;">
-                            <option value="500">Level 1: Static Website (Starting R500)</option>
-                            <option value="1500">Level 2: Dynamic Website (Starting R1,500)</option>
-                            <option value="3000">Level 3: Web Application (Starting R3,000)</option>
-                            <option value="custom">Level 4: Enterprise Platform (Custom Quote)</option>
-                        </select>
+                <!-- Step 1: Base Platform -->
+                <div style="background-color: var(--bg-surface); padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                        <h3 style="font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background-color: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700;">1</span>
+                            Choose Base Platform
+                        </h3>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Required</span>
                     </div>
 
-                    <div class="form-group" style="margin-top: 1.5rem;">
-                        <label for="pageSize" style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">2. Number of Pages</label>
-                        <select id="pageSize" style="width: 100%; padding: 0.75rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-main); font-family: var(--font-main); font-size: 1rem; cursor: pointer;">
-                            <option value="0">1-5 Pages (Included in Base)</option>
-                            <option value="300">6-10 Pages (+ R300)</option>
-                            <option value="700">11-20 Pages (+ R700)</option>
-                            <option value="1500">20+ Pages (+ R1,500)</option>
-                        </select>
+                    <div class="option-cards-grid" id="platformSelector">
+                        <!-- Option 1: Level 1 -->
+                        <div class="option-card selected" data-value="500" data-name="Level 1: Static Website" data-delivery="2 - 5 Business Days">
+                            <div class="option-card-title">🌐 Static Website</div>
+                            <div class="option-card-price">R 500</div>
+                            <div class="option-card-desc">For portfolios, small businesses, churches, and personal sites. 1–5 pages, mobile-ready.</div>
+                        </div>
+
+                        <!-- Option 2: Level 2 -->
+                        <div class="option-card" data-value="1500" data-name="Level 2: Dynamic Website" data-delivery="3 - 5 Business Days">
+                            <span style="position: absolute; top: -10px; right: 12px; background: var(--primary); color: white; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Popular</span>
+                            <div class="option-card-title">⚡ Dynamic Website</div>
+                            <div class="option-card-price">R 1,500</div>
+                            <div class="option-card-desc">CMS, database integration, user accounts, and dynamic content management.</div>
+                        </div>
+
+                        <!-- Option 3: Level 3 -->
+                        <div class="option-card" data-value="3000" data-name="Level 3: Web Application" data-delivery="5 - 10 Business Days">
+                            <div class="option-card-title">🚀 Web Application</div>
+                            <div class="option-card-price">R 3,000</div>
+                            <div class="option-card-desc">Custom business logic, booking systems, student portals, and payment integrations.</div>
+                        </div>
+
+                        <!-- Option 4: Level 4 -->
+                        <div class="option-card" data-value="custom" data-name="Level 4: Enterprise Platform" data-delivery="1 - 4 Weeks">
+                            <div class="option-card-title">🏢 Enterprise Platform</div>
+                            <div class="option-card-price" style="font-size: 1rem; color: #64748B;">Custom Quote</div>
+                            <div class="option-card-desc">High-scale cloud architecture, multi-role access, custom APIs, and dedicated SLA.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Page Volume -->
+                <div style="background-color: var(--bg-surface); padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                        <h3 style="font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background-color: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700;">2</span>
+                            Select Page Scope
+                        </h3>
                     </div>
 
-                    <div class="form-group" style="margin-top: 1.5rem;">
-                        <label style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; display: block;">3. Additional Features</label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem;" id="pageSelector">
+                        <div class="option-card selected" style="padding: 1rem; text-align: center;" data-value="0" data-name="1–5 Pages (Standard)">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">1–5 Pages</div>
+                            <div style="font-size: 0.8rem; color: var(--primary); font-weight: 700; margin-top: 0.25rem;">Included</div>
+                        </div>
+                        <div class="option-card" style="padding: 1rem; text-align: center;" data-value="300" data-name="6–10 Pages">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">6–10 Pages</div>
+                            <div style="font-size: 0.8rem; color: var(--primary); font-weight: 700; margin-top: 0.25rem;">+ R 300</div>
+                        </div>
+                        <div class="option-card" style="padding: 1rem; text-align: center;" data-value="700" data-name="11–20 Pages">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">11–20 Pages</div>
+                            <div style="font-size: 0.8rem; color: var(--primary); font-weight: 700; margin-top: 0.25rem;">+ R 700</div>
+                        </div>
+                        <div class="option-card" style="padding: 1rem; text-align: center;" data-value="1500" data-name="20+ Custom Pages">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">20+ Pages</div>
+                            <div style="font-size: 0.8rem; color: var(--primary); font-weight: 700; margin-top: 0.25rem;">+ R 1,500</div>
+                        </div>
+                    </div>
+                </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
-                                <input type="checkbox" class="feature-cb" value="500" data-name="Admin Panel / CMS" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
-                                Admin Panel / CMS (+ R500)
-                            </label>
+                <!-- Step 3: Add-on Features -->
+                <div style="background-color: var(--bg-surface); padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                        <h3 style="font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background-color: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700;">3</span>
+                            Choose Optional Add-Ons
+                        </h3>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Multi-select</span>
+                    </div>
 
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
-                                <input type="checkbox" class="feature-cb" value="1000" data-name="E-commerce / Payments" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
-                                E-commerce / Payments (+ R1,000)
-                            </label>
+                    <div class="feature-chips-grid">
+                        <label class="feature-chip">
+                            <input type="checkbox" class="feature-checkbox" value="500" data-name="Admin Panel / CMS">
+                            <div class="feature-chip-content">
+                                <span class="feature-chip-name">Admin Dashboard / CMS</span>
+                                <span class="feature-chip-price">+ R 500</span>
+                            </div>
+                        </label>
 
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
-                                <input type="checkbox" class="feature-cb" value="400" data-name="User Authentication" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
-                                User Authentication / Login (+ R400)
-                            </label>
+                        <label class="feature-chip">
+                            <input type="checkbox" class="feature-checkbox" value="1000" data-name="E-Commerce & Payments">
+                            <div class="feature-chip-content">
+                                <span class="feature-chip-name">E-Commerce & Online Pay</span>
+                                <span class="feature-chip-price">+ R 1,000</span>
+                            </div>
+                        </label>
 
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted); font-size: 0.95rem;">
-                                <input type="checkbox" class="feature-cb" value="300" data-name="Advanced SEO Setup" style="width: 1.25rem; height: 1.25rem; accent-color: var(--primary-color);">
-                                Advanced SEO Setup (+ R300)
-                            </label>
+                        <label class="feature-chip">
+                            <input type="checkbox" class="feature-checkbox" value="400" data-name="User Authentication / Login">
+                            <div class="feature-chip-content">
+                                <span class="feature-chip-name">User Auth & Profile Logins</span>
+                                <span class="feature-chip-price">+ R 400</span>
+                            </div>
+                        </label>
+
+                        <label class="feature-chip">
+                            <input type="checkbox" class="feature-checkbox" value="300" data-name="Advanced SEO Setup">
+                            <div class="feature-chip-content">
+                                <span class="feature-chip-name">Advanced Google SEO</span>
+                                <span class="feature-chip-price">+ R 300</span>
+                            </div>
+                        </label>
+
+                        <label class="feature-chip">
+                            <input type="checkbox" class="feature-checkbox" value="200" data-name="WhatsApp Direct Integration">
+                            <div class="feature-chip-content">
+                                <span class="feature-chip-name">WhatsApp Chat Integration</span>
+                                <span class="feature-chip-price">+ R 200</span>
+                            </div>
+                        </label>
+
+                        <label class="feature-chip">
+                            <input type="checkbox" class="feature-checkbox" value="500" data-name="Custom Database Structure">
+                            <div class="feature-chip-content">
+                                <span class="feature-chip-name">Custom Cloud Database</span>
+                                <span class="feature-chip-price">+ R 500</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 4: Domain & Hosting Setup -->
+                <div style="background-color: var(--bg-surface); padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                        <h3 style="font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background-color: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700;">4</span>
+                            Domain & Registration
+                        </h3>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem;" id="domainSelector">
+                        <div class="option-card selected" style="padding: 1rem;" data-value="0" data-name="No Domain Needed (I already have one)">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">No Domain Needed</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Use existing or free subdomain</div>
+                        </div>
+
+                        <div class="option-card" style="padding: 1rem;" data-value="150" data-name=".co.za Domain Setup">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">🇿🇦 .co.za Domain</div>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 0.25rem;">+ R 150 / year</div>
+                        </div>
+
+                        <div class="option-card" style="padding: 1rem;" data-value="350" data-name=".com International Domain">
+                            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">🌐 .com Domain</div>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 0.25rem;">+ R 350 / year</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sticky Summary Card -->
+            <div>
+                <div class="quote-summary-card">
+                    <h3 class="quote-summary-title">Estimate Summary</h3>
+
+                    <div class="quote-delivery-badge" id="deliveryBadge">
+                        <span>⏱️</span>
+                        <div>
+                            <strong style="color: white; display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Estimated Turnaround:</strong>
+                            <span id="deliveryTimeText">2 – 5 Business Days</span>
                         </div>
                     </div>
 
-                    <div class="form-group" style="margin-top: 1.5rem;">
-                        <label for="domainOption" style="color: var(--text-main); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">4. Domain Registration (Optional)</label>
-                        <select id="domainOption" style="width: 100%; padding: 0.75rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-main); font-family: var(--font-main); font-size: 1rem; cursor: pointer;">
-                            <option value="0">No Domain Needed</option>
-                            <option value="150">.co.za Domain (+ R150/year)</option>
-                            <option value="350">.com Domain (+ R350/year)</option>
-                        </select>
+                    <div class="quote-summary-list" id="summaryItems">
+                        <!-- Dynamic rows populated via JS -->
                     </div>
 
-                </div>
-            </div>
-
-            <!-- Summary Area -->
-            <div>
-                <div style="background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(17,24,39,1) 100%); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--primary-color); position: sticky; top: 100px;">
-                    <h3 style="color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Estimate Summary</h3>
-
-                    <ul id="summaryList" style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; color: var(--text-muted); font-size: 0.95rem;">
-                        <!-- Dynamic list items go here -->
-                    </ul>
-
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.2rem;">Total Estimate:</span>
-                        <span id="totalPrice" style="font-weight: 800; color: var(--primary-color); font-size: 1.8rem;">R 500</span>
+                    <div class="quote-total-box">
+                        <div class="quote-total-label">Total Estimate:</div>
+                        <div class="quote-total-amount" id="totalAmount">R 500</div>
                     </div>
 
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; text-align: center;">
-                        * This is an estimate only. Final cost will be confirmed after discussion.
+                    <p style="font-size: 0.825rem; color: #94A3B8; text-align: center; margin-bottom: 1.5rem; line-height: 1.4;">
+                        No hidden charges. Once agreed, we begin development with regular progress updates.
                     </p>
 
-                    <button id="submitQuoteBtn" class="btn" style="width: 100%; font-size: 1.1rem; padding: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <button id="sendWhatsAppBtn" class="btn btn-whatsapp" style="width: 100%; font-size: 1.05rem; padding: 1rem; margin-bottom: 0.75rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.364 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
+                        </svg>
                         Request Quote via WhatsApp
                     </button>
+
+                    <button id="copyBreakdownBtn" class="btn btn-dark" style="width: 100%; font-size: 0.9rem; padding: 0.75rem;">
+                        📋 Copy Estimate Breakdown
+                    </button>
+                    <div id="copySuccessMsg" style="color: #10B981; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; display: none;">
+                        ✓ Copied to clipboard!
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Digital Technology Services</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>THE D-TECH ECOSYSTEM</h3>
+                    <p>A registered South African Tech & Digital Innovation Company (Pty) Ltd. Empowering youth, students, and businesses with high-utility, affordable technology.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#development-services">Services</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                        <li><a href="marketplace.html">Digital Marketplace</a></li>
+                        <li><a href="ecosystem.html">Free Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="founder.html">The Founder</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="http://legal.dtech-services.co.za" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><a href="https://wa.me/27670015423" target="_blank">WhatsApp: 067 001 5423</a></li>
+                        <li><a href="tel:+27720374751">Phone: +27 72 037 4751</a></li>
+                        <li><a href="mailto:info@dtech-services.co.za">info@dtech-services.co.za</a></li>
+                        <li><span style="color: #64748B;">Polokwane, Limpopo, SA</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</div>
+                <div>Technology With Purpose</div>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Interactive Configurator JavaScript -->
     <script>
-        // Mobile Menu Toggle
+        // Mobile Navigation Toggle
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
         const navOverlay = document.getElementById('navOverlay');
@@ -167,104 +343,183 @@
             document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
+        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
 
-        // Quote Estimator Logic
-        const platformSelect = document.getElementById('platformType');
-        const pageSelect = document.getElementById('pageSize');
-        const domainSelect = document.getElementById('domainOption');
-        const featureCheckboxes = document.querySelectorAll('.feature-cb');
-        const summaryList = document.getElementById('summaryList');
-        const totalPriceEl = document.getElementById('totalPrice');
-        const submitQuoteBtn = document.getElementById('submitQuoteBtn');
+        // State Management
+        let selectedPlatform = { value: '500', name: 'Level 1: Static Website', delivery: '2 - 5 Business Days' };
+        let selectedPages = { value: 0, name: '1–5 Pages (Standard)' };
+        let selectedDomain = { value: 0, name: 'No Domain Needed' };
+        let selectedFeatures = [];
 
-        function updateQuote() {
-            summaryList.innerHTML = '';
-            let total = 0;
-            let isCustom = false;
-            let summaryText = [];
+        // Elements
+        const platformCards = document.querySelectorAll('#platformSelector .option-card');
+        const pageCards = document.querySelectorAll('#pageSelector .option-card');
+        const domainCards = document.querySelectorAll('#domainSelector .option-card');
+        const featureCheckboxes = document.querySelectorAll('.feature-checkbox');
+        const summaryItems = document.getElementById('summaryItems');
+        const totalAmountEl = document.getElementById('totalAmount');
+        const deliveryTimeText = document.getElementById('deliveryTimeText');
+        const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+        const copyBreakdownBtn = document.getElementById('copyBreakdownBtn');
+        const copySuccessMsg = document.getElementById('copySuccessMsg');
 
-            // 1. Platform Base
-            const platformVal = platformSelect.value;
-            const platformText = platformSelect.options[platformSelect.selectedIndex].text.split(' (')[0];
+        // Platform Card Selection
+        platformCards.forEach(card => {
+            card.addEventListener('click', () => {
+                platformCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedPlatform = {
+                    value: card.getAttribute('data-value'),
+                    name: card.getAttribute('data-name'),
+                    delivery: card.getAttribute('data-delivery')
+                };
+                renderQuote();
+            });
+        });
 
-            if (platformVal === 'custom') {
-                isCustom = true;
-                summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Platform:</strong> ${platformText} <span style="float:right; color:var(--text-main)">Custom</span></li>`;
-                summaryText.push(`- Platform: ${platformText}`);
-            } else {
-                const basePrice = parseInt(platformVal);
-                total += basePrice;
-                summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Platform:</strong> ${platformText} <span style="float:right; color:var(--text-main)">R ${basePrice.toLocaleString()}</span></li>`;
-                summaryText.push(`- Platform: ${platformText} (R ${basePrice.toLocaleString()})`);
-            }
+        // Page Card Selection
+        pageCards.forEach(card => {
+            card.addEventListener('click', () => {
+                pageCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedPages = {
+                    value: parseInt(card.getAttribute('data-value')),
+                    name: card.getAttribute('data-name')
+                };
+                renderQuote();
+            });
+        });
 
-            // 2. Pages
-            const pageVal = parseInt(pageSelect.value);
-            const pageText = pageSelect.options[pageSelect.selectedIndex].text.split(' (')[0];
-            if (!isCustom) total += pageVal;
-            summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Pages:</strong> ${pageText} <span style="float:right; color:var(--text-main)">${pageVal > 0 ? '+R ' + pageVal.toLocaleString() : 'Included'}</span></li>`;
-            summaryText.push(`- Pages: ${pageText} ${pageVal > 0 ? '(+R ' + pageVal.toLocaleString() + ')' : '(Included)'}`);
+        // Domain Card Selection
+        domainCards.forEach(card => {
+            card.addEventListener('click', () => {
+                domainCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedDomain = {
+                    value: parseInt(card.getAttribute('data-value')),
+                    name: card.getAttribute('data-name')
+                };
+                renderQuote();
+            });
+        });
 
-            // 3. Features
-            let featuresAdded = [];
+        // Feature Checkbox Selection
+        featureCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const chip = cb.closest('.feature-chip');
+                if (cb.checked) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+                updateFeatures();
+                renderQuote();
+            });
+        });
+
+        function updateFeatures() {
+            selectedFeatures = [];
             featureCheckboxes.forEach(cb => {
                 if (cb.checked) {
-                    const featPrice = parseInt(cb.value);
-                    const featName = cb.getAttribute('data-name');
-                    if (!isCustom) total += featPrice;
-                    featuresAdded.push(`${featName} (+R ${featPrice.toLocaleString()})`);
-                    summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Add-on:</strong> ${featName} <span style="float:right; color:var(--text-main)">+R ${featPrice.toLocaleString()}</span></li>`;
+                    selectedFeatures.push({
+                        name: cb.getAttribute('data-name'),
+                        price: parseInt(cb.value)
+                    });
                 }
             });
-            if (featuresAdded.length > 0) {
-                summaryText.push(`- Features: ${featuresAdded.join(', ')}`);
-            } else {
-                summaryText.push(`- Features: None selected`);
+        }
+
+        function renderQuote() {
+            summaryItems.innerHTML = '';
+            let total = 0;
+            let isCustom = (selectedPlatform.value === 'custom');
+            let summaryTextLines = [];
+
+            // 1. Base Platform Row
+            const platformPriceText = isCustom ? 'Custom' : `R ${parseInt(selectedPlatform.value).toLocaleString()}`;
+            if (!isCustom) total += parseInt(selectedPlatform.value);
+            
+            summaryItems.innerHTML += `
+                <div class="quote-summary-row">
+                    <span><strong>Platform:</strong> ${selectedPlatform.name}</span>
+                    <span style="color: #60A5FA; font-weight: 700;">${platformPriceText}</span>
+                </div>
+            `;
+            summaryTextLines.push(`• Platform: ${selectedPlatform.name} (${platformPriceText})`);
+
+            // 2. Page Scope Row
+            const pagePriceText = selectedPages.value > 0 ? `+ R ${selectedPages.value.toLocaleString()}` : 'Included';
+            if (!isCustom) total += selectedPages.value;
+
+            summaryItems.innerHTML += `
+                <div class="quote-summary-row">
+                    <span><strong>Pages:</strong> ${selectedPages.name}</span>
+                    <span style="color: #93C5FD;">${pagePriceText}</span>
+                </div>
+            `;
+            summaryTextLines.push(`• Pages: ${selectedPages.name} (${pagePriceText})`);
+
+            // 3. Add-on Features Rows
+            if (selectedFeatures.length > 0) {
+                selectedFeatures.forEach(feat => {
+                    if (!isCustom) total += feat.price;
+                    summaryItems.innerHTML += `
+                        <div class="quote-summary-row">
+                            <span><strong>Add-on:</strong> ${feat.name}</span>
+                            <span style="color: #93C5FD;">+ R ${feat.price.toLocaleString()}</span>
+                        </div>
+                    `;
+                    summaryTextLines.push(`• Add-on: ${feat.name} (+ R ${feat.price.toLocaleString()})`);
+                });
             }
 
-            // 4. Domain
-            const domainVal = parseInt(domainSelect.value);
-            const domainText = domainSelect.options[domainSelect.selectedIndex].text.split(' (')[0];
-            if (domainVal > 0) {
-                if (!isCustom) total += domainVal;
-                summaryList.innerHTML += `<li><strong style="color:var(--text-main)">Domain:</strong> ${domainText} <span style="float:right; color:var(--text-main)">+R ${domainVal.toLocaleString()}/yr</span></li>`;
-                summaryText.push(`- Domain: ${domainText} (+R ${domainVal.toLocaleString()}/yr)`);
-            } else {
-                summaryText.push(`- Domain: No domain needed`);
+            // 4. Domain Row
+            if (selectedDomain.value > 0) {
+                if (!isCustom) total += selectedDomain.value;
+                summaryItems.innerHTML += `
+                    <div class="quote-summary-row">
+                        <span><strong>Domain:</strong> ${selectedDomain.name}</span>
+                        <span style="color: #93C5FD;">+ R ${selectedDomain.value.toLocaleString()}/yr</span>
+                    </div>
+                `;
+                summaryTextLines.push(`• Domain: ${selectedDomain.name} (+ R ${selectedDomain.value.toLocaleString()}/yr)`);
             }
 
-            // Update Total
-            let finalPriceText = "";
+            // Update Total and Delivery Time
+            deliveryTimeText.textContent = selectedPlatform.delivery;
+            
+            let finalTotalStr = "";
             if (isCustom) {
-                totalPriceEl.textContent = 'Custom Quote';
-                finalPriceText = "Custom Quote (To be discussed)";
+                totalAmountEl.textContent = 'Custom Quote';
+                finalTotalStr = 'Custom Quote (Tailored Scope)';
             } else {
-                totalPriceEl.textContent = `R ${total.toLocaleString()}`;
-                finalPriceText = `R ${total.toLocaleString()}`;
+                totalAmountEl.textContent = `R ${total.toLocaleString()}`;
+                finalTotalStr = `R ${total.toLocaleString()}`;
             }
 
-            // Build WhatsApp Link
-            const greeting = `Hi D-TECH Services 👋\n\nI used your Interactive Quote Estimator and would like to request a custom project quote. Here are my selections:\n\n`;
-            const details = summaryText.join('\n');
-            const totalStr = `\n\n*Estimated Budget:* ${finalPriceText}\n\nCan we discuss moving forward with this?`;
+            // Prepare WhatsApp Pre-filled message
+            const message = `Hi D-TECH Services 👋\n\nI configured an estimate using your Interactive Quote Estimator:\n\n`
+                + summaryTextLines.join('\n')
+                + `\n\n*Estimated Delivery:* ${selectedPlatform.delivery}`
+                + `\n*Total Estimate:* ${finalTotalStr}`
+                + `\n\nI would like to discuss getting started!`;
 
-            const encodedMessage = encodeURIComponent(greeting + details + totalStr);
-            submitQuoteBtn.onclick = function() {
-                window.location.href = `https://wa.me/27670015423?text=${encodedMessage}`;
+            sendWhatsAppBtn.onclick = () => {
+                window.open(`https://wa.me/27670015423?text=${encodeURIComponent(message)}`, '_blank');
+            };
+
+            // Copy to clipboard
+            copyBreakdownBtn.onclick = () => {
+                navigator.clipboard.writeText(message).then(() => {
+                    copySuccessMsg.style.display = 'block';
+                    setTimeout(() => { copySuccessMsg.style.display = 'none'; }, 2500);
+                });
             };
         }
 
-        // Attach listeners
-        platformSelect.addEventListener('change', updateQuote);
-        pageSelect.addEventListener('change', updateQuote);
-        domainSelect.addEventListener('change', updateQuote);
-        featureCheckboxes.forEach(cb => cb.addEventListener('change', updateQuote));
-
-        // Initial render
-        updateQuote();
-
+        // Initialize Quote on Load
+        renderQuote();
     </script>
 </body>
 </html>
