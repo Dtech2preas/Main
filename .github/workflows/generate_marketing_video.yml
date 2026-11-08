@@ -1,0 +1,57 @@
+name: Generate Marketing Video Walkthrough
+
+on:
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab or CLI
+  push:
+    branches:
+      - main
+    paths:
+      - 'record_walkthrough.py'
+      - '.github/workflows/generate_marketing_video.yml'
+
+jobs:
+  record-walkthrough:
+    name: Record and Render Website Video
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Playwright & Browsers
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Run Automated Walkthrough & Record Video
+        run: |
+          python record_walkthrough.py
+
+      - name: Convert WebM to MP4 with FFmpeg
+        run: |
+          if [ -f "output_videos/dtech_walkthrough.webm" ]; then
+            ffmpeg -y -i output_videos/dtech_walkthrough.webm \
+              -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p \
+              output_videos/dtech_marketing_walkthrough.mp4
+            echo "Successfully converted to MP4!"
+            ls -lh output_videos/
+          else
+            echo "WebM file not found!"
+            exit 1
+          fi
+
+      - name: Upload Video & Screenshots as Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dtech-marketing-walkthrough
+          path: |
+            output_videos/dtech_marketing_walkthrough.mp4
+            output_videos/dtech_walkthrough.webm
+            screenshots/*.png
+          retention-days: 30
