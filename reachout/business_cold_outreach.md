@@ -11,15 +11,19 @@ Good day 👋 Hope your business is having a productive week.
 
 I noticed your business while looking up local service providers in the area. 
 
-Many small business owners lose high-paying clients on Google simply because they don't have an official website or because agencies quote ridiculous R5,000+ setup fees with heavy monthly hosting retainers.
+Most business owners lose paying clients every week simply because they don't have an official website on Google, or because web agencies quote crazy prices like R5,000+ with expensive monthly hosting fees.
 
-At D-TECH Services, we build fast, mobile-friendly websites for South African businesses with zero monthly server fees:
+At D-TECH Services, we build fast, mobile-friendly websites for South African businesses with ZERO monthly fees (you own it outright):
 
-• Level 1 Website (R500 once-off): 1–5 pages, mobile-optimized, click-to-WhatsApp button, Google Maps location (1 week turnaround).
-• Level 2 Dynamic Website (R1,500 once-off): Includes custom dynamic content, CMS admin access, and database integration (1–2 weeks).
-• Zero Monthly Fees: You own your site outright with no monthly lock-in.
+• Starter Business Website (R500 once-off): A clean 1–5 page website showcasing your services, photos of past work, Google Maps location, and a 1-tap WhatsApp button for fast client quotes. (Ready in 1 week)
 
-You can calculate an instant estimate and view our packages here:
+• Advanced Business Website (R1,500 once-off): Includes an easy admin panel where you can update your own services, prices, and photos right from your phone anytime. (Ready in 1–2 weeks)
+
+• Web App & Booking System (R3,000 once-off): Built for automated client bookings, appointment scheduling, customer portals, and online card payments. (Ready in 3 weeks)
+
+• Zero Monthly Fees (R0/month): No monthly hosting retainers. Standard .co.za domain registration available for R150/year.
+
+You can view our work and calculate an instant estimate here:
 🔗 https://dtech-services.co.za/quote.html
 
 Would you like us to put together a quick website preview for your business?
@@ -42,9 +46,10 @@ When customers search Google for your services, having an official, mobile-frien
 
 Most web agencies charge upwards of R4,000 upfront plus recurring monthly hosting fees of R400–R800/month. We do the opposite:
 
-1. Level 1 Business Website: R500 once-off (Delivered in 1 week). 1–5 pages, mobile-responsive, direct WhatsApp/call buttons, Google Maps.
-2. Level 2 Dynamic Website: R1,500 once-off (Delivered in 1–2 weeks). Dynamic database, admin dashboard, user management.
-3. Zero Monthly Hosting: No recurring server charges or monthly lock-in contracts.
+1. Starter Business Website: R500 once-off (Delivered in 1 week). 1–5 pages, mobile-responsive, direct WhatsApp/call buttons, photos of your work, and Google Maps.
+2. Advanced Business Website: R1,500 once-off (Delivered in 1–2 weeks). Includes an easy admin control panel so you can update services, prices, and gallery photos from your phone.
+3. Web App & Booking System: R3,000 once-off (Delivered in 3 weeks). Built for automated online client appointments, bookings, customer portals, and card payments.
+4. Zero Monthly Hosting: No recurring server charges or monthly lock-in contracts.
 
 You can test our interactive quote estimator or view our work here:
 https://dtech-services.co.za/quote.html
