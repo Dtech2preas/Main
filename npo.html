@@ -292,6 +292,33 @@
             margin: 0;
         }
 
+        .mobile-call-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(96, 165, 250, 0.35);
+            color: #93C5FD;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            gap: 0.35rem;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-call-btn:hover {
+            background: rgba(37, 99, 235, 0.3);
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-call-btn {
+                display: inline-flex;
+            }
+        }
+
         .faq-item {
             background: var(--bg-surface);
             border: 1px solid var(--border);
@@ -338,15 +365,19 @@
                     <a href="ecosystem.html">Ecosystem</a>
                     <a href="about.html">About</a>
                     <a href="contact.html">Contact</a>
+                    <a href="tel:+27670015423" class="btn btn-secondary btn-sm btn-pill" style="padding: 0.45rem 0.85rem; font-size: 0.82rem;">📞 Call Direct</a>
                     <a href="https://wa.me/27670015423" target="_blank" class="btn btn-whatsapp btn-sm btn-pill">💬 WhatsApp Us</a>
                 </div>
 
-                <!-- Mobile Hamburger Button -->
-                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
+                <!-- Mobile Action & Hamburger -->
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <a href="tel:+27670015423" class="mobile-call-btn" title="Call D-TECH Directly">📞 Call Us</a>
+                    <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -363,6 +394,10 @@
             <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
             <a href="about.html" onclick="toggleMenu()">About Us</a>
             <a href="contact.html" onclick="toggleMenu()">Contact</a>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; width: 100%;">
+                <a href="tel:+27670015423" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 0.95rem; padding: 0.75rem;">📞 Call Direct: 067 001 5423</a>
+                <a href="https://wa.me/27670015423" target="_blank" class="btn btn-whatsapp" style="width: 100%; justify-content: center; font-size: 0.95rem; padding: 0.75rem;">💬 WhatsApp Us</a>
+            </div>
         </div>
     </div>
 
@@ -524,7 +559,7 @@
             </div>
 
             <!-- Section 4: What We Need From You -->
-            <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 5rem;">
+            <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 3.5rem;">
                 <div style="max-width: 720px; margin: 0 auto;">
                     <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem;">📋 What We Need From You</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Have these 4 items ready when submitting your application:</p>
@@ -547,6 +582,43 @@
                             <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.35rem 0 0;">Official bank account details for direct donor EFT deposits.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- SARS Section 18A & Donor Compliance Card -->
+            <div style="background: rgba(16, 185, 129, 0.05); border: 1.5px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-xl); padding: 1.75rem 2rem; margin: 0 auto 3.5rem; max-width: 800px; display: flex; align-items: flex-start; gap: 1rem; box-sizing: border-box;">
+                <span style="font-size: 2.2rem; line-height: 1;">🏛️</span>
+                <div>
+                    <h3 style="font-size: 1.2rem; margin: 0 0 0.35rem; color: #065F46;">SARS Section 18A & PBO Donor Compliance Built-In</h3>
+                    <p style="margin: 0; color: #047857; font-size: 0.92rem; line-height: 1.55;">
+                        Corporate sponsors in South Africa require institutional credibility before releasing CSI grants. Your Level 2 website includes an official <strong>Section 18A tax-deductible receipt notice, direct bank EFT verification, and annual report download slot</strong> so corporate funding committees can verify your legitimacy instantly.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Domain Check Widget -->
+            <div style="background: #F8FAFC; border: 1.5px solid var(--border); border-radius: var(--radius-xl); padding: 2.25rem 1.5rem; max-width: 800px; margin: 0 auto 3.5rem; box-sizing: border-box; text-align: center;">
+                <span class="section-pill">Step 1: Check Domain</span>
+                <h3 style="font-size: 1.45rem; margin: 0.5rem 0 0.4rem;">Check Your Organization Domain Name</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 580px; margin: 0 auto 1.5rem;">
+                    Test your preferred domain below. 1-Year registration is included in the R1,000 package and registered immediately with your R500 deposit.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: center; max-width: 600px; margin: 0 auto;">
+                    <div style="display: flex; flex: 1; min-width: 240px; background: white; border: 1.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; box-sizing: border-box;">
+                        <input type="text" id="checkerDomainInput" placeholder="e.g. graceyouth" style="flex: 1; padding: 0.8rem 1rem; border: none; font-size: 0.95rem; outline: none; background: transparent; font-family: inherit;">
+                        <select id="checkerDomainExt" style="border: none; background: #F1F5F9; padding: 0 0.85rem; font-weight: 700; color: var(--text-main); font-size: 0.9rem; cursor: pointer; outline: none; border-left: 1px solid var(--border);">
+                            <option value=".org.za">.org.za</option>
+                            <option value=".co.za">.co.za</option>
+                        </select>
+                    </div>
+                    <button type="button" id="checkerBtn" class="btn btn-primary" style="padding: 0.8rem 1.4rem; font-size: 0.95rem; white-space: nowrap;">
+                        Check & Reserve &rarr;
+                    </button>
+                </div>
+
+                <div id="checkerResult" style="display: none; margin-top: 1.25rem; font-size: 0.92rem; font-weight: 600; padding: 0.85rem 1.15rem; border-radius: var(--radius-md); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+                    <!-- Populated via JavaScript -->
                 </div>
             </div>
 
@@ -728,6 +800,65 @@
 
         if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
         if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+        // Interactive Domain Checker
+        const checkerInput = document.getElementById('checkerDomainInput');
+        const checkerExt = document.getElementById('checkerDomainExt');
+        const checkerBtn = document.getElementById('checkerBtn');
+        const checkerResult = document.getElementById('checkerResult');
+        const desiredDomainInput = document.getElementById('desiredDomain');
+
+        function runDomainCheck() {
+            let rawVal = checkerInput.value.trim().toLowerCase();
+            rawVal = rawVal.replace(/^(https?:\/\/)?(www\.)?/, '')
+                           .replace(/(\.org\.za|\.co\.za|\.com|\.org|\.net)$/, '')
+                           .replace(/[^a-z0-9\-]/g, '');
+
+            if (!rawVal || rawVal.length < 2) {
+                checkerResult.style.display = 'block';
+                checkerResult.style.background = '#FEE2E2';
+                checkerResult.style.border = '1.5px solid #F87171';
+                checkerResult.style.color = '#B91C1C';
+                checkerResult.innerHTML = 'Please enter a valid organization name (e.g. <code>gracecare</code> or <code>sowetoyouth</code>).';
+                return;
+            }
+
+            const ext = checkerExt.value;
+            const fullDomain = `${rawVal}${ext}`;
+
+            // Populate in application form below
+            if (desiredDomainInput) {
+                desiredDomainInput.value = fullDomain;
+                desiredDomainInput.style.borderColor = '#10B981';
+                desiredDomainInput.style.backgroundColor = '#ECFDF5';
+            }
+
+            checkerResult.style.display = 'block';
+            checkerResult.style.background = 'rgba(16, 185, 129, 0.1)';
+            checkerResult.style.border = '1.5px solid #10B981';
+            checkerResult.style.color = '#065F46';
+            checkerResult.innerHTML = `🎉 <strong>${fullDomain}</strong> is ready to be registered under your R1,000 package! Your R500 deposit registers it immediately. We pre-filled this domain into the application form below.`;
+
+            // Scroll down to the application form
+            setTimeout(() => {
+                const applySection = document.getElementById('apply');
+                if (applySection) {
+                    applySection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 600);
+        }
+
+        if (checkerBtn) {
+            checkerBtn.addEventListener('click', runDomainCheck);
+        }
+        if (checkerInput) {
+            checkerInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    runDomainCheck();
+                }
+            });
+        }
 
         // Intake Form Handler
         const npoForm = document.getElementById('npoIntakeForm');
