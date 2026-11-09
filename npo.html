@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Subsidized R1,000 digital package for registered South African NPOs and NGOs: Level 2 website, .org.za domain, and professional Zoho email in 7 days.">
+    <meta name="author" content="D-TECH Services">
+    <title>NPO Digital Grant Program | D-TECH Services</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .npo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .npo-hero {
+            background: radial-gradient(circle at 50% 0%, #EFF6FF 0%, #F8FAFC 80%);
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .npo-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 900px;
+            margin: 2.5rem auto 0;
+        }
+
+        .npo-stat-card {
+            background: var(--bg-surface);
+            padding: 1.25rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .npo-stat-val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .npo-stat-lbl {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .package-card {
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card.highlight {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.15);
+            position: relative;
+        }
+
+        .package-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .package-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .package-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .package-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .package-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .package-list li span.check {
+            color: #10B981;
+            font-weight: 800;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .timeline-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            position: relative;
+        }
+
+        .timeline-day {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.04em;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--bg-surface);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th {
+            background: #F8FAFC;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .comparison-table td.agency {
+            color: #EF4444;
+            font-weight: 600;
+        }
+
+        .comparison-table td.dtech {
+            color: #059669;
+            font-weight: 700;
+            background: rgba(16, 185, 129, 0.04);
+        }
+
+        .intake-box {
+            background: var(--bg-surface);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .intake-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .intake-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-main);
+        }
+
+        .intake-group input, .intake-group select, .intake-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            background: #FAFAFA;
+            font-family: inherit;
+        }
+
+        .intake-group input:focus, .intake-group select:focus, .intake-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="DTECH Logo">
+                    <div>
+                        <span class="logo-text">DTECH</span>
+                        <span class="logo-sub">Services</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="nav-desktop">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#development-services">Services</a>
+                    <a href="quote.html">Get a Quote</a>
+                    <a href="npo.html" class="active">NPO Program</a>
+                    <a href="marketplace.html">Marketplace</a>
+                    <a href="ecosystem.html">Ecosystem</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="https://wa.me/27670015423" target="_blank" class="btn btn-whatsapp btn-sm btn-pill">💬 WhatsApp Us</a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <button class="close-menu-btn" id="closeMenu" aria-label="Close Navigation">&times;</button>
+        <div class="nav-links">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="index.html#development-services" onclick="toggleMenu()">Services</a>
+            <a href="quote.html" onclick="toggleMenu()">Get a Quote</a>
+            <a href="npo.html" onclick="toggleMenu()" class="active">NPO Program (R1,000)</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Digital Marketplace</a>
+            <a href="ecosystem.html" onclick="toggleMenu()">Free Ecosystem</a>
+            <a href="about.html" onclick="toggleMenu()">About Us</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="npo-hero">
+        <div class="container">
+            <div class="npo-badge">Registered South African NPO / NGO Initiative</div>
+            <h1 style="max-width: 820px; margin: 0 auto 1rem; font-size: 2.5rem; line-height: 1.2;">
+                R1,000 Complete Digital Setup for Registered Non-Profits
+            </h1>
+            <p style="max-width: 680px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+                Get a Level 2 Dynamic Website, an official <code>.org.za</code> domain, and professional Zoho business emails. Delivered and live in 7 days.
+            </p>
+
+            <div class="npo-stats-grid">
+                <div class="npo-stat-card">
+                    <div class="npo-stat-val">R 1,000</div>
+                    <div class="npo-stat-lbl">Subsidized Flat Fee</div>
+                </div>
+                <div class="npo-stat-card">
+                    <div class="npo-stat-val">R 0 / mo</div>
+                    <div class="npo-stat-lbl">Zero Monthly Hosting Fees</div>
+                </div>
+                <div class="npo-stat-card">
+                    <div class="npo-stat-val">7 Days</div>
+                    <div class="npo-stat-lbl">Guaranteed Turnaround</div>
+                </div>
+                <div class="npo-stat-card">
+                    <div class="npo-stat-val">5 Accounts</div>
+                    <div class="npo-stat-lbl">Free Zoho Business Emails</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main style="padding: 4rem 0;">
+        <div class="container">
+
+            <!-- Section 1: What is Included -->
+            <div class="section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+                <span class="section-pill">All-In-One Package</span>
+                <h2>Everything Your NPO Needs to Attract Donors</h2>
+                <p>Donors, corporate CSI programs, and grantmakers require institutional credibility. This package removes the technical barrier completely.</p>
+            </div>
+
+            <div class="package-grid">
+                <div class="package-card highlight">
+                    <div class="package-card-icon">🌐</div>
+                    <h3>1. Level 2 Dynamic Website</h3>
+                    <p>A fast, mobile-friendly 3–5 page website displaying your mission, community projects, and verified details.</p>
+                    <ul class="package-list">
+                        <li><span class="check">✓</span> Home & Mission Overview</li>
+                        <li><span class="check">✓</span> Programs & Project Photo Gallery</li>
+                        <li><span class="check">✓</span> Bank Details for Donor EFTs (Copy Button)</li>
+                        <li><span class="check">✓</span> Direct WhatsApp Chat Button for Donors</li>
+                        <li><span class="check">✓</span> PBO / Section 18A Tax Badge Integration</li>
+                    </ul>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-card-icon">🔒</div>
+                    <h3>2. Official Domain Registration</h3>
+                    <p>Your organization's official web address registered for 1 full year under your legal name.</p>
+                    <ul class="package-list">
+                        <li><span class="check">✓</span> 1-Year <code>.org.za</code> or <code>.co.za</code> included</li>
+                        <li><span class="check">✓</span> Full DNS configuration & Cloud routing</li>
+                        <li><span class="check">✓</span> Free HTTPS / SSL encryption certificate</li>
+                        <li><span class="check">✓</span> Standard registry renewal (~R150/year only)</li>
+                    </ul>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-card-icon">✉️</div>
+                    <h3>3. Professional Zoho Email Setup</h3>
+                    <p>Upgrade from a generic personal Gmail address to trusted official inboxes with zero monthly subscriptions.</p>
+                    <ul class="package-list">
+                        <li><span class="check">✓</span> Up to 5 custom accounts (e.g., info@npo.org.za)</li>
+                        <li><span class="check">✓</span> 5GB storage per inbox on Zoho forever-free tier</li>
+                        <li><span class="check">✓</span> Configured on Android, iPhone & laptops</li>
+                        <li><span class="check">✓</span> Zero monthly software retainers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 2: Comparison -->
+            <div style="margin: 5rem 0 3rem;">
+                <div class="section-header" style="text-align: center; max-width: 650px; margin: 0 auto 2rem;">
+                    <span class="section-pill">Cost Comparison</span>
+                    <h2>D-TECH NPO Grant vs Commercial Agency</h2>
+                    <p>We designed this program so small community initiatives don't get locked out by agency rates.</p>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Commercial Web Agency</th>
+                                <th>D-TECH NPO Program</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Initial Setup Cost</strong></td>
+                                <td class="agency">R 6,000 – R 15,000</td>
+                                <td class="dtech">R 1,000 Flat Fee</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Monthly Hosting Fee</strong></td>
+                                <td class="agency">R 250 – R 500 / month</td>
+                                <td class="dtech">R 0 / month (Free Cloud Hosting)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Professional Business Email</strong></td>
+                                <td class="agency">R 80 – R 150 / user / month</td>
+                                <td class="dtech">5 Accounts Included Free (Zoho)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Turnaround Time</strong></td>
+                                <td class="agency">3 to 6 Weeks</td>
+                                <td class="dtech">7 Days Guaranteed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment Terms</strong></td>
+                                <td class="agency">100% or Strict Retainers</td>
+                                <td class="dtech">R 500 Deposit / R 500 on Launch</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 3: 7-Day Timeline -->
+            <div style="margin: 5rem 0;">
+                <div class="section-header" style="text-align: center; max-width: 650px; margin: 0 auto 2rem;">
+                    <span class="section-pill">Timeline</span>
+                    <h2>The 7-Day Launch Roadmap</h2>
+                    <p>Predictable, milestone-based execution from intake to going live.</p>
+                </div>
+
+                <div class="timeline-grid">
+                    <div class="timeline-card">
+                        <span class="timeline-day">DAY 1 – 2</span>
+                        <h4>Domain & Registration</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">You submit your details, proof of registration, and R500 deposit. We register your official <code>.org.za</code> domain and initialize DNS security.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="timeline-day">DAY 3 – 5</span>
+                        <h4>Design & Zoho Mail</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">We build your 3–5 pages with your mission, banking details, and project photos. We create up to 5 Zoho business email inboxes.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="timeline-day">DAY 6 – 7</span>
+                        <h4>Review & Go Live</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">You review the private preview, connect email to your smartphones, approve the launch, and settle the remaining R500 balance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: What We Need From You -->
+            <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 5rem;">
+                <div style="max-width: 720px; margin: 0 auto;">
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem;">📋 What We Need From You</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Have these 4 items ready when submitting your application:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                        <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                            <strong>1. NPO / NPC Certificate</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.35rem 0 0;">Proof of registration with DSD (NPO number) or CIPC (NPC number).</p>
+                        </div>
+                        <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                            <strong>2. Organization Logo</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.35rem 0 0;">Your digital logo file or clear photo of your signage/letterhead.</p>
+                        </div>
+                        <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                            <strong>3. 3–6 Community Photos</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.35rem 0 0;">Clear photos of your facilities, team members, or community projects.</p>
+                        </div>
+                        <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                            <strong>4. Bank Details (Optional)</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.35rem 0 0;">Official bank account details for direct donor EFT deposits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Intake Form -->
+            <div id="apply" style="scroll-margin-top: 100px;">
+                <div class="intake-box">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <span class="section-pill">Direct Application</span>
+                        <h2 style="font-size: 1.85rem; margin: 0.5rem 0;">Apply for the R1,000 NPO Program</h2>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Fill out the details below. Clicking the button will format everything into WhatsApp so we can begin immediately.</p>
+                    </div>
+
+                    <form id="npoIntakeForm">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                            <div class="intake-group">
+                                <label for="npoName">Organization Name *</label>
+                                <input type="text" id="npoName" placeholder="e.g. Grace Youth Care Centre" required>
+                            </div>
+                            <div class="intake-group">
+                                <label for="npoReg">Registration Number *</label>
+                                <input type="text" id="npoReg" placeholder="e.g. DSD NPO: 123-456 or NPC: 2024/..." required>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                            <div class="intake-group">
+                                <label for="directorName">Director / Contact Person *</label>
+                                <input type="text" id="directorName" placeholder="e.g. Sarah Dlamini" required>
+                            </div>
+                            <div class="intake-group">
+                                <label for="contactPhone">WhatsApp / Cell Number *</label>
+                                <input type="tel" id="contactPhone" placeholder="e.g. 072 123 4567" required>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                            <div class="intake-group">
+                                <label for="currentEmail">Current Email (Gmail / Yahoo) *</label>
+                                <input type="email" id="currentEmail" placeholder="e.g. graceyouth@gmail.com" required>
+                            </div>
+                            <div class="intake-group">
+                                <label for="desiredDomain">Preferred Domain Name *</label>
+                                <input type="text" id="desiredDomain" placeholder="e.g. graceyouth.org.za" required>
+                            </div>
+                        </div>
+
+                        <div class="intake-group">
+                            <label for="location">Location (Town / Province) *</label>
+                            <input type="text" id="location" placeholder="e.g. Soweto, Gauteng" required>
+                        </div>
+
+                        <div class="intake-group">
+                            <label for="mission">Brief Mission / Focus *</label>
+                            <textarea id="mission" rows="3" placeholder="Briefly describe what your organization does (e.g. After-school tutoring, feeding scheme, elderly care)..." required></textarea>
+                        </div>
+
+                        <div id="formError" style="display: none; background: #FEE2E2; color: #DC2626; padding: 0.75rem 1rem; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600; margin-bottom: 1.25rem;">
+                            Please fill in all required fields before continuing.
+                        </div>
+
+                        <button type="submit" class="btn btn-whatsapp btn-lg" style="width: 100%; justify-content: center; font-size: 1.05rem; padding: 1rem;">
+                            Apply via WhatsApp (Pre-Filled) &rarr;
+                        </button>
+
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <button type="button" id="copyFormBtn" style="background: none; border: none; color: var(--text-muted); font-size: 0.85rem; text-decoration: underline; cursor: pointer;">
+                                Or copy details to clipboard
+                            </button>
+                            <div id="copyNotice" style="display: none; color: #059669; font-size: 0.8rem; font-weight: 600; margin-top: 0.35rem;">
+                                Application details copied to clipboard!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Section 6: FAQ -->
+            <div style="margin-top: 5rem; max-width: 760px; margin-left: auto; margin-right: auto;">
+                <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+                    <span class="section-pill">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Are there any hidden monthly hosting fees?</h4>
+                    <p>No. Your website is deployed on high-performance cloud hosting with zero monthly fees. The R1,000 fee covers the complete setup.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How much does the domain cost after the first year?</h4>
+                    <p>Domain registration is covered for 12 months. After 1 year, standard annual domain registry renewal is approximately R150/year for <code>.org.za</code> or <code>.co.za</code>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How does Zoho Mail work?</h4>
+                    <p>Zoho provides a forever-free tier for small organizations with up to 5 user inboxes (5GB storage each). You receive custom emails on your domain without paying monthly software subscriptions. We configure the mail app on your phones and computers.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can our website accept direct donor payments?</h4>
+                    <p>Yes. Your site includes an official Banking Details card with a 1-click "Copy Account" button so donors can do direct EFTs. If you want an online card payment gateway (like PayFast or Ozow), we can connect it upon request.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Who qualifies for this program?</h4>
+                    <p>Any registered South African Non-Profit Organisation (DSD NPO), Non-Profit Company (CIPC NPC), Community-Based Organisation (CBO), or registered Church/PBO holding valid registration credentials.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>THE D-TECH ECOSYSTEM</h3>
+                    <p>A registered South African Tech & Digital Innovation Company (Pty) Ltd. Empowering youth, students, and businesses with high-utility, affordable technology.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#development-services">Services</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                        <li><a href="npo.html">NPO Program</a></li>
+                        <li><a href="marketplace.html">Digital Marketplace</a></li>
+                        <li><a href="ecosystem.html">Free Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="founder.html">The Founder</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="http://legal.dtech-services.co.za" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><a href="https://wa.me/27670015423" target="_blank">WhatsApp: 067 001 5423</a></li>
+                        <li><a href="tel:+27720374751">Phone: +27 72 037 4751</a></li>
+                        <li><a href="mailto:info@dtech-services.co.za">info@dtech-services.co.za</a></li>
+                        <li><span style="color: #64748B;">Polokwane, Limpopo, SA</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 THE D-TECH ECOSYSTEM (Pty) Ltd. All rights reserved.</div>
+                <div>Technology With Purpose</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Handler Script -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            if (navOverlay) navOverlay.classList.toggle('active');
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+        // Intake Form Handler
+        const npoForm = document.getElementById('npoIntakeForm');
+        const formError = document.getElementById('formError');
+        const copyFormBtn = document.getElementById('copyFormBtn');
+        const copyNotice = document.getElementById('copyNotice');
+
+        function getFormMessage() {
+            const name = document.getElementById('npoName').value.trim();
+            const reg = document.getElementById('npoReg').value.trim();
+            const director = document.getElementById('directorName').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const email = document.getElementById('currentEmail').value.trim();
+            const domain = document.getElementById('desiredDomain').value.trim();
+            const loc = document.getElementById('location').value.trim();
+            const mission = document.getElementById('mission').value.trim();
+
+            if (!name || !reg || !director || !phone || !email || !domain || !loc || !mission) {
+                return null;
+            }
+
+            return `Hi D-TECH Services 👋\n\n`
+                + `I would like to apply for the *R1,000 NPO Digital Empowerment Program*:\n\n`
+                + `• *Organization:* ${name}\n`
+                + `• *Registration:* ${reg}\n`
+                + `• *Director/Contact:* ${director}\n`
+                + `• *Phone / WhatsApp:* ${phone}\n`
+                + `• *Current Email:* ${email}\n`
+                + `• *Preferred Domain:* ${domain}\n`
+                + `• *Location:* ${loc}\n`
+                + `• *Mission:* ${mission}\n\n`
+                + `I have our registration certificate and photos ready to share!`;
+        }
+
+        if (npoForm) {
+            npoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const msg = getFormMessage();
+                if (!msg) {
+                    formError.style.display = 'block';
+                    return;
+                }
+                formError.style.display = 'none';
+
+                const waUrl = `https://wa.me/27670015423?text=${encodeURIComponent(msg)}`;
+                window.open(waUrl, '_blank');
+            });
+        }
+
+        if (copyFormBtn) {
+            copyFormBtn.addEventListener('click', function() {
+                const msg = getFormMessage();
+                if (!msg) {
+                    formError.style.display = 'block';
+                    return;
+                }
+                formError.style.display = 'none';
+
+                navigator.clipboard.writeText(msg).then(() => {
+                    copyNotice.style.display = 'block';
+                    setTimeout(() => { copyNotice.style.display = 'none'; }, 3000);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
