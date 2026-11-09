@@ -21,7 +21,7 @@ Through our NPO Digital Program at D-TECH Services, we help registered South Afr
 • Fast Turnaround: 7 days (R500 deposit to secure the domain, remaining R500 on launch)  
 
 You can review the full package and apply directly here:  
-🔗 https://dtechservices.co.za/npo.html
+🔗 https://dtech-services.co.za/npo.html
 
 Would you like us to check if your organization’s .org.za domain is still available?
 ```
@@ -49,11 +49,11 @@ To remove this hurdle, we launched the D-TECH R1,000 NPO Program. For a subsidiz
 4. 7-Day Delivery & Fair Terms: R500 deposit secures your official domain and 7-day build slot; the remaining R500 balance is payable only after you review and approve the live preview.
 
 You can review full program details or submit your intake directly at:  
-https://dtechservices.co.za/npo.html
+https://dtech-services.co.za/npo.html
 
 If you have any questions, you can reply directly to this email or reach us on WhatsApp at 067 001 5423.
 
 Warm regards,  
 D-TECH Services Team  
-https://dtechservices.co.za
+https://dtech-services.co.za
 ```
