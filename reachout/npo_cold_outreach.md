@@ -7,23 +7,25 @@ These templates are designed to be sent to South African Non-Profit Organization
 ## 1. WhatsApp Outreach Template (Copy-Paste Ready)
 
 ```text
-Good day 👋 Hope you are well.
+Good day,
 
-I came across your organization while reviewing community non-profits in South Africa.
+I came across your organisation while researching registered non-profits in South Africa.
 
-A common challenge we see among dedicated NPOs is corporate sponsors and CSI grantmakers hesitating on funding simply because the organization uses a personal @gmail or @yahoo email and lacks an official website to verify its registration, banking, and Section 18A compliance.
+At D-TECH Services, we're helping South African NPOs establish a professional digital presence through our NPO Digital Program.
 
-Through our NPO Digital Program at D-TECH Services, we help registered South African non-profits get fully established for R1,000 total:
+For just R1,000 once-off, your organisation gets:
+- An official .org.za or .co.za domain.
+- A professional website showcasing your work and registration details.
+- Up to 5 professional email addresses.
 
-• Official Domain: Your own .org.za or .co.za domain name  
-• Level 2 Website: Showcases your mission, projects, banking details, and SARS PBO/tax status  
-• Professional Emails: Up to 5 staff accounts (e.g. info@yournpo.org.za)  
-• Fast Turnaround: 7 days (R500 deposit to secure the domain, remaining R500 on launch)  
+The package includes a 7-day delivery commitment, with R500 upfront and the balance upon launch.
 
-You can review the full package and apply directly here:  
-🔗 https://dtech-services.co.za/npo.html
+View the package: https://www.dtech-services.co.za/npo.html
 
-Would you like us to check if your organization’s .org.za domain is still available?
+Would you be interested in having us check domain availability for your organisation?
+
+Kind regards,
+D-TECH Services
 ```
 
 ---
