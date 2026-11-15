@@ -11,12 +11,12 @@ Good day,
 
 I came across your organisation while researching registered non-profits in South Africa.
 
-At D-TECH Services, we're helping South African NPOs establish a professional digital presence through our NPO Digital Program.
+At D-TECH Services, we're helping South African NPOs establish a professional digital presence through the D-TECH NPO Digital Empowerment Program.
 
 For just R1,000 once-off, your organisation gets:
 - An official .org.za or .co.za domain.
 - A professional website showcasing your work and registration details.
-- Up to 5 professional email addresses.
+- 5 professional email addresses.
 
 The package includes a 7-day delivery commitment, with R500 upfront and the balance upon launch.
 
@@ -41,9 +41,9 @@ I hope this note finds you well.
 
 I am reaching out from D-TECH Services regarding institutional credibility for community non-profits across South Africa.
 
-When corporate donors, grantmakers, and CSI committees review applications, one of the first things they check is digital governance: an official registered organization domain, professional staff emails, and a transparent public website that displays SARS PBO / Section 18A status and verified banking details.
+When corporate donors, grantmakers, and CSI committees review applications, one of the first things they check is digital governance: an official registered organization domain, professional staff emails, and a transparent public website that displays existing, verified SARS PBO / Section 18A approvals and banking details.
 
-To remove this hurdle, we launched the D-TECH R1,000 NPO Program. For a subsidized flat fee of R1,000 total, registered non-profits receive:
+To remove this hurdle, we launched the D-TECH NPO Digital Empowerment Program. For a subsidized flat fee of R1,000 total, registered non-profits receive:
 
 1. Level 2 Dynamic Website: Mobile-friendly, 3–5 sections featuring your programs, community impact gallery, and compliance notices.
 2. Official Domain Registration: .org.za or .co.za registered under your organization's legal name.
