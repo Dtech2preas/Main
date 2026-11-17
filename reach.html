@@ -642,7 +642,7 @@
         <div class="controls-row">
             <div class="search-input-wrap">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search by name, trade, or city..." oninput="handleSearch()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by name, email, number, trade, or city..." oninput="handleSearch()">
             </div>
             <div class="filter-pills">
                 <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">All Leads</button>
@@ -821,6 +821,7 @@
         function render() {
             const rawList = currentTab === 'npo' ? NPO_LEADS : BIZ_LEADS;
             const contactedSet = getContactedSet(currentTab);
+            const normalizedSearchQuery = searchQuery.replace(/\D/g, '');
 
             // Filter
             const filtered = rawList.filter(l => {
@@ -829,8 +830,11 @@
                     const matchName = (l.name || '').toLowerCase().includes(searchQuery);
                     const matchCat = (l.category || '').toLowerCase().includes(searchQuery);
                     const matchLoc = (l.location || '').toLowerCase().includes(searchQuery);
-                    const matchPhone = (l.phone || '').includes(searchQuery);
-                    if (!matchName && !matchCat && !matchLoc && !matchPhone) return false;
+                    const matchEmail = (l.email || '').toLowerCase().includes(searchQuery);
+                    const matchPhone = normalizedSearchQuery && [l.phone, l.formatted_phone]
+                        .filter(Boolean)
+                        .some(phone => String(phone).replace(/\D/g, '').includes(normalizedSearchQuery));
+                    if (!matchName && !matchCat && !matchLoc && !matchEmail && !matchPhone) return false;
                 }
 
                 // Status filter
